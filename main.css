@@ -1,0 +1,138 @@
+:root {
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+  --accent: #89b4fa;
+  --links: #89b4fa;
+  --text: #cdd6f4;
+  --subtext: #a6adc8;
+  --radius: 0.5rem;
+  --outline: 0.1rem;
+  --padding: 1rem;
+  --label-padding: 0.5rem;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url(fonts/jetbrains_mono.ttf);
+}
+body {
+  background: var(--base);
+  color: var(--text);
+  font-family: "JetBrains Mono", monospace;
+  padding: 0;
+}
+input, textarea, button, .choose-file::before, .button {
+  background: var(--mantle);
+  color: inherit;
+  font: inherit;
+  border: none;
+  box-sizing: border-box;
+  border-radius: var(--radius);
+  padding: var(--padding);
+}
+button, .choose-file::before, .button {
+  background: var(--accent);
+  color: var(--base);
+  cursor: pointer;
+}
+input:focus, textarea:focus, button:focus {
+  outline: none;
+  box-shadow: 0 0 0 var(--outline) var(--accent) inset;
+}
+label {
+  display: grid;
+  gap: var(--label-padding);
+}
+::placeholder {
+  color: var(--subtext);
+}
+
+input[type="file"] {
+  display: none;
+}
+.choose-file::before {
+  content: "Выбрать файл";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="radio"] {
+  display: none;
+}
+fieldset {
+  border: none;
+  padding: 0;
+  padding-top: var(--label-padding);
+  display: flex;
+  gap: var(--label-padding);
+}
+fieldset > * {
+  border-radius: 0 ! important; /* sorry about that, please make an issue if you know how to do it better */
+  width: 100%;
+}
+fieldset > *:first-of-type {
+  border-top-left-radius: var(--radius) ! important;
+  border-bottom-left-radius: var(--radius) ! important;
+}
+fieldset > *:last-of-type {
+  border-top-right-radius: var(--radius) ! important;
+  border-bottom-right-radius: var(--radius) ! important;
+}
+.radio-button {
+  color: var(--text);
+  background: var(--mantle);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.radio-button:has(input:checked) {
+  color: var(--mantle);
+  background: var(--accent);
+}
+label svg {
+  width: 1em;
+}
+label, fieldset {
+  margin-bottom: var(--padding);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  gap: var(--padding);
+
+  writing-mode: sideways-lr;
+  padding: var(--padding);
+  background: var(--mantle);
+}
+.sidebar * {
+  margin: 0;
+}
+
+.container {
+  margin: auto;
+  padding: var(--padding);
+  padding-left: calc(5rem + var(--padding));
+
+  display: flex;
+  justify-content: space-between;
+}
+.container > * {
+  max-width: 80ch;
+}
+
