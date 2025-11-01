@@ -7,6 +7,10 @@
   <title>Генератор сертификатов</title>
   <link rel="stylesheet" href="main.css">
   <style>
+    textarea {
+      resize: none;
+    }
+
     .uni-logo {
       width: 3rem;
       border-radius: var(--radius);
@@ -21,16 +25,22 @@
       display: grid;
     }
 
-    .preview {
-      padding: var(--padding);
+    #preview {
+      margin: 0 var(--padding);
+      padding: 0 var(--padding);
       width: 100%;
     }
 
-    .names {
+    #names {
       width: 100%;
+      height: calc(100vh - var(--padding)*3);
+      
+      display: grid;
+      grid-template-rows: 1fr auto;
     }
-    .names-input {
-      height: calc(100vh - 6rem);
+    #names label {
+      display: grid;
+      grid-template-rows: auto 1fr;
     }
 
     .suffix-percent {
@@ -50,11 +60,11 @@
         padding: 0 !important;
       }
 
-      nav, .settings, .names {
+      nav, #settings, #names {
         display: none !important;
       }
 
-      .preview>* {
+      #preview>* {
         width: 100vw !important;
       }
     }
@@ -99,21 +109,35 @@
   </nav>
 
   <div class="container">
-    <form action="" class="names">
+    <form action="" id="names">
       <label>
         Список имён
-        <textarea name="names" placeholder="Иванов Иван&#10Петров Василий" class="names-input"></textarea>
+        <textarea name="names" placeholder="Иванов Иван&#10Петров Василий"></textarea>
       </label>
+
+      <fieldset>
+        <button style="background: var(--text)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download">
+            <path d="M12 15V3"/>
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <path d="m7 10 5 5 5-5"/>
+          </svg>
+          по одному
+        </button>
+        <button style="width: 62%">
+          всех
+        </button>
+      </fieldset>
     </form>
 
-    <main class="preview">
+    <main id="preview">
       <svg viewBox="0 0 210 297">
         <rect width="100%" height="100%" fill="white" />
         <text x="20%" y="50%" fill="var(--subtext)">⚠ Нет шаблона</text>
       </svg>
     </main>
 
-    <form action="" class="settings">
+    <form action="" id="settings">
       <label>
         Шрифт
         <input type="text" name="font" value="cursive">
@@ -165,5 +189,8 @@
       </fieldset>
     </form>
   </div>
+
+  <script>
+  </script>
 </body>
 </html>
