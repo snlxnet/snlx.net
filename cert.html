@@ -39,12 +39,22 @@
     .page>img {
       width: 100%;
     }
-    .page>p {
+    .page-container {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      container-type: size;
+    }
+    .page p {
       position: absolute;
       top: var(--y);
       left: var(--x);
-      font: var(--font);
-      text-align: var(--alignment);
+      font-family: var(--font);
+      font-size: var(--size);
+      transform: translateX(var(--alignment));
+      white-space: pre;
       color: black;
     }
 
@@ -151,10 +161,15 @@
     </main>
 
     <form action="" id="settings">
-      <label>
-        Шрифт
-        <input type="text" name="font" value="11pt cursive">
-      </label>
+      <fieldset>
+        <legend>Шрифт</legend>
+        <label>
+          <input type="text" name="font" value="cursive">
+        </label>
+        <label class="suffix-percent" style="width: 62%">
+          <input type="number" name="size" value="3" style="min-width: 8ch">
+        </label>
+      </fieldset>
 
       <label>
         Шаблон
@@ -181,7 +196,7 @@
             <path d="M15 12H3"/>
             <path d="M17 19H3"/>
           </svg>
-          <input type="radio" name="alignment" value="left">
+          <input type="radio" name="alignment" value="0%">
         </label>
         <label class="button radio-button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-center-icon lucide-text-align-center">
@@ -189,7 +204,7 @@
             <path d="M17 12H7"/>
             <path d="M19 19H5"/>
           </svg>
-          <input type="radio" name="alignment" value="center" checked>
+          <input type="radio" name="alignment" value="-50%" checked>
         </label>
         <label class="button radio-button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-end-icon lucide-text-align-end">
@@ -197,7 +212,7 @@
             <path d="M21 12H9"/>
             <path d="M21 19H7"/>
           </svg>
-          <input type="radio" name="alignment" value="right">
+          <input type="radio" name="alignment" value="-100%">
         </label>
       </fieldset>
     </form>
@@ -230,6 +245,7 @@
         root.style.setProperty("--x", data.get("x") + "%")
         root.style.setProperty("--y", data.get("y") + "%")
         root.style.setProperty("--font", data.get("font"))
+        root.style.setProperty("--size", data.get("size") + "cqh")
         root.style.setProperty("--alignment", data.get("alignment"))
       })
 
@@ -252,11 +268,14 @@
 
       const p = document.createElement("p")
       p.textContent = name
+      const container = document.createElement("div")
+      container.classList.add("page-container")
+      container.appendChild(p)
 
       const page = document.createElement("div")
       page.classList.add("page")
       page.appendChild(img)
-      page.appendChild(p)
+      page.appendChild(container)
 
       return page
     }
