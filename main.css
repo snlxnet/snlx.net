@@ -34,6 +34,11 @@ button, .choose-file::before, .button {
   background: var(--accent);
   color: var(--base);
   cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1ch;
 }
 input:focus, textarea:focus, button:focus {
   outline: none;
@@ -52,9 +57,6 @@ input[type="file"] {
 }
 .choose-file::before {
   content: "Выбрать файл";
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 input[type="radio"] {
@@ -80,17 +82,15 @@ fieldset > *:last-of-type {
   border-bottom-right-radius: var(--radius) ! important;
 }
 .radio-button {
-  color: var(--text);
-  background: var(--mantle);
+  background: var(--text);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .radio-button:has(input:checked) {
-  color: var(--mantle);
   background: var(--accent);
 }
-label svg {
+label svg, button svg, .button svg {
   width: 1em;
 }
 label, fieldset {
