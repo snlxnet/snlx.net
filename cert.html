@@ -151,7 +151,7 @@
           </svg>
           по одному
         </button>
-        <button style="width: 62%">
+        <button id="print-all" style="width: 62%">
           всех
         </button>
       </fieldset>
@@ -234,6 +234,9 @@
       const names = document.getElementById("names")
       const preview = document.getElementById("preview")
       const root = document.querySelector(":root")
+
+      const printAll = document.getElementById("print-all")
+      printAll.addEventListener("click", () => window.print())
 
       settings.addEventListener("input", async (event) => {
         const data = new FormData(settings)
