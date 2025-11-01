@@ -255,7 +255,7 @@
       function buildPreview() {
         const data = new FormData(names)
         const field = data.get("names")
-        const people = field.value ? field.value.split("\n") : ["Иванов Иван", "Петров Василий"]
+        const people = field ? field.split("\n") : ["Иванов Иван", "Петров Василий"]
         const pages = people.map(person => buildPage(person))
         preview.innerHTML = ""
         preview.append(...pages)
