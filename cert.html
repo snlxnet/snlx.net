@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -136,27 +136,38 @@
         />
       </svg>
     </a>
-    <h1>Генератор сертификатов</h1>
+    <h1>
+      <span lang="en">cert</span>
+      <span lang="ru">Генератор сертификатов</span>
+    </h1>
   </nav>
 
   <div class="container">
     <form action="" id="names">
       <label>
-        Список имён
+        <span lang="en">Names</span>
+        <span lang="ru">Список имён</span>
         <textarea name="names" placeholder="Иванов Иван&#10Петров Василий"></textarea>
       </label>
 
       <fieldset>
-        <button style="background: var(--text)">
+        <button id="save-each" style="background: var(--text)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download">
             <path d="M12 15V3"/>
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
             <path d="m7 10 5 5 5-5"/>
           </svg>
-          по одному
+          <span lang="en">separately</span>
+          <span lang="ru">по одному</span>
         </button>
         <button id="print-all" style="width: 62%">
-          всех
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer-icon lucide-printer">
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+            <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/>
+            <rect x="6" y="14" width="12" height="8" rx="1"/>
+          </svg>
+          <span lang="en">together</span>
+          <span lang="ru">всех</span>
         </button>
       </fieldset>
     </form>
@@ -166,7 +177,10 @@
 
     <form action="" id="settings">
       <fieldset>
-        <legend>Шрифт</legend>
+        <legend>
+          <span lang="en">Font</span>
+          <span lang="ru">Шрифт</span>
+        </legend>
         <label>
           <input type="text" name="font" value="cursive">
         </label>
@@ -176,14 +190,18 @@
       </fieldset>
 
       <label>
-        Шаблон
+        <span lang="en">Template</span>
+        <span lang="ru">Шаблон</span>
         <input type="file" name="template">
         <div class="choose-file">
         </div>
       </label>
 
       <fieldset>
-        <legend>Расположение</legend>
+        <legend>
+          <span lang="en">Name placement</span>
+          <span lang="ru">Расположение имени</span>
+        </legend>
         <label class="suffix-percent">
           <input type="number" name="x" value="50">
         </label>
@@ -193,7 +211,10 @@
       </fieldset>
 
       <fieldset>
-        <legend>Выравнивание</legend>
+        <legend>
+          <span lang="en">Alignment</span>
+          <span lang="ru">Выравнивание</span>
+        </legend>
         <label class="button radio-button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-start-icon lucide-text-align-start">
             <path d="M21 5H3"/>
@@ -222,6 +243,15 @@
     </form>
   </div>
 
+  <script>
+    if (navigator.language === "ru") {
+      document.documentElement.lang = "ru"
+    } else {
+      document.querySelector("textarea").placeholder = "John Doe\nJane Smith"
+      document.title = "snlx.net / cert"
+    }
+  </script>
+
   <script type="module">
     import { pdfToImg } from "https://esm.run/pdftoimg-js/browser"
 
@@ -236,10 +266,13 @@
     function main() {
       const settings = document.getElementById("settings")
       const names = document.getElementById("names")
+      const namesTextarea = document.querySelector("textarea")
       const preview = document.getElementById("preview")
       const root = document.querySelector(":root")
 
       const printAll = document.getElementById("print-all")
+      const saveEach = document.getElementById("save-each")
+
       printAll.addEventListener("click", () => window.print())
 
       settings.addEventListener("input", async (event) => {
@@ -262,7 +295,7 @@
       function buildPreview() {
         const data = new FormData(names)
         const field = data.get("names")
-        const people = field ? field.split("\n") : ["Иванов Иван", "Петров Василий"]
+        const people = field ? field.split("\n") : namesTextarea.placeholder.split("\n")
         const pages = people.map(person => buildPage(person))
         preview.innerHTML = ""
         preview.append(...pages)
