@@ -7,6 +7,9 @@
   <title>Генератор сертификатов</title>
   <link rel="stylesheet" href="main.css">
   <style>
+    :root {
+      --template: url(cert-placeholder.svg);
+    }
     textarea {
       resize: none;
     }
@@ -91,8 +94,9 @@
         display: none !important;
       }
 
-      #preview>* {
+      .page, .page img {
         width: 100vw !important;
+        max-width: unset;
       }
     }
   </style>
