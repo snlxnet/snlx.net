@@ -21,11 +21,8 @@ jobs:
         with:
           node-version: "22"
 
+      - run: rm -rf ./_site
       - run: npx @11ty/eleventy
-      - run: pwd
-      - run: ls ./_site
-      - run: cat ./_site/index.html
-      - run: git add ./_site
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
