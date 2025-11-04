@@ -13,7 +13,7 @@
 }
 @font-face {
   font-family: "JetBrains Mono";
-  src: url(fonts/jetbrains_mono.ttf);
+  src: url(/deps/fonts/jetbrains_mono.ttf);
 }
 body {
   background: var(--base);
