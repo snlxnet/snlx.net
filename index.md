@@ -5,4 +5,6 @@ title: home
 
 # Hello, world!
 
-Why is the action not working?
+The actual homepage / notes section is coming in just a few days,
+here's a small util I've been working on for now:
+it's a [certificate generator](/cert) for my uni.

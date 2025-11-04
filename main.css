@@ -21,6 +21,9 @@ body {
   font-family: "JetBrains Mono", monospace;
   padding: 0;
 }
+a {
+  color: var(--links);
+}
 input, textarea, button, .choose-file::before, .button {
   background: var(--mantle);
   color: inherit;
