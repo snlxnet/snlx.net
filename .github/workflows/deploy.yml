@@ -8,9 +8,14 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
-      contents: write
+      contents: read
+      pages: write
+      id-token: write
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
@@ -21,15 +26,16 @@ jobs:
         with:
           node-version: "22"
 
-      - run: rm -rf ./_site
       - run: npx @11ty/eleventy
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/main'
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
-          exclude_assets: ''
-          allow_empty_commit: true
-          keep_files: true
+          path: './_site'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
