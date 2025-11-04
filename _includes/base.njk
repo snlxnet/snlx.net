@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>snlx.net / {{ title }}</title>
+  <link rel="stylesheet" href="/main.css">
+  <style>
+    .logo {
+      width: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <a href="/" class="logo-link">
+      <!-- this is a placeholder, I'll redraw it eventually -->
+      <img src="/logo.svg" class="logo">
+    </a>
+    <h1>
+      <span lang="en">{{ title }}</span>
+    </h1>
+  </nav>
+
+  <div class="container">
+    <main>
+      {{ content | safe }}
+    </main>
+  </div>
+
+  <script>
+    if (navigator.language === "ru") {
+      const name = window.location.pathname.slice(1) || "index"
+      window.location.replace("ru-" + name)
+    }
+  </script>
+</body>
+</html>
