@@ -1,0 +1,1 @@
+- ./fonts/* is https://www.jetbrains.com/lp/mono (OFL)
