@@ -84,6 +84,10 @@
       padding: var(--padding);
     }
 
+    .broken {
+      cursor: not-allowed;
+    }
+
     @media print {
       * {
         margin: 0 !important;
@@ -151,14 +155,14 @@
       </label>
 
       <fieldset>
-        <button id="save-each" style="background: var(--text)">
+        <button id="save-each" style="background: var(--text)" class="broken">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download">
             <path d="M12 15V3"/>
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
             <path d="m7 10 5 5 5-5"/>
           </svg>
-          <span lang="en">separately</span>
-          <span lang="ru">по одному</span>
+          <span lang="en" title="not yet implemented :(">separately</span>
+          <span lang="ru" title="ещё не реализовано :(">по одному</span>
         </button>
         <button id="print-all" style="width: 62%">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer-icon lucide-printer">
