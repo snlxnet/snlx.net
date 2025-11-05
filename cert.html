@@ -32,6 +32,7 @@
       margin: 0 var(--padding);
       padding: 0 var(--padding);
       width: 100%;
+      max-width: unset;
     }
     .page {
       max-width: 100%;
@@ -62,8 +63,12 @@
     }
 
     #names {
+      position: sticky;
+      top: var(--padding);
+
+      max-width: 30ch;
       width: 100%;
-      height: calc(100vh - var(--padding)*3);
+      height: calc(100vh - var(--padding)*2);
       
       display: grid;
       grid-template-rows: 1fr auto;
@@ -71,6 +76,13 @@
     #names label {
       display: grid;
       grid-template-rows: auto 1fr;
+    }
+
+    #settings {
+      position: sticky;
+      top: var(--padding);
+
+      height: fit-content;
     }
 
     .suffix-percent {
