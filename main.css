@@ -15,6 +15,10 @@
   font-family: "JetBrains Mono";
   src: url(/deps/fonts/jetbrains_mono.ttf);
 }
+@font-face {
+  font-family: "Bad Script";
+  src: url(/deps/fonts/BadScript-Regular.ttf);
+}
 body {
   background: var(--base);
   color: var(--text);
