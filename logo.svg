@@ -85,23 +85,23 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#1e1e2e;stroke:none;stroke-width:6.00001;fill-opacity:1"
+       style="fill:#181825;stroke:none;stroke-width:6.00001;fill-opacity:1"
        id="rect1"
        width="16.933332"
        height="16.933332"
        x="0"
        y="0" />
     <path
-       style="fill:url(#linearGradient38);stroke:#1e1e2e;stroke-width:1.42078;stroke-opacity:1"
+       style="fill:url(#linearGradient38);stroke:#181825;stroke-width:1.42078;stroke-opacity:1"
        d="m 16.503529,9.7175398 c 0,0 0.07679,2.5901212 -2.210203,3.9105142 -2.28699,1.320393 -3.455145,2.016101 -3.455145,2.016101 0,0 -2.0529001,1.370321 -4.4290377,0 C 4.0330056,14.27383 3.021074,13.697448 3.021074,13.697448 c 0,0 -2.32951488,-1.147311 -2.32951488,-3.9799082 V 4.5871926 c 0,0 1.96411538,1.0680789 4.01951138,2.2647991 4.4489688,2.590334 7.8394665,0.017494 7.8394665,0.017494 l 3.952992,-2.2822931 z"
        id="path20"
        sodipodi:nodetypes="cscscscsccc" />
     <path
-       style="fill:url(#linearGradient37);fill-opacity:1;stroke:#1e1e2e;stroke-width:1.42078;stroke-opacity:1"
+       style="fill:url(#linearGradient37);fill-opacity:1;stroke:#181825;stroke-width:1.42078;stroke-opacity:1"
        d="M 0.69155731,4.5871926 6.3962334,1.2936139 c 0,0 2.0664751,-1.34876497 4.4919496,0.051571 2.425474,1.4003393 5.615346,3.2420044 5.615346,3.2420044 l -5.9268,3.4235472 c 0,0 -1.9288035,1.1701306 -4.1725958,-0.1253432 C 4.1603418,6.5899193 0.69155731,4.587189 0.69155731,4.587189 Z"
        id="path21" />
     <path
-       style="fill:none;fill-opacity:1;stroke:#1e1e2e;stroke-width:1.42078;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;stroke:#181825;stroke-width:1.42078;stroke-opacity:1"
        d="M 0.69155731,1.1645084 6.3962334,-2.1290715 c 0,0 2.0664751,-1.3487646 4.4919496,0.051574 2.425474,1.40033961 5.615346,3.2420056 5.615346,3.2420056 l -5.9268,3.4235476 c 0,0 -1.9288035,1.1701296 -4.1725958,-0.1253441 C 4.1603418,3.1672382 0.69155731,1.1645084 0.69155731,1.1645084 Z"
        id="path8" />
   </g>
