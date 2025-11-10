@@ -157,3 +157,9 @@ html:lang(ru) div:lang(en) {
   display: none;
 }
 
+.logo {
+  width: 3rem;
+}
+.logo-link {
+  display: flex;
+}
