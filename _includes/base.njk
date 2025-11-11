@@ -24,7 +24,7 @@
   </div>
 
   <script>
-    if (navigator.language === "ru") {
+    if (navigator.language.startsWith("ru")) {
       const name = window.location.pathname.slice(1) || "index"
       window.location.replace("ru-" + name)
     }

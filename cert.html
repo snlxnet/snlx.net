@@ -260,7 +260,7 @@
   </div>
 
   <script>
-    if (navigator.language === "ru") {
+    if (navigator.language.startsWith("ru")) {
       document.documentElement.lang = "ru"
     } else {
       document.querySelector("textarea").placeholder = "John Doe\nJane Smith"
