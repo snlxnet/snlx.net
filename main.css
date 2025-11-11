@@ -125,14 +125,20 @@ input[type=number] {
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: var(--padding);
 
-  writing-mode: sideways-lr;
+  writing-mode: sideways-rl;
   padding: var(--padding);
   background: var(--mantle);
 }
 .sidebar * {
   margin: 0;
+}
+.sidebar>* {
+  display: flex;
+  gap: inherit;
+  align-items: inherit;
 }
 
 .container {
