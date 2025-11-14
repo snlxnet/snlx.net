@@ -118,6 +118,8 @@ input[type=number] {
 }
 
 .sidebar {
+  z-index: 100;
+
   position: fixed;
   left: 0;
   top: 0;
@@ -169,3 +171,45 @@ html:lang(ru) div:lang(en) {
 .logo-link {
   display: flex;
 }
+
+h1 {
+  view-transition-name: title;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+}
+
+@keyframes fly-away {
+  from {
+    transform: translateY(0);
+  }
+  50%, to {
+    transform: translateY(-0.5rem);
+    opacity: 0;
+  }
+}
+@keyframes fly-in {
+  from, 50% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+::view-transition-old(title) {
+  animation: 0.3s ease fly-away;
+  filter: blur(100);
+}
+
+::view-transition-new(title) {
+  animation: 0.3s ease fly-in;
+  filter: blur(100);
+}
+
