@@ -194,12 +194,30 @@ h1 {
     opacity: 0;
   }
 }
-@keyframes fly-in {
+@keyframes fade-in {
   from, 50% {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes sidebar-animation {
+  from {
+    transform: translateX(-4rem);
+  }
+  to {
+    transform: translateX(0);
   }
 }
 
@@ -209,7 +227,10 @@ h1 {
 }
 
 ::view-transition-new(title) {
-  animation: 0.3s ease fly-in;
+  animation: 0.3s ease fade-in;
   filter: blur(100);
 }
 
+::view-transition-old(spa-sidebar) {
+  animation: 0.3s ease reverse sidebar-animation;
+}

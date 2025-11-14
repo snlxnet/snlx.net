@@ -1,0 +1,11 @@
+.sidebar {
+  view-transition-name: spa-sidebar;
+}
+
+::view-transition-old(spa-sidebar) {
+  animation: 0.3s ease fade-out;
+}
+
+::view-transition-new(spa-sidebar) {
+  animation: 0.3s ease sidebar-animation;
+}
