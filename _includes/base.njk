@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>snlx.net / {{ title }}</title>
+  <title>snlx.net / garden</title>
   <link rel="stylesheet" href="/main.css">
+  <link rel="stylesheet" href="/garden.css">
 </head>
 <body>
   <div class="sidebar">
@@ -14,7 +15,7 @@
         <img src="/garden.svg" class="logo">
       </a>
       <h2>
-        <span>{{ title }}</span>
+        <span>garden</span>
       </h2>
     </nav>
   </div>
@@ -28,7 +29,7 @@
   <script>
     if (navigator.language.startsWith("ru")) {
       const name = window.location.pathname.slice(1) || "index"
-      window.location.replace("ru-" + name)
+      window.location.replace("/ru-" + name)
     }
   </script>
 </body>

@@ -2,6 +2,7 @@
   --base: #1e1e2e;
   --mantle: #181825;
   --crust: #11111b;
+  --headings: #89b4fa;
   --accent: #89b4fa;
   --links: #89b4fa;
   --text: #cdd6f4;
@@ -28,6 +29,23 @@ body {
 }
 a {
   color: var(--links);
+}
+em, b {
+  color: var(--accent);
+}
+.container h1,
+.container h2,
+.conatiner h3 {
+  color: var(--headings);
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
 }
 input, textarea, button, .choose-file::before, .button {
   background: var(--mantle);
@@ -172,10 +190,6 @@ html:lang(ru) div:lang(en) {
   display: flex;
 }
 
-h1 {
-  view-transition-name: title;
-}
-
 @view-transition {
   navigation: auto;
 }
@@ -183,24 +197,6 @@ h1 {
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.3s;
-}
-
-@keyframes fly-away {
-  from {
-    transform: translateY(0);
-  }
-  50%, to {
-    transform: translateY(-0.5rem);
-    opacity: 0;
-  }
-}
-@keyframes fade-in {
-  from, 50% {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 @keyframes fade-out {
@@ -221,16 +217,6 @@ h1 {
   }
 }
 
-::view-transition-old(title) {
-  animation: 0.3s ease fly-away;
-  filter: blur(100);
-}
-
-::view-transition-new(title) {
-  animation: 0.3s ease fade-in;
-  filter: blur(100);
-}
-
 ::view-transition-old(spa-sidebar) {
-  animation: 0.3s ease reverse sidebar-animation;
+  animation: 0.3s ease-in reverse sidebar-animation;
 }

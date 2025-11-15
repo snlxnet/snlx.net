@@ -1,0 +1,24 @@
+:root {
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+  --headings: #74c7ec;
+  --accent: #a6e3a1;
+}
+.container h1::before {
+  content: "# ";
+}
+.container h2::before {
+  content: "## ";
+}
+.container h3::before {
+  content: "## ";
+}
+.container em::before,
+.container em::after {
+  content: "*";
+}
+.container strong::before,
+.container strong::after {
+  content: "*";
+}
