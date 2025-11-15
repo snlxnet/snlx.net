@@ -28,6 +28,9 @@
 
   <script>
     if (navigator.language.startsWith("en")) {
+      if (window.location.pathname.startsWith("/ru-index")) {
+        window.location.replace("/")
+      }
       window.location.replace('/' + window.location.pathname.slice(4))
     }
   </script>
