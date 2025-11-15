@@ -22,3 +22,20 @@
 .container strong::after {
   content: "*";
 }
+
+img {
+  margin: 1rem 0;
+  border-radius: var(--radius);
+}
+
+.container {
+  justify-content: center;
+}
+
+p code,
+li code {
+  background: var(--mantle);
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius);
+  color: var(--subtext);
+}

@@ -13,12 +13,12 @@ layout: base.njk
 
 My university is preparing for an upcoming math competition. They want to give each attendant a certificate so they need a tool that will take a template, put in the names, and export as PDF. They asked me what editor they could use. Sure, they could use something like libreoffice, but filling in each name and saving into a new file manually takes a bit too long. I want to make a simple utility that takes the list of names and the template, generates the certificates and exports them both as a single PDF (to print out) and as separate files (to send via e-mail).
 
-This is a really simple project, and also a perfect opportunity to build a simple site (this one) as the styles are going to be shared.
+This is a really simple project ([look at it](/cert)), and also a perfect opportunity to build a simple site (this one) as the styles are going to be shared.
 I don't want any *images* on the site, so I'll try to stick with SVGs.
 
 ## Cert Layout
 I started by sketching out the UI on a piece of paper. Since I won't include raster images, here's an excalidraw version of that:
-![[cert excalidraw.light.svg]]
+![cert-excalidraw.light.svg](/cert-excalidraw.light.svg)
 
 I've considered using React or Lustre, but the project is simple enough I don't need them.
 
