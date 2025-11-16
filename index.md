@@ -2,6 +2,9 @@
 layout: base.njk
 ---
 
+<link rel="prefetch" href="/cert" />
+<link rel="prefetch" href="/cert-site-start" />
+
 # Hello, world!
 
 I'm currently working on:

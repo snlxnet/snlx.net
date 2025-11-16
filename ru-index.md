@@ -1,7 +1,9 @@
 ---
 layout: base_ru.njk
-title: Главная
 ---
+
+<link rel="prefetch" href="/cert" />
+<link rel="prefetch" href="/ru-cert-site-start" />
 
 # Здравствуйте!
 
