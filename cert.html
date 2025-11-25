@@ -35,32 +35,11 @@
       width: 100%;
       max-width: unset;
     }
-    .page {
+    .typst-doc {
       max-width: 100%;
-      display: flex;
-      position: relative;
-      margin-bottom: var(--padding);
-    }
-    .page>img {
       width: 100%;
-    }
-    .page-container {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      container-type: size;
-    }
-    .page span {
-      position: absolute;
-      top: var(--y);
-      left: var(--x);
-      font-family: var(--font);
-      font-size: var(--size);
-      transform: translateX(var(--alignment));
-      white-space: pre;
-      color: black;
+      height: unset;
+      margin-bottom: var(--padding);
     }
 
     #names {
@@ -86,15 +65,20 @@
       height: fit-content;
     }
 
-    .suffix-percent {
+    .suffix-percent,
+    .suffix-pt {
       position: relative;
     }
-    .suffix-percent::after {
+    .suffix-percent::after,
+    .suffix-pt::after {
       content: "%";
       position: absolute;
       top: 0;
       right: 0;
       padding: var(--padding);
+    }
+    .suffix-pt::after {
+      content: "pt";
     }
 
     .broken {
@@ -107,14 +91,26 @@
         padding: 0 !important;
       }
 
-      nav, #settings, #names {
+      #names,
+      #settings,
+      .sidebar {
         display: none !important;
       }
 
-      .page, .page img {
-        width: 100vw !important;
-        max-width: unset;
+      #preview,
+      #preview * {
+        display: auto !important;
       }
+    }
+
+    @keyframes breathe {
+      0% { opacity: 1; }
+      50% { opacity: 0.62; }
+      100% { opacity: 1; }
+    }
+    .lucide-hourglass {
+      animation: ease-in-out infinite 2s breathe;
+      transform-origin: center;
     }
   </style>
 </head>
@@ -203,6 +199,12 @@
     </form>
 
     <main id="preview">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hourglass-icon lucide-hourglass">
+        <path d="M5 22h14"/>
+        <path d="M5 2h14"/>
+        <path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/>
+        <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/>
+      </svg>
     </main>
 
     <form action="" id="settings">
@@ -212,10 +214,10 @@
           <span lang="ru">Шрифт</span>
         </legend>
         <label>
-          <input type="text" name="font" value="Bad Script">
+          <input type="text" name="font" value="JetBrains Mono">
         </label>
-        <label class="suffix-percent" style="width: 62%">
-          <input type="number" name="size" value="3" style="min-width: 8ch">
+        <label style="width: 62%" class="suffix-pt">
+          <input type="number" name="size" value="11" style="min-width: 8ch">
         </label>
       </fieldset>
 
@@ -251,7 +253,7 @@
             <path d="M15 12H3"/>
             <path d="M17 19H3"/>
           </svg>
-          <input type="radio" name="alignment" value="0%">
+          <input type="radio" name="alignment" value="left">
         </label>
         <label class="button radio-button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-center-icon lucide-text-align-center">
@@ -259,7 +261,7 @@
             <path d="M17 12H7"/>
             <path d="M19 19H5"/>
           </svg>
-          <input type="radio" name="alignment" value="-50%" checked>
+          <input type="radio" name="alignment" value="center" checked>
         </label>
         <label class="button radio-button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-text-align-end-icon lucide-text-align-end">
@@ -267,7 +269,7 @@
             <path d="M21 12H9"/>
             <path d="M21 19H7"/>
           </svg>
-          <input type="radio" name="alignment" value="-100%">
+          <input type="radio" name="alignment" value="right">
         </label>
       </fieldset>
     </form>
@@ -284,6 +286,7 @@
 
   <script type="module">
     import { pdfToImg } from "https://esm.run/pdftoimg-js/browser"
+    import init, { TypJs } from "https://esm.run/typ-js"
 
     document.querySelectorAll("form").forEach((form) => {
       form.addEventListener('submit', (e) => {
@@ -291,10 +294,21 @@
         e.stopPropagation()
       });
     })
-    main()
+
+    let typ
+    init().then(main)
 
     function main() {
-      const settings = document.getElementById("settings")
+      typ = TypJs.new()
+      const noTemplateMessage = document.documentElement.lang === "ru" ? "Пожалуйста, выберите шаблон" : "Please upload a template"
+      typ.write("main.typ", `#set page(paper: "a5", flipped: true, fill: rgb("#1e1e2e"))
+#set align(center)
+#set par(spacing: 8mm)
+#text(size: 5cm, fill: rgb("#fab387"), emoji.warning)
+
+#text(size: 8mm, fill: rgb("#cdd6f4"), font: "JetBrains Mono")[${noTemplateMessage}]`)
+
+      const settingsElement = document.getElementById("settings")
       const names = document.getElementById("names")
       const namesTextarea = document.querySelector("textarea")
       const preview = document.getElementById("preview")
@@ -303,67 +317,80 @@
       const printAll = document.getElementById("print-all")
       const saveEach = document.getElementById("save-each")
 
+      const settings = {
+        x: 50,
+        y: 50,
+        alignment: "left",
+        font: "JetBrains Mono",
+        size: "11pt",
+      }
+
+      preview.innerHTML = typ.svg()
+
       printAll.addEventListener("click", () => window.print())
 
-      settings.addEventListener("input", async (event) => {
-        const data = new FormData(settings)
+      settingsElement.addEventListener("input", async (event) => {
+        const data = new FormData(settingsElement)
 
         if (event.target.name === "template") {
-          root.style.setProperty("--template", await prepareTemplate(data.get("template")))
+          const template = data.get("template")
+          settings.template = template.name
+          const buf = await template.arrayBuffer()
+          const array = new Uint8Array(buf)
+          typ.attach(settings.template, array)
         }
 
-        root.style.setProperty("--x", data.get("x") + "%")
-        root.style.setProperty("--y", data.get("y") + "%")
-        root.style.setProperty("--font", data.get("font"))
-        root.style.setProperty("--size", data.get("size") + "cqh")
-        root.style.setProperty("--alignment", data.get("alignment"))
+        settings.x = data.get("x") + "%"
+        settings.y = data.get("y") + "%"
+        settings.font = data.get("font")
+        settings.size = data.get("size") + "pt"
+        settings.alignment = data.get("alignment")
+
+        buildPreview()
       })
 
       names.addEventListener("input", buildPreview)
-      buildPreview()
 
       function buildPreview() {
         const data = new FormData(names)
         const field = data.get("names")
         const people = field ? field.split("\n") : namesTextarea.placeholder.split("\n")
-        const pages = people.map(person => buildPage(person))
+        console.log({files: typ.list()})
+        const pages = people.map(person => buildPage(person, settings))
         preview.innerHTML = ""
         preview.append(...pages)
       }
     }
 
-    function buildPage(name) {
-      const img = document.createElement("img")
-      img.style.content = "var(--template)"
+    function buildPage(name, settings) {
+      const source = `#set page(
+  fill: white,
+  flipped: true,
+  background: image("${settings.template}", height: 100%),
+)
 
-      const span = document.createElement("span")
-      span.textContent = name
-      const container = document.createElement("div")
-      container.classList.add("page-container")
-      container.appendChild(span)
+#let alignment = ${settings.alignment}
+#let correction = if alignment == left { 0% } else if alignment == center { -50% } else { -100% }
 
-      const page = document.createElement("div")
-      page.classList.add("page")
-      page.appendChild(img)
-      page.appendChild(container)
+#place(
+  top + alignment,
+  dx: ${settings.x} + correction,
+  dy: ${settings.y},
+  text(font: "${settings.font}",
+  size: ${settings.size},
+  [${name}],
+  )
+)`
+      typ.write('main.typ', source)
 
-      return page
-    }
-
-    async function prepareTemplate(file) {
-      const url = URL.createObjectURL(file)
-      const wrap = (url) => `url(${url})`
-
-      if (file.type.startsWith("image/")) {
-        return wrap(url)
+      const e = typ.errors()
+      if (e.length) {
+        console.error(e)
       }
 
-      const image = await pdfToImg(url, {
-        pages: "firstPage",
-        imgType: "png",
-        background: "white",
-      })
-      return wrap(image)
+      const page = document.createElement("div")
+      page.innerHTML = typ.svg()
+      return page
     }
   </script>
 </body>
