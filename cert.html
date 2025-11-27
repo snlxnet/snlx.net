@@ -169,35 +169,6 @@
   </div>
 
   <div class="container">
-    <form action="" id="names">
-      <label>
-        <span lang="en">Names</span>
-        <span lang="ru">Список имён</span>
-        <textarea name="names" placeholder="Иванов Иван&#10Петров Василий"></textarea>
-      </label>
-
-      <fieldset>
-        <button id="save-each" style="background: var(--text)" class="broken">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download">
-            <path d="M12 15V3"/>
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-            <path d="m7 10 5 5 5-5"/>
-          </svg>
-          <span lang="en" title="not yet implemented :(">separately</span>
-          <span lang="ru" title="ещё не реализовано :(">по одному</span>
-        </button>
-        <button id="print-all" style="width: 62%">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer-icon lucide-printer">
-            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
-            <path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/>
-            <rect x="6" y="14" width="12" height="8" rx="1"/>
-          </svg>
-          <span lang="en">together</span>
-          <span lang="ru">всех</span>
-        </button>
-      </fieldset>
-    </form>
-
     <main id="preview">
       <svg xmlns="http://www.w3.org/2000/svg" width="30%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hourglass-icon lucide-hourglass">
         <path d="M5 22h14"/>
@@ -272,6 +243,14 @@
           <input type="radio" name="alignment" value="right">
         </label>
       </fieldset>
+
+      <label>
+        <span lang="en">Participants</span>
+        <span lang="ru">Участники</span>
+        <input type="file" name="participants">
+        <div class="choose-file">
+        </div>
+      </label>
     </form>
   </div>
 
@@ -279,7 +258,6 @@
     if (navigator.language.startsWith("ru")) {
       document.documentElement.lang = "ru"
     } else {
-      document.querySelector("textarea").placeholder = "John Doe\nJane Smith"
       document.title = "snlx.net / cert"
     }
   </script>
@@ -309,7 +287,6 @@
 #text(size: 8mm, fill: rgb("#cdd6f4"), font: "JetBrains Mono")[${noTemplateMessage}]`)
 
       const settingsElement = document.getElementById("settings")
-      const names = document.getElementById("names")
       const namesTextarea = document.querySelector("textarea")
       const preview = document.getElementById("preview")
       const root = document.querySelector(":root")
@@ -317,6 +294,17 @@
       const printAll = document.getElementById("print-all")
       const saveEach = document.getElementById("save-each")
 
+      let participants = [
+        {
+          name: document.documentElement.lang === "ru" ? "Иванов Иван" : "John Doe",
+          email: "",
+        },
+        {
+          name: document.documentElement.lang === "ru" ? "Петров Василий" : "Jane Smith",
+          email: "",
+        }
+      ]
+      
       const settings = {
         x: 50,
         y: 50,
@@ -326,8 +314,6 @@
       }
 
       preview.innerHTML = typ.svg()
-
-      printAll.addEventListener("click", () => window.print())
 
       settingsElement.addEventListener("input", async (event) => {
         const data = new FormData(settingsElement)
@@ -340,6 +326,38 @@
           typ.attach(settings.template, array)
         }
 
+        if (event.target.name === "participants") {
+          let broken = ""
+
+          const file = data.get("participants")
+          if (!file) return
+          const reader = new FileReader()
+          reader.readAsText(file, "windows-1251")
+          reader.addEventListener("load", () => {
+            participants = reader.result
+              .split("\n")
+              .map(line => line.split(";").map(col => col.replace(/[\s"]/g, "")))
+              .map(line => ({name: (line[5] || "") + " " + (line[6] || ""), email: line[9]}))
+              .filter((line, idx) => {
+                if (line.name === " ") {
+                  const suffix = document.documentElement.lang === "ru" ? "не задал имя" : "does not have a name"
+                  broken += `${idx} ${line.email} ${suffix}\n`
+                  return false
+                }
+                if (line.email === "") {
+                  const suffix = document.documentElement.lang === "ru" ? "не задал email" : "does not have an email"
+                  broken += `${idx} ${line.name} ${suffix}\n`
+                  return false
+                }
+                return true
+              })
+
+            alert(broken)
+            console.log(participants)
+          })
+          return
+        }
+
         settings.x = data.get("x") + "%"
         settings.y = data.get("y") + "%"
         settings.font = data.get("font")
@@ -349,20 +367,14 @@
         buildPreview()
       })
 
-      names.addEventListener("input", buildPreview)
-
       function buildPreview() {
-        const data = new FormData(names)
-        const field = data.get("names")
-        const people = field ? field.split("\n") : namesTextarea.placeholder.split("\n")
-        console.log({files: typ.list()})
-        const pages = people.map(person => buildPage(person, settings))
+        const pages = participants.map(person => buildPage(person, settings))
         preview.innerHTML = ""
-        preview.append(...pages)
+        preview.append(...pages.map(({page, email}) => page))
       }
     }
 
-    function buildPage(name, settings) {
+    function buildPage({name, email}, settings) {
       const source = `#set page(
   fill: white,
   flipped: true,
@@ -390,7 +402,7 @@
 
       const page = document.createElement("div")
       page.innerHTML = typ.svg()
-      return page
+      return {page, email}
     }
   </script>
 </body>
