@@ -304,6 +304,7 @@
           email: "",
         }
       ]
+      let readyToSend = []
       
       const settings = {
         x: 50,
@@ -339,6 +340,9 @@
               .map(line => line.split(";").map(col => col.replace(/[\s"]/g, "")))
               .map(line => ({name: (line[5] || "") + " " + (line[6] || ""), email: line[9]}))
               .filter((line, idx) => {
+                if (idx === 0) {
+                  return false
+                }
                 if (line.name === " ") {
                   const suffix = document.documentElement.lang === "ru" ? "не задал имя" : "does not have a name"
                   broken += `${idx} ${line.email} ${suffix}\n`
@@ -353,7 +357,7 @@
               })
 
             alert(broken)
-            console.log(participants)
+            buildPreview()
           })
           return
         }
@@ -371,6 +375,19 @@
         const pages = participants.map(person => buildPage(person, settings))
         preview.innerHTML = ""
         preview.append(...pages.map(({page, email}) => page))
+        readyToSend = pages.map(({pdf, email}) => ({
+          to: email,
+          subject: document.documentElement.lang === "ru" ? "Сертификат" : "Certificate",
+          body: "",
+          attachments: [
+            {
+              filename: "certificate.pdf",
+              content: pdf,
+              contentType: "application/pdf",
+            }
+          ]
+        }))
+        console.log(readyToSend)
       }
     }
 
@@ -402,7 +419,8 @@
 
       const page = document.createElement("div")
       page.innerHTML = typ.svg()
-      return {page, email}
+      const pdf = typ.pdf().toBase64()
+      return {page, email, pdf}
     }
   </script>
 </body>
