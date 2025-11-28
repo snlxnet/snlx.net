@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Управление роботом Мерфи</title>
+  <link rel="stylesheet" href="/main.css">
+  <link rel="stylesheet" href="/spa.css">
+  <style>
+    .uni-logo {
+      width: 3rem;
+      border-radius: var(--radius);
+    }
+    .uni-logo-bg {
+      fill: var(--accent);
+    }
+    .uni-logo-fg {
+      fill: var(--mantle);
+    }
+    .uni-logo-link {
+      display: grid;
+    }
+
+    .container {
+      justify-content: center;
+    }
+
+    main {
+      width: 100%;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <nav>
+      <a href="https://kubstu.ru" class="uni-logo-link">
+        <svg viewBox="0 0 16 16" class="uni-logo">
+          <rect
+            width="100%"
+            height="100%"
+            class="uni-logo-bg"
+          />
+          <path
+            class="uni-logo-fg"
+            d="
+              M 16,2
+              L 3,2
+              L 3,4.5
+              L 5,4.5
+              L 5,14
+              L 8,14
+              L 8,4.5
+              L 11,4.5
+              L 11,11
+              Q 11,14
+                14,14
+              Q 16,13.75
+                16,13.5
+              L 16,11.5
+              Q 14,12
+                14,10.5
+              L 14,4.5
+              L 16,4.5
+              Z
+            "
+          />
+        </svg>
+      </a>
+      <h2>
+        <span lang="en">Robot Control</span>
+        <span lang="ru">Управление роботом</span>
+      </h2>
+    </nav>
+  </div>
+
+  <div class="container">
+    <main>
+      <label>
+        <span lang="en">IP address</span>
+        <span lang="ru">IP адрес</span>
+        <input type="text" id="ip">
+      </label>
+
+      <label>
+        <span lang="en">Motor A</span>
+        <span lang="ru">Мотор А</span>
+        <input type="range" id="ma" min="-100" max="100" value="0">
+      </label>
+      <label>
+        <span lang="en">Motor B</span>
+        <span lang="ru">Мотор B</span>
+        <input type="range" id="mb" min="-100" max="100" value="0">
+      </label>
+      <label>
+        <span lang="en">Display digit</span>
+        <span lang="ru">Цифра на дисплее</span>
+        <input type="range" id="digit" min="-1" max="9" value="0">
+      </label>
+    </main>
+  </div>
+
+  <script>
+    if (!navigator.language.startsWith("ru")) {
+      document.documentElement.lang = "en"
+      document.title = "snlx.net / robot"
+    }
+  </script>
+
+  <script>
+    const ip = document.getElementById("ip")
+    const ma = document.getElementById("ma")
+    const mb = document.getElementById("mb")
+    const digit = document.getElementById("digit")
+
+    document.addEventListener("input", event => {
+      if (event.currentTarget == ip) {
+        return
+      }
+
+      send()
+    })
+
+    function send() {
+      if (!ip.value) {
+        return
+      }
+      const url = `http://${ip.value}:5000/?ma=${ma.value}&mb=${mb.value}&d=${digit.value}`
+      fetch(url)
+    }
+    function reset() {
+      ma.value = 0
+      mb.value = 0
+      send()
+    }
+    document.addEventListener("touchend", reset)
+    document.addEventListener("mouseup", reset)
+  </script>
+</body>
+</html>
