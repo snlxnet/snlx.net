@@ -90,12 +90,12 @@
       <label>
         <span lang="en">Motor A</span>
         <span lang="ru">Мотор А</span>
-        <input type="range" id="ma" min="-100" max="100" value="0">
+        <input type="range" id="ma" min="-10" max="10" value="0">
       </label>
       <label>
         <span lang="en">Motor B</span>
         <span lang="ru">Мотор B</span>
-        <input type="range" id="mb" min="-100" max="100" value="0">
+        <input type="range" id="mb" min="-10" max="10" value="0">
       </label>
       <label>
         <span lang="en">Display digit</span>
@@ -130,7 +130,7 @@
       if (!ip.value) {
         return
       }
-      const url = `http://${ip.value}:5000/?ma=${ma.value}&mb=${mb.value}&d=${digit.value}`
+      const url = `http://${ip.value}:5000/?ma=${(+ma.value)/10}&mb=${(+mb.value)/10}&d=${digit.value}`
       fetch(url)
     }
     function reset() {
