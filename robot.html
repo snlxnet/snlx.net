@@ -117,13 +117,15 @@
     const ma = document.getElementById("ma")
     const mb = document.getElementById("mb")
     const digit = document.getElementById("digit")
+    let lastTimeout = 0
 
     document.addEventListener("input", event => {
       if (event.currentTarget == ip) {
         return
       }
 
-      send()
+      clearTimeout(lastTimeout)
+      lastTimeout = setTimeout(send, 200)
     })
 
     function send() {
