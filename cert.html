@@ -244,8 +244,7 @@
         <span lang="ru">Отправить email'ы</span>
       </button>
 
-      <div id="summary">
-      </div>
+      <pre id="summary"></pre>
     </form>
 
     <main id="preview">
@@ -318,18 +317,16 @@
           return
         }
 
-        const promises = await Promise.allSettled(readyToSend.map(body => fetch("https://api.useplunk.com/v1/send", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${key}`,
-          },
-          body: JSON.stringify(body),
-        })))
-
-        console.log(promises)
-
-        summary.textContent = JSON.stringify(promises)
+        for (let body of readyToSend) {
+          summary.textContent += await fetch("https://api.useplunk.com/v1/send", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${key}`,
+            },
+            body: JSON.stringify(body),
+          }).then(() => "✅" + body.to + "\n").catch(() => "❌" + body.to + "\n")
+        }
       })
       
       const settings = {
