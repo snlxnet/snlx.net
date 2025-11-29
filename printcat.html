@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintCat</title>
+  <link rel="stylesheet" href="/main.css">
+  <link rel="stylesheet" href="/spa.css">
+  <style>
+    :root {
+      --template: url(/cert-placeholder.svg);
+    }
+    textarea {
+      resize: none;
+    }
+
+    .uni-logo {
+      width: 3rem;
+      border-radius: var(--radius);
+    }
+    .uni-logo-bg {
+      fill: var(--accent);
+    }
+    .uni-logo-fg {
+      fill: var(--mantle);
+    }
+    .uni-logo-link {
+      display: grid;
+    }
+
+    #preview {
+      margin: 0 var(--padding);
+      padding: 0 var(--padding);
+      width: 100%;
+      max-width: unset;
+    }
+    .typst-doc {
+      max-width: 100%;
+      width: 100%;
+      height: unset;
+      margin-bottom: var(--padding);
+    }
+
+    #names {
+      position: sticky;
+      top: var(--padding);
+
+      max-width: 30ch;
+      width: 100%;
+      height: calc(100vh - var(--padding)*2);
+      
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+    #names label {
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    #settings {
+      position: sticky;
+      top: var(--padding);
+
+      height: fit-content;
+    }
+
+    .suffix-percent,
+    .suffix-pt {
+      position: relative;
+    }
+    .suffix-percent::after,
+    .suffix-pt::after {
+      content: "%";
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: var(--padding);
+    }
+    .suffix-pt::after {
+      content: "pt";
+    }
+
+    .broken {
+      cursor: not-allowed;
+    }
+
+    @media print {
+      * {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      #names,
+      #settings,
+      .sidebar {
+        display: none !important;
+      }
+
+      #preview,
+      #preview * {
+        display: auto !important;
+      }
+    }
+
+    @keyframes breathe {
+      0% { opacity: 1; }
+      50% { opacity: 0.62; }
+      100% { opacity: 1; }
+    }
+    .lucide-hourglass {
+      animation: ease-in-out infinite 2s breathe;
+      transform-origin: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <nav>
+      <a href="https://kubstu.ru" class="uni-logo-link">
+        <svg viewBox="0 0 16 16" class="uni-logo">
+          <rect
+            width="100%"
+            height="100%"
+            class="uni-logo-bg"
+          />
+          <path
+            class="uni-logo-fg"
+            d="
+              M 16,2
+              L 3,2
+              L 3,4.5
+              L 5,4.5
+              L 5,14
+              L 8,14
+              L 8,4.5
+              L 11,4.5
+              L 11,11
+              Q 11,14
+                14,14
+              Q 16,13.75
+                16,13.5
+              L 16,11.5
+              Q 14,12
+                14,10.5
+              L 14,4.5
+              L 16,4.5
+              Z
+            "
+          />
+        </svg>
+      </a>
+      <h2>
+        PrintCat
+      </h2>
+    </nav>
+  </div>
+
+  <div class="container">
+    <form action="" id="settings">
+      <label>
+        <span lang="en">Spreadsheet</span>
+        <span lang="ru">Таблица</span>
+        <input type="file" name="csv">
+        <div class="choose-file">
+        </div>
+      </label>
+
+      <a id="dl">
+        <span lang="en">Download</span>
+        <span lang="ru">Скачать</span>
+      </a>
+    </form>
+
+    <main id="preview">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hourglass-icon lucide-hourglass">
+        <path d="M5 22h14"/>
+        <path d="M5 2h14"/>
+        <path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/>
+        <path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/>
+      </svg>
+    </main>
+  </div>
+
+  <script>
+    if (navigator.language.startsWith("ru")) {
+      document.documentElement.lang = "ru"
+    } else {
+      document.title = "snlx.net / printcat"
+    }
+  </script>
+
+  <script type="module">
+    import init, { TypJs } from "https://esm.run/typ-js"
+
+    const settingsElement = document.getElementById("settings")
+    const dlElement = document.getElementById("dl")
+
+    document.querySelectorAll("form").forEach((form) => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+      });
+    })
+
+    let typ
+    init().then(main)
+
+    function main() {
+      typ = TypJs.new()
+      const noTemplateMessage = document.documentElement.lang === "ru" ? "Пожалуйста, выберите таблицу" : "Please upload a spreadsheet"
+      typ.write("main.typ", `#set page(paper: "a5", flipped: true, fill: rgb("#1e1e2e"))
+#set align(center)
+#set par(spacing: 8mm)
+#text(size: 5cm, fill: rgb("#fab387"), emoji.warning)
+
+#text(size: 8mm, fill: rgb("#cdd6f4"), font: "JetBrains Mono")[${noTemplateMessage}]`)
+
+      preview.innerHTML = typ.svg()
+
+      settingsElement.addEventListener("input", async (event) => {
+
+        console.log("input")
+        const data = new FormData(settingsElement)
+
+        const file = data.get("csv")
+        if (!file) return
+        const reader = new FileReader()
+        reader.readAsText(file, "windows-1251")
+        reader.addEventListener("load", () => {
+          console.log("loaded")
+          const participants = reader.result.replaceAll(";", ",")
+          console.log(participants)
+          typ.write("participants.csv", participants)
+          buildPreview()
+        })
+      })
+
+      function buildPreview() {
+        const source = `#set page(
+  fill: white,
+  flipped: true,
+)
+
+#let ppl = csv("participants.csv").map(line => (line.at(0), line.at(5), line.at(6), line.at(7), line.at(9)))
+
+#let f(l) = {
+  ppl.filter((person) => lower(person.at(1)).starts-with(l)).enumerate().map(val => ([#(val.at(0)+1)], ..val.at(1))).flatten()
+}
+
+#table(
+  columns: 6,
+  "№", "Фамилия", "Имя", "Отчество", "email", "Отметка",
+  ..f("а"),
+  ..f("б"),
+)
+#pagebreak()
+#table(
+  columns: 6,
+  "№", "Фамилия", "Имя", "Отчество", "email", "Отметка",
+  ..f("в"),
+  ..f("г"),
+  ..f("д"),
+  ..f("е"),
+)
+#pagebreak()
+#table(
+  columns: 6,
+  "№", "Фамилия", "Имя", "Отчество", "email", "Отметка",
+  ..f("ж"),
+  ..f("з"),
+  ..f("и"),
+  ..f("й"),
+  ..f("к"),
+  ..f("л"),
+  ..f("м"),
+  ..f("н"),
+)
+#pagebreak()
+#table(
+  columns: 6,
+  "№", "Фамилия", "Имя", "Отчество", "email", "Отметка",
+..f("о"),
+..f("п"),
+..f("р"),
+..f("с"),
+)
+#pagebreak()
+#table(
+  columns: 6,
+  "№", "Фамилия", "Имя", "Отчество", "email", "Отметка",
+..f("т"),
+..f("у"),
+..f("ф"),
+..f("х"),
+..f("ц"),
+..f("ч"),
+..f("ш"),
+..f("щ"),
+..f("ъ"),
+..f("ы"),
+..f("ь"),
+..f("э"),
+..f("ю"),
+..f("я"),
+)`
+        typ.write('main.typ', source)
+        preview.innerHTML = typ.svg()
+        console.log("preview built", typ.svg())
+        console.error(typ.errors())
+        buildPdf()
+      }
+    }
+
+    function buildPdf() {
+      const pdf = typ.pdf().toBase64()
+      dlElement.dowload = "participants.pdf"
+      dlElement.href = "data:application/pdf;base64," + pdf
+    }
+  </script>
+</body>
+</html>
