@@ -165,11 +165,6 @@
         <div class="choose-file">
         </div>
       </label>
-
-      <a id="dl">
-        <span lang="en">Download</span>
-        <span lang="ru">Скачать</span>
-      </a>
     </form>
 
     <main id="preview">
@@ -242,10 +237,10 @@
   flipped: true,
 )
 
-#let ppl = csv("participants.csv").map(line => (line.at(0), line.at(5), line.at(6), line.at(7), line.at(9)))
+#let ppl = csv("participants.csv").map(line => (line.at(5), line.at(6), line.at(7), line.at(9), ""))
 
 #let f(l) = {
-  ppl.filter((person) => lower(person.at(1)).starts-with(l)).enumerate().map(val => ([#(val.at(0)+1)], ..val.at(1))).flatten()
+  ppl.filter((person) => lower(person.at(0)).starts-with(l)).enumerate().map(val => ([#(val.at(0)+1)], ..val.at(1))).flatten()
 }
 
 #table(
@@ -313,9 +308,12 @@
     }
 
     function buildPdf() {
-      const pdf = typ.pdf().toBase64()
-      dlElement.dowload = "participants.pdf"
-      dlElement.href = "data:application/pdf;base64," + pdf
+      const file = new File([typ.pdf()], "typ-js-output.pdf")
+      const link = document.createElement("a")
+      link.href = URL.createObjectURL(file)
+      link.download = "typ-js-output.pdf"
+      link.click()
+      link.remove()
     }
   </script>
 </body>
