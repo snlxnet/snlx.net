@@ -318,14 +318,20 @@
         }
 
         for (let body of readyToSend) {
-          summary.textContent += await fetch("https://api.useplunk.com/v1/send", {
+          const res = await fetch("https://api.useplunk.com/v1/send", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
               "Authorization": `Bearer ${key}`,
             },
             body: JSON.stringify(body),
-          }).then(() => "✅" + body.to + "\n").catch(() => "❌" + body.to + "\n")
+          }).catch(() => {status: 400})
+
+          if (res.status < 300) {
+            summary.textContent += "✅" + body.to + "\n"
+          } else {
+            summary.textContent += "❌" + body.to + "\n"
+          }
         }
       })
       
