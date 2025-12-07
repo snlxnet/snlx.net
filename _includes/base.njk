@@ -6,25 +6,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
   <title>snlx.net / garden</title>
-  <link rel="stylesheet" href="/main.css">
-  <link rel="stylesheet" href="/garden.css">
+  {# <link rel="stylesheet" href="/main.css"> #}
+  <style>
+    /* COMMON */
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url(/deps/fonts/jetbrains_mono.ttf);
+    }
+    * {
+      margin: 0;
+      font-family: inherit;
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+    body {
+      font-family: "JetBrains Mono", monospace;
+      line-height: 1.5;
+      text-wrap: pretty;
+      display: grid;
+    }
+    .sidebar {
+      top: 0;
+      position: sticky;
+      height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .sidebar h2 {
+      height: 100%;
+      writing-mode: sideways-rl;
+      line-height: 2.8rem;
+    }
+    .content {
+      padding: 1rem;
+    }
+  </style>
+  <style>
+    /* GARDEN */
+    body {
+      grid-template-columns: 1fr 5rem;
+    }
+    .content {
+      margin: auto;
+      max-width: 70ch;
+
+      h1,
+      h2,
+      h3 {
+        color: #74c7ec;
+      }
+
+      a,
+      em,
+      strong {
+        color: #a6e3a1;
+      }
+
+      img {
+        border-radius: 1rem;
+      }
+    }
+  </style>
+  <style>
+    body {
+      background: #1e1e2e;
+      color: #cdd6f4;
+    }
+    .sidebar {
+      background: #181825;
+    }
+  </style>
+  {# <link rel="stylesheet" href="/garden.css"> #}
 </head>
 <body>
-  <div class="sidebar">
-    <nav>
-      <a href="/" class="logo-link">
-        <img src="/garden.svg" class="logo">
-      </a>
-      <h2>
-        <span>garden</span>
-      </h2>
-    </nav>
-  </div>
+  <main class="markdown content">
+    {{ content | safe }}
+  </main>
 
-  <div class="container">
-    <main>
-      {{ content | safe }}
-    </main>
+  <div class="sidebar">
+    <a href="/" class="logo-link">
+      <img src="/garden.svg" class="logo">
+    </a>
+    <h2>garden</h2>
   </div>
 
   <script>
