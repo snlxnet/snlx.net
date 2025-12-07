@@ -11,7 +11,7 @@ body {
   h1,
   h2,
   h3 {
-    color: #74c7ec;
+    color: #cba6f7;
   }
 
   a,
@@ -24,4 +24,25 @@ body {
     background: #181825;
     border: 1px solid #a6e3a1;
   }
+}
+
+.input,
+input {
+  background: #181825;
+  color: #cdd6f4;
+}
+
+.input:focus,
+input:focus {
+  outline: 0.1rem solid #cba6f4;
+}
+
+.button {
+  background: #313244;
+  color: #cdd6f4;
+}
+
+.button.accent {
+  background: #a6e3a1;
+  color: #1e1e2e;
 }

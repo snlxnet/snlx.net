@@ -11,6 +11,10 @@
   xmlns="http://www.w3.org/2000/svg"
   xmlns:svg="http://www.w3.org/2000/svg">
   <style>
+    @font-face {
+      font-family: "JetBrains Mono";
+      src: url(/deps/fonts/jetbrains_mono.ttf);
+    }
     :root {
       --banner-stroke: 0.55;
       --banner-stroke-color: #181825;

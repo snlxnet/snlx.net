@@ -1,3 +1,7 @@
+.sidebar {
+  view-transition-name: garden-sidebar;
+}
+
 ::view-transition-old(spa-sidebar) {
   animation: 0.3s ease-in reverse sidebar-animation;
 }
