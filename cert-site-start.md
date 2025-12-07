@@ -4,6 +4,7 @@ tags:
 - archive
 created: 2025-11-01
 updated: 2025-11-15
+state: done
 up: "[[devlog]]"
 post: "[[snlx.net]]"
 layout: base.njk

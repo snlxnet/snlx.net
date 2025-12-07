@@ -7,6 +7,7 @@
   font-family: inherit;
   box-sizing: border-box;
   max-width: 100%;
+  background: transparent;
 }
 body {
   font-family: "JetBrains Mono", monospace;
@@ -57,5 +58,12 @@ html:lang(ru) div:lang(en) {
   to {
     transform: translateX(0);
   }
+}
+@keyframes pulse {
+  0% { opacity: 1 }
+  40% { opacity: 0.5 }
+  50% { opacity: 0 }
+  60% { opacity: 0.5 }
+  100% { opacity: 1 }
 }
 

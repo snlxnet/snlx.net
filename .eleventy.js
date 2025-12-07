@@ -3,5 +3,18 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("**/*.css");
   eleventyConfig.addPassthroughCopy("**/*.svg");
   eleventyConfig.addPassthroughCopy("deps/**/*");
+  eleventyConfig.addFilter("dateToStr", (dateObj) => {
+    const d = new Date(dateObj)
+    return d.toDateString()
+  })
+  eleventyConfig.addFilter("processState", (state) => {
+    switch (state) {
+      case "idea": return "lightbulb"
+      case "wip": return "construction"
+      case "done": return "circle-check-big"
+      case "irrelevant": return "shredder"
+      default: return "lightbulb"
+    }
+  })
 }
 

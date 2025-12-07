@@ -1,0 +1,64 @@
+body {
+  background: white;
+  color: black;
+  --logo-bottom-left: #abffcd;
+  --logo-bottom-right: #73ffab;
+  --logo-top-left: #111;
+  --logo-top-right: #222;
+  --logo-bg: white;
+}
+
+.sidebar {
+  background: #fff;
+  border-left: 1px dotted black;
+}
+.stat {
+  svg * {
+    stroke: black;
+  }
+}
+
+.content {
+  h1,
+  h2,
+  h3 {
+    color: black;
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+    text-decoration-color: #73ffab;
+  }
+
+  a,
+  em,
+  strong {
+    color: inherit;
+    background: #abffcd;
+  }
+
+  code {
+    background: black;
+    color: #73ffab;
+    border: 1px solid black;
+  }
+}
+
+.input,
+input {
+  background: #181825;
+  color: #cdd6f4;
+}
+
+.input:focus,
+input:focus {
+  outline: 0.1rem solid #cba6f4;
+}
+
+.button {
+  background: #313244;
+  color: #cdd6f4;
+}
+
+.button.accent {
+  background: #a6e3a1;
+  color: #1e1e2e;
+}

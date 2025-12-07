@@ -1,10 +1,26 @@
 body {
   background: #1e1e2e;
   color: #cdd6f4;
+  --logo-bottom-left: #94e2d5;
+  --logo-bottom-right: #a6e3a1;
+  --logo-top-left: #74c7ec;
+  --logo-top-right: #89b4fa;
+  --logo-bg: #181825;
 }
 
 .sidebar {
   background: #181825;
+}
+.stat {
+  svg * {
+    stroke: #a6e3a1;
+  }
+}
+.stat:has(.lucide-shredder) {
+  animation: 0.5s linear 5 pulse;
+  svg * {
+    stroke: #f38ba8
+  }
 }
 
 .content {

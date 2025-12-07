@@ -18,16 +18,129 @@
 
   <div class="sidebar">
     <a href="/" class="logo-link">
-      <img src="/garden.svg" class="logo">
+      <svg viewBox="0 0 16 16">
+        <style>
+          path {
+            stroke-width: 1.4;
+            stroke: var(--logo-bg);
+          }
+        </style>
+
+        <defs>
+          <linearGradient id="grass">
+            <stop offset="0%" stop-color="var(--logo-bottom-left)" />
+            <stop offset="100%" stop-color="var(--logo-bottom-right)" />
+          </linearGradient>
+          <linearGradient id="water">
+            <stop offset="0%" stop-color="var(--logo-top-left)" />
+            <stop offset="100%" stop-color="var(--logo-top-right)" />
+          </linearGradient>
+          <path
+            d="
+              M 1, 4
+
+              L 6, 7
+              Q 8, 8
+                10, 7
+
+              L 15, 4
+
+              L 10, 1
+              Q 8, 0
+                6, 1
+
+              Z
+            "
+            id="top"
+          />
+          <path
+            d="
+              M 1, 4
+
+              L 1, 10
+              Q 1, 12
+                3, 13.2
+
+              L 6,  15
+              Q 8,  16
+                10, 15
+
+              L 13, 13.2
+              Q 15, 12
+                15, 10
+
+              L 15, 4
+              Z
+            "
+            id="bottom"
+          />
+        </defs>
+
+        <rect
+          width="100%"
+          height="100%"
+          fill="var(--logo-bg)"
+        />
+
+        <use
+          href="#bottom"
+          fill="url(#grass)"
+          y="-0.5"
+        />
+        <use
+          href="#top"
+          fill="url(#water)"
+          y="1"
+        />
+        <use
+          href="#top"
+          fill="transparent"
+          y="-2.4"
+        />
+      </svg>
     </a>
     <h2>garden</h2>
+    <div class="stat">
+      <i data-lucide="{{ state | processState }}"></i>
+    </div>
+    <div class="stat">
+      <i data-lucide="feather"></i>
+      <span id="date-created">...</span>
+    </div>
+    <div class="stat">
+      <i data-lucide="refresh-cw"></i>
+      <span id="date-updated">...</span>
+    </div>
   </div>
 
-  <script>
+  <script type="module">
+    import { createIcons, icons } from 'https://esm.run/lucide';
+
     if (navigator.language.startsWith("ru")) {
       const name = window.location.pathname.slice(1) || "index"
       window.location.replace("/ru-" + name)
     }
+
+    createIcons({ icons })
+
+    function calculateRelativeDate(dateStr) {
+      if (dateStr === "Invalid Date") {
+        return "..."
+      }
+      const dateObj = new Date(dateStr)
+      const now = new Date()
+      const diffDays = Math.floor((now - dateObj) / 1000 / 60 / 60 / 24)
+      if (diffDays > 365) {
+        return (diffDays/365).toFixed(1) + " yrs"
+      }
+      if (diffDays > 99) {
+        return (diffDays/30.5).toFixed(1) + " mo"
+      }
+      return diffDays + "d"
+    }
+
+    document.getElementById("date-created").textContent = calculateRelativeDate("{{ created | dateToStr }}")
+    document.getElementById("date-updated").textContent = calculateRelativeDate("{{ updated | dateToStr }}")
   </script>
 </body>
 </html>
