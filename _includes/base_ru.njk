@@ -5,34 +5,31 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <title>заметки - snlx.net</title>
-  <link rel="stylesheet" href="/main.css">
+  <title>snlx.net заметки</title>
+  <link rel="stylesheet" href="/base.css">
   <link rel="stylesheet" href="/garden.css">
+  <link rel="stylesheet" href="/transitions-garden.css">
+  <link rel="stylesheet" href="/theme-mocha.css">
 </head>
 <body>
-  <div class="sidebar">
-    <nav>
-      <a href="/" class="logo-link">
-        <img src="/garden.svg" class="logo">
-      </a>
-      <h2>
-        <span>заметки</span>
-      </h2>
-    </nav>
-  </div>
+  <main class="markdown content">
+    {{ content | safe }}
+  </main>
 
-  <div class="container">
-    <main>
-      {{ content | safe }}
-    </main>
+  <div class="sidebar">
+    <a href="/" class="logo-link">
+      <img src="/garden.svg" class="logo">
+    </a>
+    <h2>заметки</h2>
   </div>
 
   <script>
     if (navigator.language.startsWith("en")) {
       if (window.location.pathname.startsWith("/ru-index")) {
         window.location.replace("/")
+      } else {
+        window.location.replace("/" + window.location.pathname.slice(4))
       }
-      window.location.replace('/' + window.location.pathname.slice(4))
     }
   </script>
 </body>
