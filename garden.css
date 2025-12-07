@@ -1,41 +1,32 @@
-:root {
-  --base: #1e1e2e;
-  --mantle: #181825;
-  --crust: #11111b;
-  --headings: #74c7ec;
-  --accent: #a6e3a1;
+body {
+  grid-template-columns: 1fr 5rem;
 }
-.container h1::before {
-  content: "# ";
-}
-.container h2::before {
-  content: "## ";
-}
-.container h3::before {
-  content: "## ";
-}
-.container em::before,
-.container em::after {
-  content: "*";
-}
-.container strong::before,
-.container strong::after {
-  content: "*";
-}
+.content {
+  margin: auto;
+  max-width: 70ch;
 
-img {
-  margin: 1rem 0;
-  border-radius: var(--radius);
-}
+  h1,
+  h2,
+  h3 {
+    padding: 1rem 0;
+  }
 
-.container {
-  justify-content: center;
-}
+  code {
+    white-space: nowrap;
+    box-sizing: content-box;
+    padding: 0.1rem 0.6rem;
+    border-radius: 0.6rem;
+  }
 
-p code,
-li code {
-  background: var(--mantle);
-  padding: 0.2rem 0.4rem;
-  border-radius: var(--radius);
-  color: var(--subtext);
+  img {
+    border-radius: 1rem;
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  h1::before { content: "# " }
+  h2::before { content: "## " }
+  h3::before { content: "### " }
+  em::before, em::after { content: "*" }
+  strong::before, strong::after { content: "__" }
 }

@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url(/deps/fonts/jetbrains_mono.ttf);
+}
+* {
+  margin: 0;
+  font-family: inherit;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+body {
+  font-family: "JetBrains Mono", monospace;
+  line-height: 1.75;
+  text-wrap: pretty;
+  display: grid;
+}
+.sidebar {
+  top: 0;
+  position: sticky;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+.sidebar h2 {
+  height: 100%;
+  writing-mode: sideways-rl;
+  line-height: 2.8rem;
+}
+.content {
+  padding: 1rem;
+}
+
+html:lang(en) span:lang(ru),
+html:lang(en) div:lang(ru) {
+  display: none;
+}
+
+html:lang(ru) span:lang(en),
+html:lang(ru) div:lang(en) {
+  display: none;
+}
+
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+}
+@keyframes sidebar-animation {
+  from {
+    transform: translateX(4rem);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
