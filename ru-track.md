@@ -1,5 +1,5 @@
 ---
-layout: base_ru.njk
+layout: base.njk
 ---
 
 <link rel="stylesheet" href="/theme-meatspace.css">

@@ -1,5 +1,5 @@
 ---
-layout: base_ru.njk
+layout: base.njk
 created: 2025-11-04
 updated: 2025-12-07
 ---

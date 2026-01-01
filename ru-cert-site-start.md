@@ -6,7 +6,7 @@ created: 2025-11-14
 updated: 2025-11-15
 up: "[[devlog]]"
 post: "[[snlx.net]]"
-layout: base_ru.njk
+layout: base.njk
 ---
 
 # Начало работы над генератором сертификатов и этим сайтом

@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <title>snlx.net / garden</title>
+  <title>garden | snlx.net</title>
   <link rel="stylesheet" href="/base.css">
   <link rel="stylesheet" href="/garden.css">
   <link rel="stylesheet" href="/transitions-garden.css">
@@ -117,8 +117,10 @@
     import { createIcons, icons } from 'https://esm.run/lucide';
 
     if (navigator.language.startsWith("ru")) {
-      const name = window.location.pathname.slice(1) || "index"
-      window.location.replace("/ru-" + name)
+      if (!window.location.pathname.startsWith("/ru")) {
+        const name = window.location.pathname.slice(1) || "index"
+        window.location.replace("/ru-" + name)
+      }
     }
 
     createIcons({ icons })
