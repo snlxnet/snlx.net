@@ -44,3 +44,7 @@ body {
   padding: 0.6rem;
   line-height: 1;
 }
+.note-status {
+  padding: 0.6rem 0;
+  writing-mode: sideways-rl;
+}
