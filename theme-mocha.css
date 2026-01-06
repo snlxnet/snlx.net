@@ -39,9 +39,13 @@ body {
     color: #89b4fa;
   }
 
-  code {
+  p code {
     background: #181825;
     border: 1px solid #cdd6f4;
+  }
+
+  pre {
+    background: #181825;
   }
 }
 

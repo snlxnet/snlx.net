@@ -15,10 +15,16 @@ body {
     padding: 0.5rem 0;
   }
 
-  code {
+  p code {
     white-space: nowrap;
     box-sizing: content-box;
     padding: 0.1rem 0.6rem;
+    border-radius: 0.6rem;
+  }
+
+  pre {
+    overflow: auto;
+    padding: 0.6rem 1rem;
     border-radius: 0.6rem;
   }
 
