@@ -23,4 +23,4 @@ I'll fill this section in later :)
   - [devlog](/cert-site-start)
 
 ## Hardware Projects
-- an os for making projectors smart
+- [an os](/trk) for making projectors smart
