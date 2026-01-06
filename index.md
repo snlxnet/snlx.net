@@ -17,7 +17,7 @@ layout: base.njk
 I'll fill this section in later :)
 
 ## Software Projects
-- a few features for this site
+- a publishing workflow for this site, see [mk-api](/mk-api)
 - a certificate generator for the uni
   - [app](/cert)
   - [devlog](/cert-site-start)
