@@ -1,21 +1,19 @@
 ---
 tags:
-- project
-- archive
+  - project
+  - archive
 created: 2025-11-01
-updated: 2025-11-15
-state: done
-up: "[[devlog]]"
-post: "[[snlx.net]]"
+updated: 2026-01-06
+up: "[devlog](/devlog)"
+post: "[snlx.net](/snlx.net)"
 layout: base.njk
 ---
 
 # The start of cert & this site
-![hello world banner](/hello-world.svg)
 
 My university is preparing for an upcoming math competition. They want to give each attendant a certificate so they need a tool that will take a template, put in the names, and export as PDF. They asked me what editor they could use. Sure, they could use something like libreoffice, but filling in each name and saving into a new file manually takes a bit too long. I want to make a simple utility that takes the list of names and the template, generates the certificates and exports them both as a single PDF (to print out) and as separate files (to send via e-mail).
 
-This is a really simple project ([look at it](/cert)), and also a perfect opportunity to build a simple site (this one) as the styles are going to be shared.
+This is a really simple project, and also a perfect opportunity to build a simple site (this one) as the styles are going to be shared.
 I don't want any *images* on the site, so I'll try to stick with SVGs.
 
 ## Cert Layout
