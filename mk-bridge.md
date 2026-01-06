@@ -11,7 +11,7 @@ layout: base.njk
 bridge is a plugin that ties Obsidian.md to my site
 
 ## Which notes
-Public notes are easy, they are currently marked as `post: "[snlx.net](/snlx.net)"` because I've been using [this](https://github.com/snlxnet/post) to extract them.
+Public notes are easy, they are currently marked as `post: "[snlx.net](/snlx.net)"` because I've been using [post](/post) to extract them.
 
 My old way of dealing with private notes is marking them with `post: "[uni](/uni)"` and putting them into a separate directory with that same tool. 
 
