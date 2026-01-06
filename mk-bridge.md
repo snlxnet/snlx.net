@@ -46,3 +46,8 @@ So I create a file called `bridge-sys` that uses frontmatter to store filenames 
 
 ## Linked projects are fun!
 I've implemented (by 2026-01-06 1PM) the github uploads and now I want to do the rest, but to do the rest I first need to finish [mk-api](/mk-api), switching to that!
+
+## Evening 2026-01-06 update
+I'm now using this in my primary vault! The secret notes still don't work becasue the API is done but not deployed, though.
+
+This very update was pushed using the plugin!

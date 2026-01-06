@@ -68,3 +68,6 @@ Then I wanted to test it, so I made a UI. Spent too much time on that tbh.
 
 ## Where did half the day go?
 I didn't plan to make a UI. But... https://api.snlx.net it will make debugging a bit nicer.
+
+## Evening 2026-01-06 update
+I think the actual server is done, though I haven't deployed it yet. I'll try to get back to this 2026-01-10.
