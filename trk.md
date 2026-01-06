@@ -9,7 +9,7 @@ post: "[snlx.net](/snlx.net)"
 layout: base.njk
 ---
 
-<img src="trk.svg" style="border-radius: 1rem; width: 100%">
+![trk.svg](/trk.svg)
 
 Track is an operating system that makes any projector screen touch-sensitive using 2 webcams.
 
