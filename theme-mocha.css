@@ -30,15 +30,18 @@ body {
     color: #cba6f7;
   }
 
-  a,
   em,
   strong {
     color: #a6e3a1;
   }
 
+  a {
+    color: #89b4fa;
+  }
+
   code {
     background: #181825;
-    border: 1px solid #a6e3a1;
+    border: 1px solid #cdd6f4;
   }
 }
 

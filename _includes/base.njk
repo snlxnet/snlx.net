@@ -7,6 +7,7 @@
   <meta name="color-scheme" content="light dark">
   <title>garden | snlx.net</title>
   <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/forms.css">
   <link rel="stylesheet" href="/garden.css">
   <link rel="stylesheet" href="/transitions-garden.css">
   <link rel="stylesheet" href="/theme-mocha.css">
@@ -18,9 +19,9 @@
 
   <div class="sidebar">
     <a href="/" class="logo-link">
-      <svg viewBox="0 0 16 16">
+      <svg viewBox="0 0 16 16" class="logo">
         <style>
-          path {
+          .logo path {
             stroke-width: 1.4;
             stroke: var(--logo-bg);
           }
@@ -144,6 +145,16 @@
 
     document.getElementById("date-created").textContent = calculateRelativeDate("{{ created | dateToStr }}")
     document.getElementById("date-updated").textContent = calculateRelativeDate("{{ updated | dateToStr }}")
+
+    // preload the links
+    document.querySelectorAll("a").forEach((a) => {
+      if (typeof a.href !== "string") return
+      const link = document.createElement("link")
+      link.rel = "prefetch"
+      link.href = a.href
+      link.setAttribute("as", "document")
+      document.body.appendChild(link)
+    })
   </script>
 </body>
 </html>

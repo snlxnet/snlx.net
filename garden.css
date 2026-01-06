@@ -22,7 +22,7 @@ body {
     border-radius: 0.6rem;
   }
 
-  img {
+  img, .card {
     border-radius: 1rem;
     margin: 1rem 0;
     width: 70ch;
@@ -47,4 +47,10 @@ body {
 .note-status {
   padding: 0.6rem 0;
   writing-mode: sideways-rl;
+}
+svg a {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
 }
