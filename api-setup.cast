@@ -1,4 +1,4 @@
-{"version": 2, "width": 97, "height": 24, "timestamp": 1768073999, "env": {"SHELL": "/nix/store/nn27l879np49xvx6l1a8nqnqlp9apd8n-bash-interactive-5.2p37/bin/bash", "TERM": "xterm-kitty"}}
+{"version": 2, "width": 97, "height": 24, "theme": { "fg": "#cdd6f4", "bg": "#181825", "palette": "#45475a:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#bac2de:#585b70:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#a6adc8" }, "timestamp": 1768073999, "env": {"SHELL": "/nix/store/nn27l879np49xvx6l1a8nqnqlp9apd8n-bash-interactive-5.2p37/bin/bash", "TERM": "xterm-kitty"}}
 [0.022856, "o", "\u001b[?2004h\r\r\n\u001b[1;32m[\u001b]0;alex@saturn: ~\u0007alex@saturn:~]$\u001b[0m "]
 [1.225179, "o", "d"]
 [1.39313, "o", "o"]

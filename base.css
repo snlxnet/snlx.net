@@ -9,6 +9,12 @@
   max-width: 100%;
   background: transparent;
 }
+.asciinema, .asciinema * {
+  max-width: unset;
+}
+div.ap-wrapper:fullscreen .ap-player {
+  width: 100% ! important;
+}
 body {
   font-family: "JetBrains Mono", monospace;
   line-height: 1.75;
