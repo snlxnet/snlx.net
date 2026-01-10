@@ -2,7 +2,7 @@
 tags:
   - resource
 created: 2025-07-24
-updated: 2026-01-07
+updated: 2026-01-10
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
 ---

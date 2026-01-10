@@ -3,7 +3,7 @@ tags:
   - project
   - archive
 created: 2025-11-01
-updated: 2026-01-07
+updated: 2026-01-10
 up: "[devlog](/devlog)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk

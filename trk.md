@@ -4,7 +4,7 @@ tags:
   - fleeting
 up: "[wall](/wall)"
 created: 2025-12-01
-updated: 2026-01-10T14:54:17+03:00
+updated: 2026-01-10T14:59:14+03:00
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
 ---
