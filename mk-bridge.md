@@ -2,10 +2,11 @@
 tags:
   - project
 created: 2026-01-05
-updated: 2026-01-10T15:29:45+03:00
+updated: 2026-01-10T23:57:52+03:00
 up: "[snlx.net](/snlx.net)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
+state: wip
 ---
 
 bridge is a plugin that ties Obsidian.md to my site

@@ -3,10 +3,11 @@ tags:
   - project
   - archive
 created: 2025-12-12
-updated: 2026-01-10T15:23:35+03:00
+updated: 2026-01-10T23:58:39+03:00
 up: "[setting-up-api](/setting-up-api)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
+state: done
 ---
 
 what i need is a system that updates itself and runs containers, right? Find something immutable where I won't even have shell access and that's it!

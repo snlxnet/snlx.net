@@ -2,10 +2,11 @@
 tags:
   - resource
 created: 2025-12-13
-updated: 2026-01-10T15:24:17+03:00
+updated: 2026-01-10T23:59:20+03:00
 up: "[setting-up-api](/setting-up-api)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
+state: idea
 ---
 
 it's 12:33 and clearly i won't sleep until i write this down

@@ -3,10 +3,11 @@ tags:
   - resource
   - appendonly
 created: 2026-01-04
-updated: 2026-01-10T15:24:29+03:00
+updated: 2026-01-10T23:58:46+03:00
 cssclasses: grdn
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
+state: done
 ---
 
 ![settling-on-obsidian.svg](/settling-on-obsidian.svg)
