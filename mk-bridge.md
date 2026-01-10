@@ -2,7 +2,7 @@
 tags:
   - project
 created: 2026-01-05
-updated: 2026-01-10T15:23:37+03:00
+updated: 2026-01-10T15:26:27+03:00
 up: "[snlx.net](/snlx.net)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
@@ -69,4 +69,4 @@ I don't think there's any real way to add metadata to random files (aside from H
 
 (writing this on my phone to test it) sidenote: I'm not currently using a pomodoro because my timer was running in Obsidian and i need to reload Obsidian to test the plugin. So the timer got stopped and the new one (just a timer on my phone) doesn't switch to break automatically and I keep snoozing it. Dumbest phoblem ever.
 
-Oh wow [I may have a problem here](https://github.com/snlxnet/snlx.net/commit/e167d55804da7bf2300e8900026a049ea698fb56). The plugin on mobile updated all files. Even though I told it not to.
+Oh wow [I may have a problem here](https://github.com/snlxnet/snlx.net/commit/e167d55804da7bf2300e8900026a049ea698fb56). The plugin on mobile updated all files. Even though I told it not to. Well, I've added datetime update dates (I don't know how to say that) on all files to see if pushing tomorrow will touch those dates. It shouldn't.
