@@ -1,8 +1,9 @@
 ---
 tags:
   - area
+  - archive
 created: 2025-08-11
-updated: 2026-01-06
+updated: 2026-01-07
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
 ---

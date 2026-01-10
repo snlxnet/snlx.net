@@ -2,7 +2,7 @@
 tags:
   - resource
 created: 2025-12-13
-updated: 2026-01-06
+updated: 2026-01-07
 up: "[setting-up-api](/setting-up-api)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk

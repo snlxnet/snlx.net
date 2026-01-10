@@ -2,7 +2,7 @@
 tags:
   - project
 created: 2026-01-05
-updated: 2026-01-06
+updated: 2026-01-10T14:48:12+03:00
 up: "[snlx.net](/snlx.net)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
@@ -48,6 +48,14 @@ So I create a file called `bridge-sys` that uses frontmatter to store filenames 
 I've implemented (by 2026-01-06 1PM) the github uploads and now I want to do the rest, but to do the rest I first need to finish [mk-api](/mk-api), switching to that!
 
 ## Evening 2026-01-06 update
-I'm now using this in my primary vault! The secret notes still don't work becasue the API is done but not deployed, though.
+I'm now using this in my primary vault! The secret notes still don't work because the API is done but not deployed, though.
 
 This very update was pushed using the plugin!
+
+## 2026-01-07 update
+I'm using syncthing to keep the vault on my phone & tablet up to date. Running the publish action on mobile results in a full re-upload of everything. That means I need it to rely on the frontmatter updated field instead of the file stats and switch that field to full ISO datetime.
+
+I don't need *my* plugin to update that field as there's already [a plugin for that](obsidian://show-plugin?id=frontmatter-modified-date).
+
+## That wasn't the issue
+It's 2026-01-10 I've found out that I told it to update the file no matter if it was changed or not. Still, I like having the update field be more precise, so I'll keep the change with that plugin.

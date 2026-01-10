@@ -3,7 +3,7 @@ tags:
   - resource
   - appendonly
 created: 2026-01-04
-updated: 2026-01-06
+updated: 2026-01-07
 cssclasses: grdn
 post: "[snlx.net](/snlx.net)"
 layout: base.njk

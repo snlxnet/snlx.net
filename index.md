@@ -1,26 +1,21 @@
 ---
 tags:
-- project
-- archive
+  - resource
+post: "[snlx.net](/snlx.net)"
 created: 2025-11-04
-updated: 2025-12-07
+updated: 2026-01-10T14:20:59+03:00
 state: wip
 layout: base.njk
 ---
 
-<link rel="prefetch" href="/cert" />
-<link rel="prefetch" href="/cert-site-start" />
+## Now
+I'm working on this site, see [mk-api](/mk-api). The TLDR is I want:
+- quick publishing straight from Obsidian ([why-obsi](/why-obsi))
+- notes only accessible by a link (for work & uni)
+- a pomodoro timer that is mirrored on the site
 
-![hello world banner](/hello-world.svg)
+## Next
+[trk](/trk)
 
-## About
-I'll fill this section in later :)
-
-## Software Projects
-- a publishing workflow for this site, see [mk-api](/mk-api)
-- a certificate generator for the uni
-  - [app](/cert)
-  - [devlog](/cert-site-start)
-
-## Hardware Projects
-- [an os](/trk) for making projectors smart
+## Done
+- [cert](/cert), a certificate generator for a math competition @ the uni (devlog: [cert-site-start](/cert-site-start))
