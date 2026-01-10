@@ -3,7 +3,7 @@ tags:
   - project
   - archive
 created: 2025-12-12
-updated: 2026-01-10
+updated: 2026-01-10T15:23:35+03:00
 up: "[setting-up-api](/setting-up-api)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk

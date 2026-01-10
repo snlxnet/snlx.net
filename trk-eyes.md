@@ -2,7 +2,7 @@
 tags:
   - project
 created: 2025-12-14
-updated: 2026-01-10
+updated: 2026-01-10T15:24:21+03:00
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
 ---

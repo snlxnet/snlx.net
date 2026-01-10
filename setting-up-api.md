@@ -2,7 +2,7 @@
 tags:
   - project
 created: 2025-11-05
-updated: 2026-01-10
+updated: 2026-01-10T15:24:12+03:00
 up: "[snlx.net architecture](/snlx.net architecture)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
