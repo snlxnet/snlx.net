@@ -1,9 +1,10 @@
 ---
 tags:
   - project
+  - archive
 post: "[snlx.net](/snlx.net)"
 created: 2026-01-01
-updated: 2026-01-10T23:55:42+03:00
+updated: 2026-01-10T23:56:22+03:00
 layout: base.njk
 state: done
 ---
