@@ -2,6 +2,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("**/*.css");
   eleventyConfig.addPassthroughCopy("**/*.svg");
+  eleventyConfig.addPassthroughCopy("**/*.cast");
   eleventyConfig.addPassthroughCopy("deps/**/*");
   eleventyConfig.addFilter("dateToStr", (dateObj) => {
     const d = new Date(dateObj)
