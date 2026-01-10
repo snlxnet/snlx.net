@@ -3,7 +3,7 @@ tags:
   - project
 post: "[snlx.net](/snlx.net)"
 created: 2026-01-01
-updated: 2026-01-10T15:23:09+03:00
+updated: 2026-01-10T23:49:58+03:00
 layout: base.njk
 ---
 
@@ -71,3 +71,56 @@ I didn't plan to make a UI. But... https://api.snlx.net it will make debugging a
 
 ## Evening 2026-01-06 update
 I think the actual server is done, though I haven't deployed it yet. I'll try to get back to this 2026-01-10.
+
+## Making the server (2026-01-10)
+The bootstrap already exists, see [setting up api](https://snlx.net/setting-up-api/#:~:text=minimal%20setup) for that. I'll test that in a local VM one last time and then move on to the real thing.
+
+I ended up running into a problem with github serving an older version of the bootstrap script, [this is a known thing](https://github.com/orgs/community/discussions/46691) and the simplest solution for me is to move the script into the main site repo. I've also made it look a bit better by adding comments [did you know ash has multiline comments?](https://stackoverflow.com/questions/43158140/way-to-create-multiline-comments-in-bash) This is a trick I like to use now, you can make a file that is interpreted in different ways by different environments:
+```
+: '
+<h1>Html here</h1>
+'
+
+echo "and bash here"
+```
+
+The message is generated using `figlet api.snlx.net -f cybermedium`.
+
+Now all that's left is to set up caddy.
+
+the setup is trivial, it's just
+```caddyfile
+api.snlx.net {
+    reverse_proxy localhost:4242
+}
+```
+
+## Time to install the system
+I'm choosing, get this, debian. Why? It's available on all providers and I don't need to think about it. The setup I've come up with has no containers. It has almost no moving parts. All the packages on the system are git, deno, mprocs, and caddy.
+
+The downside is that I have ssh on the system now, so the attack surface is larger. However, the password access is disabled, so who cares.
+
+## Or not
+Yep, it's available on all providers, but it has FEWER PACKAGES THAN ALPINE, at least it doesn't have the packages *I need*.
+
+Back to alpine then!
+
+## Reflecting on it
+Honestly, I'm pleasantly surprised by caddy. I've tested the server on a VM and it worked there, but after having issues with NGINX the last time I tried to set up the server, deploying this onto the real machine and seeing it work the first time was very nice.
+
+The system is currently (2026-01-10) running in diskless mode, so the entire setup process looked like this:
+
+<link rel="stylesheet" type="text/css" href="/deps/asciinema-player.css">
+<div id="cast" class="asciinema"></div>
+<script src="/deps/asciinema-player.min.js"></script>
+<script>
+  AsciinemaPlayer.create('/api-setup.cast', document.getElementById('cast'), {
+    terminalFontFamily: "JetBrains Mono",
+    terminalFontSize: "0.62em",
+    rows: 24,
+    cols: 97,
+    fit: false,
+  });
+</script>
+
+By the way, I've been battling the asciinema standalone player for the past 2 hours because my base styles refused to work with it and then because I wanted to make it fit in.
