@@ -3,7 +3,7 @@ tags:
   - project
 post: "[snlx.net](/snlx.net)"
 created: 2026-01-01
-updated: 2026-01-10T23:49:58+03:00
+updated: 2026-01-10T23:53:15+03:00
 layout: base.njk
 ---
 
@@ -116,7 +116,7 @@ The system is currently (2026-01-10) running in diskless mode, so the entire set
 <script>
   AsciinemaPlayer.create('/api-setup.cast', document.getElementById('cast'), {
     terminalFontFamily: "JetBrains Mono",
-    terminalFontSize: "0.62em",
+    terminalFontSize: "0.67rem",
     rows: 24,
     cols: 97,
     fit: false,
