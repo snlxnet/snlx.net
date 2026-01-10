@@ -1,8 +1,42 @@
-wget https://raw.githubusercontent.com/snlxnet/api/refs/heads/main/bootstrap.sh
-chmod +x bootstrap.sh
-./bootstrap.sh
-
-return
+: '
+<style>
+  body {
+    background: #1e1e2e;
+    color: #fab387;
+    font-family: monospace;
+  }
+  code {
+    color: transparent;
+  }
+</style>
+<h1>⚙ Redirecting, please wait...</h1>
 <script>
   window.location.href = "https://github.com/snlxnet/api"
 </script>
+<code>
+'
+
+clear
+echo -ne "
+                     the
+                     
+____ ___  _  ____ _  _ _    _  _  _  _ ____ ___ 
+|__| |__] |  [__  |\ | |     \/   |\ | |___  |  
+|  | |    | .___] | \| |___ _/\_ .| \| |___  |
+
+                 setup script
+
+"
+
+echo -e "c\n1" | setup-apkrepos
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+apk add mprocs deno caddy git
+
+cd
+rm -rf ./api # if it already exists
+git clone https://github.com/snlxnet/api
+
+cd api
+mprocs
