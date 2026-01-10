@@ -4,7 +4,7 @@ tags:
   - archive
 post: "[snlx.net](/snlx.net)"
 created: 2026-01-01
-updated: 2026-01-10T23:59:12+03:00
+updated: 2026-01-11T00:04:21+03:00
 layout: base.njk
 state: done
 ---
@@ -126,6 +126,8 @@ The system is currently (2026-01-10) running in diskless mode, so the entire set
 </script>
 
 By the way, I've been battling the asciinema standalone player for the past 2 hours because my base styles refused to work with it and then because I wanted to make it fit in.
+
+*Clarification*: I'm using docker in the video to create a test machine, the actual server is a VPS with no container engine.
 
 ## What's next?
 This project is *done*, now I need to update [mk-bridge](/mk-bridge) to support secret notes and status updates, then make the frontend able to read both.
