@@ -4,20 +4,23 @@ body {
 .content {
   margin: auto;
   max-width: 70ch;
+  width: calc(100vw - 5rem);
 
   h1,
   h2,
   h3 {
     padding: 1rem 0;
+    text-wrap: balance;
   }
 
   p {
     padding: 0.5rem 0;
+    text-wrap: pretty;
   }
 
   p code,
   li code {
-    white-space: nowrap;
+    overflow-wrap: anywhere;
     box-sizing: content-box;
     padding: 0.1rem 0.6rem;
     border-radius: 0.6rem;
