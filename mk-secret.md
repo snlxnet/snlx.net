@@ -1,7 +1,7 @@
 ---
 tags:
   - project
-updated: 2026-01-11T16:55:22+03:00
+updated: 2026-01-11T17:39:58+03:00
 created: 2026-01-11T13:43:01+03:00
 post: "[snlx.net](/snlx.net)"
 state: wip
@@ -33,3 +33,12 @@ So I need 3 parts:
 I'm writing it AFTER the actual logic, so I'll just link [the current version](https://github.com/snlxnet/api/commit/359ad754113631601a79ccadd6f1c393374d1bcf) and say that I want to refactor it. Eventually, now I just need to get the rest of the system working :)
 
 ## The secret page
+
+## 404
+Eleventy tried to make it hard by creating `404/index.html` instead of `404.html`. Fortunately, there's a solution in their docs, you simply
+
+```html
+---
+permalink: 404.html
+---
+```
