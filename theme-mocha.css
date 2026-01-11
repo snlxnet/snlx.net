@@ -39,7 +39,8 @@ body {
     color: #89b4fa;
   }
 
-  p code {
+  p code,
+  li code {
     background: #181825;
     border: 1px solid #cdd6f4;
   }

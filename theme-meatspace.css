@@ -35,10 +35,15 @@ body {
     background: #abffcd;
   }
 
-  code {
+  p code,
+  li code {
     background: black;
     color: #73ffab;
     border: 1px solid black;
+  }
+
+  pre {
+    background: black;
   }
 }
 
