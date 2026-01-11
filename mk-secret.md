@@ -1,7 +1,7 @@
 ---
 tags:
   - project
-updated: 2026-01-11T17:39:58+03:00
+updated: 2026-01-11T20:33:14+03:00
 created: 2026-01-11T13:43:01+03:00
 post: "[snlx.net](/snlx.net)"
 state: wip
@@ -42,3 +42,5 @@ Eleventy tried to make it hard by creating `404/index.html` instead of `404.html
 permalink: 404.html
 ---
 ```
+
+I also want to change the logo colors to something orange when a secret note is loaded, that can be done with `element.style.setProperty("--var", "val")`.
