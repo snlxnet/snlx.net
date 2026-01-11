@@ -18,8 +18,7 @@ permalink: 404.html
 </head>
 <body>
   <main class="markdown content" id="root">
-    <h1>404</h1>
-    <p>Either this note does not exist or you don't have permission to view it</p>
+    <h1>Please wait</h1>
   </main>
 
   <div class="sidebar">
@@ -108,14 +107,26 @@ permalink: 404.html
     <h2>garden</h2>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
   <script>
     async function main() {
-      const page = window.location.pathname.replace("/", " ").trim()
-      const saved = JSON.parse(localStorage.getItem("ids"))
+      const filename = window.location.pathname.replace("/", " ").trim()
+      const saved = JSON.parse(localStorage.getItem("ids")).join(",")
 
-      console.log({page, saved})
+      const response = await fetch(`https://api.snlx.net/find?name=${filename}&among=${saved}`)
+      if (response.status !== 200) {
+        throw new Error()
+      }
+
+      const page = await response.text()
+      const [[_, frontmatter, body]] = page.matchAll(/---\n([\s\S]+?)\n---\n([\s\S]+)/gm)
+      console.log(frontmatter, body)
+      root.innerHTML = marked.parse(body.trim())
     }
-    main()
+
+    main().catch(() => {
+      root.innerHTML = "<h1>404</h1><p>Either this note does not exist or you don't have permission to view it</p>"
+    })
   </script>
 </body>
 </html>
