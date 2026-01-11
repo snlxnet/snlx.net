@@ -2,7 +2,7 @@
 tags:
   - project
 created: 2026-01-05
-updated: 2026-01-10T23:57:52+03:00
+updated: 2026-01-11T13:28:45+03:00
 up: "[snlx.net](/snlx.net)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
@@ -21,9 +21,7 @@ The new way: if a note has a UUID in its frontmatter, post it to the secure sect
 ## Link resolution
 - go through each linked note and see if it has a UUID or a post tag
 - if it has a UUID, replace the link with `[name](/secure?id=uuid)`
-- if it has a post tag, leave the link
-- if it has neither, replace the link with `[name](
-- /private)`
+- otherwise leave the link
 
 ## Publishing
 The notes are sorted into secret and public
@@ -71,3 +69,20 @@ I don't think there's any real way to add metadata to random files (aside from H
 (writing this on my phone to test it) sidenote: I'm not currently using a pomodoro because my timer was running in Obsidian and i need to reload Obsidian to test the plugin. So the timer got stopped and the new one (just a timer on my phone) doesn't switch to break automatically and I keep snoozing it. Dumbest problem ever.
 
 Oh wow [I may have a problem here](https://github.com/snlxnet/snlx.net/commit/e167d55804da7bf2300e8900026a049ea698fb56). The plugin on mobile updated all files. Even though I told it not to. Well, I've added datetime update dates (I don't know how to say that) on all files to see if pushing tomorrow will touch those dates. It shouldn't.
+
+## And now with the API done
+2026-01-11 It's time to implement secret note uploading in the plugin. I mean, it *should* be a simple POST request. What could go wrong?
+
+Oh of course I would run into CORS. I've added a snippet from [caddy docs](https://caddyserver.com/docs/caddyfile/directives/import) to my config, now Obsidian gets a 200 OK with status CORS error.
+
+The access control header is not found in the response. That's weird. Rebooting the entire server just to be sure.
+
+Same issue. Ah yes of course I did:
+```
+api.snlx.net {
+	import cors example.com
+	reverse_proxy localhost:4242
+}
+```
+
+With the allow origin header set everything is done and is working! I'm moving the updated plugin build to my primary vault.
