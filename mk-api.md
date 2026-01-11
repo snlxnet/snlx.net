@@ -4,7 +4,7 @@ tags:
   - archive
 post: "[snlx.net](/snlx.net)"
 created: 2026-01-01
-updated: 2026-01-11T00:04:21+03:00
+updated: 2026-01-11T13:43:46+03:00
 layout: base.njk
 state: done
 ---
@@ -131,3 +131,5 @@ By the way, I've been battling the asciinema standalone player for the past 2 ho
 
 ## What's next?
 This project is *done*, now I need to update [mk-bridge](/mk-bridge) to support secret notes and status updates, then make the frontend able to read both.
+
+More on the secret notes in [mk-secret](/mk-secret)

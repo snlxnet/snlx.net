@@ -2,7 +2,7 @@
 tags:
   - project
 created: 2026-01-05
-updated: 2026-01-11T13:28:45+03:00
+updated: 2026-01-11T13:43:37+03:00
 up: "[snlx.net](/snlx.net)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
@@ -86,3 +86,6 @@ api.snlx.net {
 ```
 
 With the allow origin header set everything is done and is working! I'm moving the updated plugin build to my primary vault.
+
+## Secret notes
+Continued in [mk-secret](/mk-secret).
