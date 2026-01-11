@@ -18,7 +18,7 @@ permalink: 404.html
 </head>
 <body>
   <main class="markdown content" id="root">
-    <h1>Please wait</h1>
+    <h1>Just a moment...</h1>
   </main>
 
   <div class="sidebar">
@@ -104,7 +104,7 @@ permalink: 404.html
         />
       </svg>
     </a>
-    <h2>garden</h2>
+    <h2 id="section">garden</h2>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
@@ -117,6 +117,12 @@ permalink: 404.html
       if (response.status !== 200) {
         throw new Error()
       }
+
+      section.textContent = "secret note"
+      logo.style.setProperty("--logo-top-left", "#f38ba8")
+      logo.style.setProperty("--logo-top-right", "#fab387")
+      logo.style.setProperty("--logo-bottom-left", "#6c7086")
+      logo.style.setProperty("--logo-bottom-right", "#7f849c")
 
       const page = await response.text()
       const [[_, frontmatter, body]] = page.matchAll(/---\n([\s\S]+?)\n---\n([\s\S]+)/gm)
