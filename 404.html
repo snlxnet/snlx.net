@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>snlx.net</title>
+  <link rel="stylesheet" href="/base.css">
+  <link rel="stylesheet" href="/forms.css">
+  <link rel="stylesheet" href="/garden.css">
+  <link rel="stylesheet" href="/transitions-garden.css">
+  <link rel="stylesheet" href="/theme-mocha.css">
+</head>
+<body>
+  <main class="markdown content" id="root">
+    <h1>404</h1>
+    <p>Either this note does not exist or you don't have permission to view it</p>
+  </main>
+
+  <div class="sidebar">
+    <a href="/" class="logo-link">
+      <svg viewBox="0 0 16 16" class="logo" id="logo">
+        <style>
+          path {
+            stroke-width: 1.4;
+            stroke: var(--logo-bg);
+          }
+        </style>
+
+        <defs>
+          <linearGradient id="grass">
+            <stop offset="0%" stop-color="var(--logo-bottom-left)" />
+            <stop offset="100%" stop-color="var(--logo-bottom-right)" />
+          </linearGradient>
+          <linearGradient id="water">
+            <stop offset="0%" stop-color="var(--logo-top-left)" />
+            <stop offset="100%" stop-color="var(--logo-top-right)" />
+          </linearGradient>
+          <path
+            d="
+              M 1, 4
+
+              L 6, 7
+              Q 8, 8
+                10, 7
+
+              L 15, 4
+
+              L 10, 1
+              Q 8, 0
+                6, 1
+
+              Z
+            "
+            id="top"
+          />
+          <path
+            d="
+              M 1, 4
+
+              L 1, 10
+              Q 1, 12
+                3, 13.2
+
+              L 6,  15
+              Q 8,  16
+                10, 15
+
+              L 13, 13.2
+              Q 15, 12
+                15, 10
+
+              L 15, 4
+              Z
+            "
+            id="bottom"
+          />
+        </defs>
+
+        <rect
+          width="100%"
+          height="100%"
+          fill="var(--logo-bg)"
+        />
+
+        <use
+          href="#bottom"
+          fill="url(#grass)"
+          y="-0.5"
+        />
+        <use
+          href="#top"
+          fill="url(#water)"
+          y="1"
+        />
+        <use
+          href="#top"
+          fill="transparent"
+          y="-2.4"
+        />
+      </svg>
+    </a>
+    <h2>garden</h2>
+  </div>
+
+  <script>
+    async function main() {
+      const page = window.location.pathname.replace("/", " ").trim()
+      const saved = JSON.parse(localStorage.getItem("ids"))
+
+      console.log({page, saved})
+    }
+    main()
+  </script>
+</body>
+</html>
