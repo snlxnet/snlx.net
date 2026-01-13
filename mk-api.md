@@ -4,7 +4,7 @@ tags:
   - archive
 post: "[snlx.net](/snlx.net)"
 created: 2026-01-01
-updated: 2026-01-11T13:43:46+03:00
+updated: 2026-01-13T18:03:14+03:00
 layout: base.njk
 state: done
 ---
@@ -48,7 +48,7 @@ Status updates are the "Currently..." thing on my homepage.
 
 More on the server being a backup: it kind of is. It has a copy of my vault ([why-obsi](/why-obsi), that vault), but deletes it at reboot and should not differ from any other device. The reboots ensure it doesn't get any unwanted state.
 
-More on `GET /file?id=...`, this is exposed through https://snlx.net/secure. You go on that page, enter the UUID of a secret file, it goes to the server, requests a bunch of HTML, that HTML can contain links to other secret files which you can then visit. This is so I can have work / uni files that are accessible by a link, but not public.
+More on `GET /file?id=...`, this is exposed through https://snlx.net/secret. You go on that page, enter the UUID of a secret file, it goes to the server, requests a bunch of HTML, that HTML can contain links to other secret files which you can then visit. This is so I can have work / uni files that are accessible by a link, but not public.
 
 ## Init
 
