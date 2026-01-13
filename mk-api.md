@@ -4,12 +4,12 @@ tags:
   - archive
 post: "[snlx.net](/snlx.net)"
 created: 2026-01-01
-updated: 2026-01-13T20:55:57+03:00
+updated: 2026-01-13T20:59:32+03:00
 layout: base.njk
 state: done
 ---
 
-# Starting Again
+# Making api.snlx.net
 ## Requirements
 
 After failing twice at [setting-up-api](/setting-up-api) and not finding a good [ctr-os-4-api](/ctr-os-4-api), I've come up with a good (I think) idea of what I want the API to look like and what I want it to do.
