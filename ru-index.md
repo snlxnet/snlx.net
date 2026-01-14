@@ -1,21 +1,21 @@
 ---
-layout: base.njk
+tags:
+  - resource
+post: "[snlx.net](/snlx.net)"
 created: 2025-11-04
-updated: 2025-12-07
+updated: 2026-01-14T15:02:17+03:00
+state: wip
+layout: base.njk
 ---
 
-<link rel="prefetch" href="/cert" />
-<link rel="prefetch" href="/ru-cert-site-start" />
+## Настоящее
+Работаю над этим сайтом, подробнее в [ru-mk-api](/ru-mk-api). Краткая версия:
+- публикация заметок упрощена до нажатия `Ctrl+Shift+P` в Obsidian ([why-obsi](/why-obsi))
+- закрытые заметки (для работы / универа) реализованы
+- хочу добавить в Obsidian pomodoro таймер, который будет дублироваться на сайте
 
-# Здравствуйте!
+## Будущее
+[trk](/trk)
 
-![hello world banner](/hello-world.svg)
-
-## Мой софт
-- новым функционалом для этого сайта
-- генератором сертификатов для универа
-  - [приложение](/cert)
-  - [заметки о разработке](/ru-cert-site-start)
-
-## Аппаратные проекты
-- операционка, делающая проекторы умнее
+## Прошлое
+- [cert](/cert), генератор сертификатов для олимпиады по математике в универе (devlog: [cert-site-start](/cert-site-start)), вернусь к нему позже в 2026

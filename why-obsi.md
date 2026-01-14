@@ -3,7 +3,7 @@ tags:
   - resource
   - appendonly
 created: 2026-01-04
-updated: 2026-01-10T23:58:46+03:00
+updated: 2026-01-14T15:25:59+03:00
 cssclasses: grdn
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
@@ -38,7 +38,7 @@ Initially I tried using the `typst renderer` plugin, but I didn't like it for
 So I decided that the real solution is to make an Obsidian clone around typst files instead of markdown files. That, uhm... Didn't go very far... I've had a lot of other things to do, so the project was never started.
 
 ## Why do anything now?
-In the middle of December I've realized that the primary reason I don't put anything new up on the site is that it takes more effort than pressing a shortcut. Like, I'm writing notes locally anyway, I just never push them.
+In the middle of December I've realized that the primary reason I don't put anything new up on the site is that it takes more effort than pressing a shortcut and I don't have the time. Like, I'm writing notes locally anyway, I just never push them.
 
 Another thing is I don't like the fact I can't link to parts of my university notes because each notebook is a single `.typ` file. Now I have a bit of free time, NOW is the time to fix it!
 
@@ -48,7 +48,7 @@ Another thing is I don't like the fact I can't link to parts of my university no
 3. I write notes that require typst using
     1. https://github.com/azyarashi/obsidian-typst-mate
     2. https://typst.app/universe/package/eqalc
-    3. https://typst.app/universe/package/cetz diagrams inside math blocks
+    3. https://typst.app/universe/package/cetz
 4. Then link to them, they are regular notes after all
 5. And build them into finished PDFs with
     1. the regular typst compiler
@@ -58,4 +58,4 @@ Another thing is I don't like the fact I can't link to parts of my university no
 If I ever actually make the typst-based obsidian clone, migrating to that should be relatively easy.
 
 ## Update on the typst integration 2026-01-06
-The typst mate plugin adds a few macros, like if you type mk it creates a math block. I've disabled that because I name notes where I'm starting a new project `mk-xyz` where mk stands for making. You can see that in [mk-api](/mk-api) and [mk-bridge](/mk-bridge). Aside from that, great plugin, does its job!
+The typst mate plugin adds a few macros, like if you type mk it creates a math block. I've disabled that because I name notes where I'm starting a new project `mk-projectname` where mk stands for making. You can see that in [mk-api](/mk-api) and [mk-bridge](/mk-bridge). Aside from that, great plugin, does its job!

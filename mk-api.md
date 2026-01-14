@@ -4,7 +4,7 @@ tags:
   - archive
 post: "[snlx.net](/snlx.net)"
 created: 2026-01-01
-updated: 2026-01-13T20:59:32+03:00
+updated: 2026-01-14T10:21:48+03:00
 layout: base.njk
 state: done
 ---
