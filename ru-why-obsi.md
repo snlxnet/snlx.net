@@ -1,9 +1,8 @@
 ---
 tags:
   - resource
-  - appendonly
 created: 2026-01-04
-updated: 2026-01-14T15:26:23+03:00
+updated: 2026-01-14T15:50:47+03:00
 cssclasses: grdn
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
@@ -54,8 +53,6 @@ Typst - это программа для форматирования докум
     1. обычным typst компилятором
     2. в паре с https://typst.app/universe/package/cmarker
 6. Публикацию заметок вынести в плагин, см. [mk-bridge](/mk-bridge)
-
-If I ever actually make the typst-based obsidian clone, migrating to that should be relatively easy.
 
 Если я всё-таки когда-то дойду до приложения вроде obsidian, но на основе `.typ`, то переход на него с такой системы должен быть достаточно простым.
 
