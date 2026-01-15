@@ -1,5 +1,5 @@
 ---
-updated: 2026-01-15T16:05:01+03:00
+updated: 2026-01-15T16:05:56+03:00
 created: 2026-01-12T14:34:54+03:00
 post: "[snlx.net](/snlx.net)"
 state: idea
