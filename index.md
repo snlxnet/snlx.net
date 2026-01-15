@@ -3,7 +3,7 @@ tags:
   - resource
 post: "[snlx.net](/snlx.net)"
 created: 2025-11-04
-updated: 2026-01-14T15:02:36+03:00
+updated: 2026-01-15T16:05:51+03:00
 state: wip
 layout: base.njk
 ---
