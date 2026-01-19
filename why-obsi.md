@@ -2,7 +2,7 @@
 tags:
   - resource
 created: 2026-01-04
-updated: 2026-01-14T15:50:51+03:00
+updated: 2026-01-19T15:42:18+03:00
 cssclasses: grdn
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
@@ -56,5 +56,16 @@ Another thing is I don't like the fact I can't link to parts of my university no
 
 If I ever actually make the typst-based obsidian clone, migrating to that should be relatively easy.
 
-## Update on the typst integration 2026-01-06
-The typst mate plugin adds a few macros, like if you type mk it creates a math block. I've disabled that because I name notes where I'm starting a new project `mk-projectname` where mk stands for making. You can see that in [mk-api](/mk-api) and [mk-bridge](/mk-bridge). Aside from that, great plugin, does its job!
+## Simple Adapter
+I've reconfigured the typst mate plugin to only interpret the typst+show code blocks, not the regular typst ones. Now I'm using [this simple script](https://gist.github.com/snlxnet/ff611be55809abc4a852f4fbcd3d04e1) to read markdown with typst used for later formatting. It evaluates the typst+show and math blocks and extracts the frontmatter (using the cmarker plugin).
+
+The only difference between the script I actually use and the gist is that my links look like this:
+```typst
+#show link: set text(fill: blue)
+#show link: underline
+#show regex("\\[\\[([\S ]+)\]\]"): (match) => {
+  let file = match.text.slice(2, -2)
+  let url = "https://snlx.net/" + file
+  link(url)[#file]
+}
+```
