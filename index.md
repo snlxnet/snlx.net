@@ -3,7 +3,7 @@ tags:
   - resource
 post: "[snlx.net](/snlx.net)"
 created: 2025-11-04
-updated: 2026-01-19T19:24:52+03:00
+updated: 2026-01-21T23:14:05+03:00
 state: wip
 layout: base.njk
 ---
@@ -20,4 +20,4 @@ I'm working on this site, see [mk-api](/mk-api). TLDR:
 [trk](/trk)
 
 ## Past Projects
-- [cert](/cert), a certificate generator for a math competition @ the uni (devlog: [cert-site-start](/cert-site-start)), I'll return to it later in 2026
+- [cert](/cert), a certificate generator for a math competition @ the uni (devlog: [cert-site-start](/cert-site-start)), I'll return to it later in 2026 ([revive-cert](/revive-cert))

@@ -1,9 +1,10 @@
 ---
 tags:
   - project
+  - archive
 created: 2025-11-05
-updated: 2026-01-10T23:58:28+03:00
-up: "[snlx.net architecture](/snlx.net architecture)"
+updated: 2026-01-21T23:15:51+03:00
+up: "[my-infra](/my-infra)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
 state: done
