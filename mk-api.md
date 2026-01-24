@@ -4,7 +4,7 @@ tags:
   - archive
 post: "[snlx.net](/snlx.net)"
 created: 2026-01-01
-updated: 2026-01-14T17:08:50+03:00
+updated: 2026-01-24T11:58:49+03:00
 layout: base.njk
 state: done
 ---
@@ -103,13 +103,12 @@ The system is currently (2026-01-10) running in diskless mode, so the entire set
 <div id="cast" class="asciinema"></div>
 <script src="/deps/asciinema-player.min.js"></script>
 <script>
-  AsciinemaPlayer.create('/api-setup.cast', document.getElementById('cast'), {
-    terminalFontFamily: "JetBrains Mono",
-    terminalFontSize: "0.67rem",
-    rows: 24,
-    cols: 97,
-    fit: false,
-  });
+  document.fonts.load("1em JetBrains Mono").then(() => {
+    AsciinemaPlayer.create('/api-setup.cast', document.getElementById('cast'), {
+      preload: true,
+      terminalFontFamily: "'JetBrains Mono'"
+    });
+  })
 </script>
 
 Sidenote: I've been battling the asciinema standalone player for the past 2 hours because my base styles refused to work with it and then because I wanted to make it fit in.
