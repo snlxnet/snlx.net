@@ -3,13 +3,13 @@ tags:
   - project
   - archive
 created: 2025-11-01
-updated: 2026-01-10T15:23:31+03:00
+updated: 2026-01-24T14:27:27+03:00
 up: "[devlog](/devlog)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
 ---
 
-# The start of cert & this site
+![hello-world.svg](/hello-world.svg)
 
 My university is preparing for an upcoming math competition. They want to give each attendant a certificate so they need a tool that will take a template, put in the names, and export as PDF. They asked me what editor they could use. Sure, they could use something like libreoffice, but filling in each name and saving into a new file manually takes a bit too long. I want to make a simple utility that takes the list of names and the template, generates the certificates and exports them both as a single PDF (to print out) and as separate files (to send via e-mail).
 

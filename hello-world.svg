@@ -1,5 +1,4 @@
 <svg
-  width="200"
   viewBox="0 0 21 9"
   version="1.1"
   id="svg1"
@@ -34,15 +33,15 @@
       50% { opacity: 0; }
       100% { opacity: 1; }
     }
-    #star1 { animation: 5s ease infinite twinkle; }
-    #star2 { animation: 6s ease infinite twinkle; }
-    #star3 { animation: 7s ease infinite twinkle; }
-    #star4 { animation: 8s ease infinite twinkle; }
-    #star5 { animation: 9s ease infinite twinkle; }
-    #star6 { animation: 10s ease infinite twinkle; }
-    #star7 { animation: 11s ease infinite twinkle; }
-    #star8 { animation: 12s ease infinite twinkle; }
-    #star9 { animation: 13s ease infinite twinkle; }
+    #star1 { animation: 2s ease infinite twinkle; }
+    #star2 { animation: 3s ease infinite twinkle; }
+    #star3 { animation: 4s ease infinite twinkle; }
+    #star4 { animation: 5s ease infinite twinkle; }
+    #star5 { animation: 6s ease infinite twinkle; }
+    #star6 { animation: 7s ease infinite twinkle; }
+    #star7 { animation: 8s ease infinite twinkle; }
+    #star8 { animation: 9s ease infinite twinkle; }
+    #star9 { animation: 10s ease infinite twinkle; }
   </style>
   <rect
     style="fill:#181825"

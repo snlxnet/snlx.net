@@ -2,11 +2,11 @@
 tags:
   - resource
 created: 2026-01-04
-updated: 2026-01-19T15:42:18+03:00
+updated: 2026-01-24T12:05:10+03:00
 cssclasses: grdn
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
-state: done
+state: wip
 ---
 
 ![settling-on-obsidian.svg](/settling-on-obsidian.svg)
@@ -69,3 +69,25 @@ The only difference between the script I actually use and the gist is that my li
   link(url)[#file]
 }
 ```
+
+## Asciinema Updates: work in progress
+```asciinema
+api-setup.cast
+preload: true
+```
+
+This works in Obsidian, but not on the site. What works on the site is
+
+```html
+<div id="cast" class="asciinema"></div>
+<script>
+  document.fonts.load("1em JetBrains Mono").then(() => {
+    AsciinemaPlayer.create('/api-setup.cast', document.getElementById('cast'), {
+      preload: true,
+      terminalFontFamily: "'JetBrains Mono'"
+    });
+  })
+</script>
+```
+
+I'll make the site support the first one when doing [drop-eleventy](/drop-eleventy)
