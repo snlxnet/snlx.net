@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 50ch 1fr;
+  font: 16px monospace;
+  line-height: 1.75;
+  text-wrap: pretty;
+  background: #1e1e2e;
+}
+
+nav {
+  background: #181825;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+  border-left: .38em solid;
+  border-image: linear-gradient(to bottom, #a6e3a1 0%, #89b4fa 100%) 1;
+}
+nav a {
+  color: #cdd6f4;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+nav li {
+  list-style: none;
+}
+nav li::before {
+  content: "";
+  color: #94e2d5;
+  display: inline-block;
+  width: 1ch;
+  margin-right: 1ch;
+  height: .38em;
+}
+nav li.back::before {
+  background: #a6e3a1;
+}
+nav li.current::before {
+  content: "<";
+  font-weight: bolder;
+}
+nav li.forward::before {
+  background: #89b4fa;
+}
+.source {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+main {
+  margin: auto;
+  max-width: 80ch;
+  color: #cdd6f4;
+  padding: 2em;
+}
+
+h1,
+h2,
+h3 {
+  color: #b4befe;
+}
+
+h1::before { content: "# " }
+h2::before { content: "## " }
+h3::before { content: "### " }
+
+a {
+  color: #89b4fa;
+}
+
+em, strong {
+  color: #a6e3a1;
+}
+
+img, svg {
+  width: 100%;
+  border-radius: 1em;
+}
+
+hr {
+  border: .38em dashed #89b4fa;
+}
