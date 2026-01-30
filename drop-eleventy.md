@@ -1,5 +1,5 @@
 ---
-updated: 2026-01-24T12:07:22+03:00
+updated: 2026-01-30T17:18:54+03:00
 created: 2026-01-20T19:48:24+03:00
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
@@ -15,5 +15,7 @@ required features:
 - typst math blocks
 - link to heading support ([why-obsi#Simple Adapter](/why-obsi#Simple Adapter), for example)
 
+Update 2026-01-30: Obisdian [can render the document](https://forum.obsidian.md/t/how-to-get-the-rendered-markdown-html/91020/3), no need for external libs.
+
 ::
-<!--SR:!2026-01-26,2,230-->
+<!--SR:!2026-01-28,1,210-->
