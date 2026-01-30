@@ -15,6 +15,9 @@ body {
 nav {
   background: #181825;
   height: 100dvh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -62,7 +65,7 @@ nav li.forward::before {
 }
 
 main {
-  margin: auto;
+  margin: 0 auto;
   max-width: 80ch;
   color: #cdd6f4;
   padding: 2em;
