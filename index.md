@@ -3,7 +3,7 @@ tags:
   - resource
 post: "[snlx.net](/snlx.net)"
 created: 2025-11-04
-updated: 2026-02-02T16:54:26+03:00
+updated: 2026-02-02T17:17:41+03:00
 state: wip
 layout: base.njk
 ---
@@ -13,6 +13,7 @@ I'm working on this site, see [mk-api](/mk-api). TLDR:
 - publishing is now as simple pressing `Ctrl+Shift+P` in Obsidian ([why-obsi](/why-obsi))
 - secret notes (for work & uni) are now implemented
 - working on making the backlinks visible. The [test site](https://github.com/snlxnet/bridge-sandbox/) works, but I'm not yet quite ready to bring that here (see [mk-bridge](/mk-bridge))
+- I also want to add a commit message window to the publishing action
 - I want to add a pomodoro timer to my Obsidian system that is mirrored on the site
 
 ## Planned
