@@ -1,23 +1,26 @@
 ---
 tags:
-  - resource
+  - area
+updated: 2026-02-03T11:40:07+03:00
+created: 2026-02-03T11:14:28+03:00
 post: "[snlx.net](/snlx.net)"
-created: 2025-11-04
-updated: 2026-02-02T17:17:41+03:00
-state: wip
 layout: base.njk
 ---
 
-## Now
-I'm working on this site, see [mk-api](/mk-api). TLDR:
-- publishing is now as simple pressing `Ctrl+Shift+P` in Obsidian ([why-obsi](/why-obsi))
-- secret notes (for work & uni) are now implemented
-- working on making the backlinks visible. The [test site](https://github.com/snlxnet/bridge-sandbox/) works, but I'm not yet quite ready to bring that here (see [mk-bridge](/mk-bridge))
-- I also want to add a commit message window to the publishing action
-- I want to add a pomodoro timer to my Obsidian system that is mirrored on the site
+## Winter Workflow Improvements
 
-## Planned
-[trk](/trk)
+The general direction I'm going this season is removing friction from my workflow. This includes quite a few projects!
 
-## Past Projects
-- [cert](/cert), a certificate generator for a math competition @ the uni (devlog: [cert-site-start](/cert-site-start)), I'll return to it later in 2026 ([revive-cert](/revive-cert))
+## Active Projects
+- [tg-bot](/tg-bot)
+- [mk-bridge](/mk-bridge)
+
+## Finished Projects
+- [mk-api](/mk-api), gives me a simple base system to build projects on
+- [mk-secret](/mk-secret), allows having secret notes on this very site
+
+## WIP Posts
+- [uni-obsi](/uni-obsi), goes into more detail on using Obsidian for the uni
+
+## Finished Posts
+- [why-obsi](/why-obsi), denfines my project / idea / document management system

@@ -1,5 +1,5 @@
 ---
-updated: 2026-02-02T23:02:43+03:00
+updated: 2026-02-03T11:37:38+03:00
 created: 2026-01-30T18:45:32+03:00
 post: "[snlx.net](/snlx.net)"
 state: idea
@@ -7,6 +7,9 @@ tags:
   - project
 layout: base.njk
 ---
+
+## Status
+The project in on hold for a few days, then I'm moving it into the API and integrating with bridge. That makes it complex-ish, but makes it work without me having the computer on all the time.
 
 ## Purpose
 - fleeting notes
