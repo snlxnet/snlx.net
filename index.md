@@ -1,7 +1,7 @@
 ---
 tags:
   - area
-updated: 2026-02-03T11:40:07+03:00
+updated: 2026-02-03T12:50:46+03:00
 created: 2026-02-03T11:14:28+03:00
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
@@ -12,6 +12,7 @@ layout: base.njk
 The general direction I'm going this season is removing friction from my workflow. This includes quite a few projects!
 
 ## Active Projects
+- [pocket-kb](/pocket-kb)
 - [tg-bot](/tg-bot)
 - [mk-bridge](/mk-bridge)
 
