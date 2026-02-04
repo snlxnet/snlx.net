@@ -2,7 +2,7 @@
 tags:
   - project
 created: 2026-01-05
-updated: 2026-02-03T11:40:33+03:00
+updated: 2026-02-04T19:34:19+03:00
 up: "[snlx.net](/snlx.net)"
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
@@ -93,6 +93,6 @@ Continued in [mk-secret](/mk-secret).
 ## Backlinks & Redesign
 I've had a pretty good idea of how the site should look like, like, 2 years ago? Then I forgot about it. A few weeks ago, I've found a sketch in the archives and wanted to finally bring it to life.
 
-The plugin [now](https://github.com/snlxnet/bridge/tree/9ae9ea9bdac8f81a4253ca5b8cab1593a52c3265) outputs HTML directly, rendered by Obsidian. This means that callouts are now easier to implement and typst math blocks finally work. I'll get back to this within the week (maybe even today) & make it output both HTML & MD so that the source files are downloadable, too. And I need to add redirects.
+The plugin [now](https://github.com/snlxnet/bridge/tree/9ae9ea9bdac8f81a4253ca5b8cab1593a52c3265) outputs HTML directly, rendered by Obsidian. This means that callouts are now easier to implement and typst math blocks finally work. I'll get back to this within the week (maybe even today) & make it output both HTML & MD so that the source files are downloadable, too. And I need to add redirects. And show the metadata.
 
 I may also put private links into the public garden, I don't know yet. They will obviously still not work, but they may be useful for those who do have access.
