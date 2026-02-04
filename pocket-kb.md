@@ -1,5 +1,5 @@
 ---
-updated: 2026-02-03T12:50:20+03:00
+updated: 2026-02-04T16:58:18+03:00
 created: 2026-01-25T11:52:58+03:00
 tags:
   - project
@@ -78,3 +78,12 @@ The bottom two, in purple and orange, are the microcontroller housing and the ba
 The middle section (in blue) holds the switches and the wires. It also has magnets, but those are glued in because the section's in the middle and no-one will ever see it anyway, yet making the magnets closer to the other parts makes them stick better. Imagine the magnets as cylinders around the red lines on the sketch.
 
 The top section (in green) is the one that holds the switches from the top, and so it has to be attached securely to the middle. It can't have all 8 magnets because those would be in the way of the keycaps, so it only has 4. To compensate for that, I've added 4 screws to the design. Sure, it looks a bit worse, but it will hold together better.
+
+## Scrapping It
+I've printed all the parts and they don't lign up. They almost fit, but not quite. So frustrating!
+
+Also I didn't want the screws to be visible and they are now. This makes me want to start from the very beginning.
+
+The fisrt thing I'm doing is ditching the magnets. It's great to have them, but they slow down prototype and don't make for a rigid enough case.
+
+I'll rewrite this section probably this week and add images, so far the redesign is going great. The new thing is simpler, it still has 3 parts, though I'm thinking of splitting it into 4 or 5. Everything is held together with regular M3x15mm screws.

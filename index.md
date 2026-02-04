@@ -1,7 +1,7 @@
 ---
 tags:
   - area
-updated: 2026-02-03T12:50:46+03:00
+updated: 2026-02-03T22:14:38+03:00
 created: 2026-02-03T11:14:28+03:00
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
