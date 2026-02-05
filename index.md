@@ -1,13 +1,15 @@
 ---
 tags:
   - area
-updated: 2026-02-03T22:14:38+03:00
+updated: 2026-02-05T20:01:09+03:00
 created: 2026-02-03T11:14:28+03:00
 post: "[snlx.net](/snlx.net)"
 layout: base.njk
 ---
 
-## Winter Workflow Improvements
+![winter-workflow.svg](/winter-workflow.svg)
+
+I still can't draw though!
 
 The general direction I'm going this season is removing friction from my workflow. This includes quite a few projects!
 
