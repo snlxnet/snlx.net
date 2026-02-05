@@ -9,7 +9,7 @@ function createMobileButton() {
   mobileButton.innerHTML = ICON_SHOW_MENU
   mobileButton.classList.add("mobile-button")
   mobileButton.addEventListener("click", () => {
-    if (nav.classList.contains("show")) {
+    if (UI_NAV.classList.contains("show")) {
       UI_NAV.classList.remove("show")
       mobileButton.innerHTML = ICON_SHOW_MENU
     } else {
