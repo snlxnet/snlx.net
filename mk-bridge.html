@@ -49,7 +49,7 @@
                     <path d="M21 3v5h-5"></path>
                     <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
                     <path d="M8 16H3v5"></path>
-                </svg>updated 0.41 hrs ago</div>
+                </svg>updated 0.52 hrs ago</div>
             <div class="tag">#project</div>
         </div>
         <pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">tags</span><span class="token punctuation">:</span>
@@ -62,7 +62,7 @@
 <span class="token key atrule">state</span><span class="token punctuation">:</span> wip</code></pre>
         <p dir="auto">bridge is a plugin that ties Obsidian.md to my site</p>
         <h2 data-heading="Which notes" dir="auto">Which notes</h2>
-        <p dir="auto">Public notes are easy, they are currently marked as <code>post: "[[snlx.net]]"</code> because I've been using <a data-href="post" href="/post" class="internal-link">post</a> to extract them.</p>
+        <p dir="auto">Public notes are easy, they are currently marked as <code>post: "[[snlx.net]]"</code> because I've been using <a data-href="post" href="/" class="internal-link">post</a> to extract them.</p>
         <p dir="auto">My old way of dealing with private notes is marking them with <code>post: "[[uni]]"</code> and putting them into a separate directory with that same tool. </p>
         <p dir="auto">The new way: if a note has a UUID in its frontmatter, post it to the secure section.</p>
         <h2 data-heading="Link resolution" dir="auto">Link resolution</h2>
@@ -74,7 +74,7 @@
         <h2 data-heading="Publishing" dir="auto">Publishing</h2>
         <p dir="auto">The notes are sorted into secret and public</p>
         <ul>
-            <li dir="auto">secret are sent to the API, see <a data-href="mk-api" href="/mk-api" class="internal-link">mk-api</a></li>
+            <li dir="auto">secret are sent to the API, see <a data-href="mk-api" href="/" class="internal-link">mk-api</a></li>
             <li dir="auto">public are sent to the github API</li>
         </ul>
         <h2 data-heading="How to even make a plugin" dir="auto">How to even make a plugin</h2>
@@ -90,7 +90,7 @@
         <p dir="auto">To do lazy uploads I need to know when the file changed here and when it last changed on the server. For the sake of not making more requests than I strictly need, I'll store the last upload datetime of each file in the vault.</p>
         <p dir="auto">So I create a file called <code>bridge-sys</code> that uses frontmatter to store filenames as keys, their last update as of the last upload as values. Then the plugin can compare the actual last update to the last update as of last upload and re-upload if that has changed.</p>
         <h2 data-heading="Linked projects are fun!" dir="auto">Linked projects are fun!</h2>
-        <p dir="auto">I've implemented (by 2026-01-06 1PM) the github uploads and now I want to do the rest, but to do the rest I first need to finish <a data-href="mk-api" href="/mk-api" class="internal-link">mk-api</a>, switching to that!</p>
+        <p dir="auto">I've implemented (by 2026-01-06 1PM) the github uploads and now I want to do the rest, but to do the rest I first need to finish <a data-href="mk-api" href="/" class="internal-link">mk-api</a>, switching to that!</p>
         <h2 data-heading="Evening 2026-01-06 update" dir="auto">Evening 2026-01-06 update</h2>
         <p dir="auto">I'm now using this in my primary vault! The secret notes still don't work because the API is done but not deployed, though.</p>
         <p dir="auto">This very update was pushed using the plugin!</p>
@@ -117,10 +117,10 @@
 </code></pre>
         <p dir="auto">With the allow origin header set everything is done and is working! I'm moving the updated plugin build to my primary vault.</p>
         <h2 data-heading="Secret notes" dir="auto">Secret notes</h2>
-        <p dir="auto">Continued in <a data-href="mk-secret" href="/mk-secret" class="internal-link">mk-secret</a>.</p>
+        <p dir="auto">Continued in <a data-href="mk-secret" href="/" class="internal-link">mk-secret</a>.</p>
         <h2 data-heading="Backlinks &amp; Redesign" dir="auto">Backlinks &amp; Redesign</h2>
         <p dir="auto">I've had a pretty good idea of how the site should look like, like, 2 years ago? Then I forgot about it. A few weeks ago, I've found a sketch in the archives and wanted to finally bring it to life.</p>
-        <p dir="auto">Aside: I've wanted to try <a data-href="svelte-garden" href="/svelte-garden" class="internal-link">svelte-garden</a>, but decided not to, more in that note.</p>
+        <p dir="auto">Aside: I've wanted to try <a data-href="svelte-garden" href="/" class="internal-link">svelte-garden</a>, but decided not to, more in that note.</p>
         <p dir="auto">The plugin <a data-tooltip-position="top" aria-label="https://github.com/snlxnet/bridge/tree/9ae9ea9bdac8f81a4253ca5b8cab1593a52c3265" class="external-link" href="https://github.com/snlxnet/bridge/tree/9ae9ea9bdac8f81a4253ca5b8cab1593a52c3265">now</a> outputs HTML directly, rendered by Obsidian. This means that callouts are now easier to implement and typst math blocks finally work. I'll get back to this within the week (maybe even today) <del>&amp; make it output both HTML &amp; MD so that the source files are downloadable, too.</del> And I need to add redirects. And show the metadata.</p>
         <p dir="auto">I may also put private links into the public garden, I don't know yet. They will obviously still not work, but they may be useful for those who do have access.</p>
         <p dir="auto">2026-02-05 This was the stupidest thing I've ever written and the stupidest thing I've ever fixed:</p>
