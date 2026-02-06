@@ -65,6 +65,31 @@ nav li.forward::before {
   gap: 1em;
 }
 
+.metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  font-weight: bold;
+}
+.metadata div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1ch;
+  padding: 1em 1.62em;
+  border-radius: 1em;
+  background: #181825;
+  color: #74c7ec;
+}
+.metadata .tag {
+  background: #74c7ec;
+  color: #1e1e2e;
+  flex: 1;
+}
+.metadata svg {
+  width: unset;
+}
+
 main {
   margin: 0 auto;
   max-width: 80ch;
@@ -87,7 +112,7 @@ a {
 }
 
 em, strong {
-  color: #a6e3a1;
+  color: #74c7ec;
 }
 
 img, svg {
@@ -96,7 +121,7 @@ img, svg {
 }
 
 hr {
-  border: .38em dashed #89b4fa;
+  border: .38em dashed #74c7ec;
 }
 
 button {
