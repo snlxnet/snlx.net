@@ -1,4 +1,11 @@
 /* ---- ---- ---- ---- */
+:root {
+  --accent: #74c7ec;
+  --internal-link: #89b4fa;
+  --external-link: #cba6f7;
+  --dead-link: #f38ba8;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -79,10 +86,10 @@ nav li.forward::before {
   padding: 1em 1.62em;
   border-radius: 1em;
   background: #181825;
-  color: #74c7ec;
+  color: var(--accent);
 }
 .metadata .tag {
-  background: #74c7ec;
+  background: var(--accent);
   color: #1e1e2e;
   flex: 1;
 }
@@ -108,11 +115,16 @@ h2::before { content: "## " }
 h3::before { content: "### " }
 
 a {
-  color: #89b4fa;
+  color: var(--internal-link);
+}
+
+.external-link {
+  color: var(--external-link);
 }
 
 em, strong {
-  color: #74c7ec;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 img, svg {
@@ -121,7 +133,7 @@ img, svg {
 }
 
 hr {
-  border: .38em dashed #74c7ec;
+  border: .38em dashed var(--accent);
 }
 
 button {
