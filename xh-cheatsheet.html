@@ -41,7 +41,7 @@
 <span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-11T13:23:58+03:00</span>
 <span class="token key atrule">state</span><span class="token punctuation">:</span> wip
 <span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
-<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code></pre>
         <p dir="auto"><a data-tooltip-position="top" aria-label="https://github.com/ducaale/xh" class="external-link" href="https://github.com/ducaale/xh">xh</a> is a simple http client for the terminal <em>available in your package manager</em>.</p>
         <h2 data-heading="Verbs" dir="auto">Verbs</h2>
         <pre class="language-shell"><code class="language-shell is-loaded"><span class="token comment"># request to http://localhost:300/users</span>
@@ -57,7 +57,7 @@ xh httpbin.org/post <span class="token assign-left variable">key</span><span cla
 
 <span class="token comment"># any other verb</span>
 xh delete httpbin.org/delete
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <h2 data-heading="Sessions" dir="auto">Sessions</h2>
         <pre class="language-shell"><code class="language-shell is-loaded"><span class="token builtin class-name">export</span> <span class="token assign-left variable">api</span><span class="token operator">=</span><span class="token string">":3000"</span>
 
@@ -65,12 +65,12 @@ xh get <span class="token variable">$api</span>/whoami
 
 xh <span class="token parameter variable">--session</span> root post <span class="token variable">$api</span>/login <span class="token assign-left variable">email</span><span class="token operator">=</span>AzureDiamond@example.com <span class="token assign-left variable">pass</span><span class="token operator">=</span>hunter2
 xh <span class="token parameter variable">--session</span> root get <span class="token variable">$api</span>/whoami
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <p dir="auto">Note that you can create multiple sessions at once.</p>
         <h2 data-heading="Filtering" dir="auto">Filtering</h2>
         <pre class="language-shell"><code class="language-shell is-loaded"><span class="token comment"># pipes &amp; json filtering</span>
 xh get httpbin.org/json <span class="token parameter variable">--body</span> <span class="token operator">|</span> jq <span class="token parameter variable">-r</span> .slideshow.slides<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>.title
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <h2 data-heading="Sources" dir="auto">Sources</h2>
         <ul>
             <li dir="auto"><a class="external-link" href="https://www.namtao.com/oxidise-your-cli-2025/">https://www.namtao.com/oxidise-your-cli-2025/</a></li>

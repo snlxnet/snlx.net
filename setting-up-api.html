@@ -53,7 +53,7 @@
 <span class="token key atrule">up</span><span class="token punctuation">:</span> <span class="token string">"[[my-infra]]"</span>
 <span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
 <span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk
-<span class="token key atrule">state</span><span class="token punctuation">:</span> done</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<span class="token key atrule">state</span><span class="token punctuation">:</span> done</code></pre>
         <h1 data-heading="Setting up `api.snlx.net`" dir="auto">Setting up <code>api.snlx.net</code></h1>
         <h2 data-heading="The idea" dir="auto">The idea</h2>
         <h3 data-heading="Goodbye Ubuntu!" dir="auto">Goodbye Ubuntu!</h3>
@@ -73,7 +73,7 @@
         <p dir="auto">Now for the existing services. <a class="external-link" href="https://qrs.snlx.net">https://qrs.snlx.net</a> needs a peerjs server instance which is running in a container, no problem there. It also needs coturn which is just <code>services.coturn.enable = true;</code>.</p>
         <p dir="auto"><a class="external-link" href="https://github.com/snsalx/sld">https://github.com/snsalx/sld</a> is running a custom container image that has 2 exposed ports. The start command used to be:</p>
         <pre class="language-bash"><code class="language-bash is-loaded"><span class="token function">docker</span> run <span class="token parameter variable">-p</span> <span class="token number">3000</span>:3000 <span class="token parameter variable">-p</span> <span class="token number">8090</span>:8090 <span class="token parameter variable">-e</span> <span class="token assign-left variable">BACKEND_URL</span><span class="token operator">=</span><span class="token string">"https://sld-backend.snlx.net"</span> <span class="token parameter variable">-v</span> sld:/pb/pb_data sld:latest
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <p dir="auto">So the new config should run a container that:</p>
         <ul>
             <li dir="auto">publishes port 3000 to 8089 (since I'll need 3000 for development)</li>
@@ -95,7 +95,7 @@
             <li dir="auto">and if you force it to rebuild, you can say goodbye to your bootloader. It did warn me :)</li>
             <li dir="auto">my VPS provider <em>does</em> allow booting from and installation CD, but the boot order is set up so that it first tries the disk. Wiping the bootloader on the disk (or the entire disk, for that matter), makes it boot from the CDROM</li>
         </ol>
-        <p dir="auto">See <a data-href="dynamic-attempt-1-log" href="dynamic-attempt-1-log" class="internal-link">dynamic-attempt-1-log</a> for more details.</p>
+        <p dir="auto">See <a data-href="dynamic-attempt-1-log" href="/app://obsidian.md/dynamic-attempt-1-log" class="internal-link">dynamic-attempt-1-log</a> for more details.</p>
         <h2 data-heading="Attempt 1" dir="auto">Attempt 1</h2>
         <p dir="auto">The plan is to use diskless alpine this time. It is tiny, immutable by default and NOT declarative. Although...</p>
         <p dir="auto">Since I need an API server anyway, I can put it on the OS directly, no container and make an endpoint that check GitHub for updates, pulls them and <em>sets up containers</em> with a compose file, <em>making it declarative</em>.</p>
@@ -113,11 +113,11 @@
         <p dir="auto">To configure a new server: 1) boot into alpine and 2) type</p>
         <pre class="language-shell"><code class="language-shell is-loaded">root
 setup-interfaces <span class="token parameter variable">-ar</span> <span class="token operator">&amp;&amp;</span> <span class="token function">wget</span> snlx.net/api <span class="token operator">&amp;&amp;</span> <span class="token function">sh</span> api
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <h3 data-heading="The first *actual* endpoint" dir="auto">The first <em>actual</em> endpoint</h3>
         <p dir="auto"><code>api.snlx.net/mail</code> is an unauthenticated endpoint that requires you to provide the SMTP credentials in the request body and then uses them to send the given emails to the given server.</p>
         <p dir="auto">Or I wanted it to. It didn't work, I couldn't make yandex accept my auth credentials. Fine, I'll try plunk and remove the requirement of SMTP credentials. May as well use something like emailjs, but its free tier is way worse and if I exceed plunk's free tier, I can self-host it.</p>
-        <p dir="auto">Unfortunately, the plunk gleam library does not support attachments, so I'll have to encode them myself. Or... <a data-href="2-hours" href="2-hours" class="internal-link">2-hours</a></p>
+        <p dir="auto">Unfortunately, the plunk gleam library does not support attachments, so I'll have to encode them myself. Or... <a data-href="2-hours" href="/app://obsidian.md/2-hours" class="internal-link">2-hours</a></p>
     </main>
     <script src="https://snlx.net/mobile.js"></script>
     <!-- TODO router.js -->

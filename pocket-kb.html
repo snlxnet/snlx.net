@@ -41,14 +41,14 @@
 <span class="token key atrule">tags</span><span class="token punctuation">:</span>
   <span class="token punctuation">-</span> project
 <span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
-<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code></pre>
         <h1 data-heading="Pocket Keyboard" dir="auto">Pocket Keyboard</h1>
         <h2 data-heading="Initial thoughts" dir="auto">Initial thoughts</h2>
         <p dir="auto">Inspired by <a data-tooltip-position="top" aria-label="https://www.reddit.com/r/cyberDeck/comments/1qhh6pc/one_handed_headless_journaling_device/" class="external-link" href="https://www.reddit.com/r/cyberDeck/comments/1qhh6pc/one_handed_headless_journaling_device/">artsy pi</a>, it's SO COOL!</p>
-        <p dir="auto">A few months ago, a switch on my keyboard started malfunctioning. I've replaced it, but there are now 9 switches left unused and a microcontroller sitting on a shelf collecting dust. That's enough to make a wireless artsey keyboard / macropad with additional external pins for quick hardware projects. It could have the shape of a credit card (or more like a pi model b+) and use the (<a data-href="battery recommendation" href="battery recommendation" class="internal-link">battery recommendation</a>).</p>
+        <p dir="auto">A few months ago, a switch on my keyboard started malfunctioning. I've replaced it, but there are now 9 switches left unused and a microcontroller sitting on a shelf collecting dust. That's enough to make a wireless artsey keyboard / macropad with additional external pins for quick hardware projects. It could have the shape of a credit card (or more like a pi model b+) and use the (<a data-href="battery recommendation" href="/app://obsidian.md/battery%20recommendation" class="internal-link">battery recommendation</a>).</p>
         <p dir="auto">The power switch is completely unnecessary as the controller has deep sleep and the ability to shut down wifi / bluetooth.</p>
         <p dir="auto">Or it could be a gridfinity module like so:</p>
-        <p dir="auto"><span alt="pocket-kb-sketch.svg" src="pocket-kb-sketch.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="pocket-kb-sketch.svg" src="pocket-kb-sketch.svg"></span></p>
+        <p dir="auto"><span alt="pocket-kb-sketch.svg" src="pocket-kb-sketch.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="pocket-kb-sketch.svg" src="/app://74457466b9e373291c13b8b75b4e7626d289/nix/persist/garden/pocket-kb-sketch.svg?1770110809988"></span></p>
         <p dir="auto">Anyway, the file is <code>artsey.blend</code></p>
         <h2 data-heading="Exploring Different Layouts" dir="auto">Exploring Different Layouts</h2>
         <p dir="auto">I've tried typing "a quick brown fox jumps over the lazy dog" on my keyboard according to the artseyio layout and... I don't really like how much it relies on the pinkies.</p>
@@ -77,8 +77,8 @@
             <li dir="auto">site status control and indication (probably not though)</li>
             <li dir="auto">bt kb, obvi</li>
             <li dir="auto">multiple exposed gpio</li>
-            <li dir="auto">circuitpy ws shell so that I don't have to care that <a data-href="webusb works on android and can replace webserial" href="webusb works on android and can replace webserial" class="internal-link">webusb works on android and can replace webserial</a></li>
-            <li dir="auto">a built-in kind-of IDE, see <a data-href="fish-ide" href="fish-ide" class="internal-link">fish-ide</a></li>
+            <li dir="auto">circuitpy ws shell so that I don't have to care that <a data-href="webusb works on android and can replace webserial" href="/app://obsidian.md/webusb%20works%20on%20android%20and%20can%20replace%20webserial" class="internal-link">webusb works on android and can replace webserial</a></li>
+            <li dir="auto">a built-in kind-of IDE, see <a data-href="fish-ide" href="/app://obsidian.md/fish-ide" class="internal-link">fish-ide</a></li>
         </ul>
         <h2 data-heading="Battery thoughts" dir="auto">Battery thoughts</h2>
         <p dir="auto">The 10x20x30mm batteries I have are small and may work okay. But. But. They are non-standard and I only have 2 and don't know where to get more.</p>
@@ -88,7 +88,7 @@
         <p dir="auto">I'm opting now (2026-01-29) to not use any screws or glue in the design. The magnets should be embedded in the print, the switches should be press-fit, and the microcontroller should have enough padding with all the wiring and whatnot.</p>
         <p dir="auto">The GCODE stop command that MY printer understands is M25</p>
         <p dir="auto">It's (2026-02-03) and I've modified the middle section to have the magnets glued in and the lid to screw into it. Context: the design consists of 3 pieces</p>
-        <p dir="auto"><span alt="pocket-kb-sections.svg" src="pocket-kb-sections.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="pocket-kb-sections.svg" src="pocket-kb-sections.svg"></span></p>
+        <p dir="auto"><span alt="pocket-kb-sections.svg" src="pocket-kb-sections.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="pocket-kb-sections.svg" src="/app://74457466b9e373291c13b8b75b4e7626d289/nix/persist/garden/pocket-kb-sections.svg?1770111715610"></span></p>
         <p dir="auto">The bottom two, in purple and orange, are the microcontroller housing and the battery holder resepctively. They have a cutout for the part they contain and 4 magnets embedded into the print .8 mm from the top. This is so that the attraction to the middle section of the module is stronger than to the gridfinity base plate.</p>
         <p dir="auto">The middle section (in blue) holds the switches and the wires. It also has magnets, but those are glued in because the section's in the middle and no-one will ever see it anyway, yet making the magnets closer to the other parts makes them stick better. Imagine the magnets as cylinders around the red lines on the sketch.</p>
         <p dir="auto">The top section (in green) is the one that holds the switches from the top, and so it has to be attached securely to the middle. It can't have all 8 magnets because those would be in the way of the keycaps, so it only has 4. To compensate for that, I've added 4 screws to the design. Sure, it looks a bit worse, but it will hold together better.</p>

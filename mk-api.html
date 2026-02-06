@@ -55,18 +55,18 @@
 <span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-01</span>
 <span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-24T11:58:49+03:00</span>
 <span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk
-<span class="token key atrule">state</span><span class="token punctuation">:</span> done</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<span class="token key atrule">state</span><span class="token punctuation">:</span> done</code></pre>
         <h1 data-heading="Making api.snlx.net" dir="auto">Making api.snlx.net</h1>
         <h2 data-heading="Requirements" dir="auto">Requirements</h2>
-        <p dir="auto">After failing twice at <a data-href="setting-up-api" href="setting-up-api" class="internal-link">setting-up-api</a> and not finding a good <a data-href="ctr-os-4-api" href="ctr-os-4-api" class="internal-link">ctr-os-4-api</a>, I've come up with a good (I think) idea of what I want the API to look like and what I want it to do.</p>
+        <p dir="auto">After failing twice at <a data-href="setting-up-api" href="/app://obsidian.md/setting-up-api" class="internal-link">setting-up-api</a> and not finding a good <a data-href="ctr-os-4-api" href="/app://obsidian.md/ctr-os-4-api" class="internal-link">ctr-os-4-api</a>, I've come up with a good (I think) idea of what I want the API to look like and what I want it to do.</p>
         <p dir="auto">My publishing workflow has a ton of friction, that's why I update the site like once in a decade. I want to get rid of that in the <em>simplest way possible</em>. That means</p>
         <ol>
-            <li dir="auto">centralizing on one note-taking system, see <a data-href="why-obsi" href="why-obsi" class="internal-link">why-obsi</a></li>
+            <li dir="auto">centralizing on one note-taking system, see <a data-href="why-obsi" href="/app://obsidian.md/why-obsi" class="internal-link">why-obsi</a></li>
             <li dir="auto">making custom tools for that system</li>
         </ol>
         <p dir="auto">The simplest set of custom tools I could come up with is</p>
         <ol>
-            <li dir="auto">a bridge for obsidian that pushes private notes to the server and public notes to github, see <a data-href="mk-bridge" href="mk-bridge" class="internal-link">mk-bridge</a></li>
+            <li dir="auto">a bridge for obsidian that pushes private notes to the server and public notes to github, see <a data-href="mk-bridge" href="/app://obsidian.md/mk-bridge" class="internal-link">mk-bridge</a></li>
             <li dir="auto">a server that stores private notes, see the rest of this note</li>
         </ol>
         <p dir="auto">My primary requirement for the server is simplicity, so it</p>
@@ -94,7 +94,7 @@
             <li dir="auto"><code>POST /file?pass=...&amp;id=...</code> saves a file</li>
         </ul>
         <p dir="auto">Status updates are the "Currently..." thing on my homepage (when I implement that).</p>
-        <p dir="auto">More on the server being a backup: it kind of is. It has a copy of my vault (<a data-href="why-obsi" href="why-obsi" class="internal-link">why-obsi</a>, that vault), but deletes it at reboot and must not differ from any other device (the reboots make sure of that).</p>
+        <p dir="auto">More on the server being a backup: it kind of is. It has a copy of my vault (<a data-href="why-obsi" href="/app://obsidian.md/why-obsi" class="internal-link">why-obsi</a>, that vault), but deletes it at reboot and must not differ from any other device (the reboots make sure of that).</p>
         <p dir="auto">More on <code>GET /file?id=...</code>, the UI for it is <a class="external-link" href="https://snlx.net/secret">https://snlx.net/secret</a>. You go on that page, enter the UUID of a secret file, it goes to the server, requests a bunch of HTML, that HTML can contain links to other secret files which you can then visit. This is so I can have work / uni files that are accessible by a link, but not public.</p>
         <h2 data-heading="Init" dir="auto">Init</h2>
         <p dir="auto">I was going to try gleam, but look at what it needs to build and run:</p>
@@ -124,13 +124,13 @@
 '
 
 echo "and bash here"
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <p dir="auto">The message is generated using <code>figlet api.snlx.net -f cybermedium</code>.</p>
         <p dir="auto">Now all that's left is to set up caddy:</p>
         <pre class="language-caddyfile"><code class="language-caddyfile is-loaded">api.snlx.net {
     reverse_proxy localhost:4242
 }
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <h2 data-heading="It's done" dir="auto">It's done</h2>
         <p dir="auto">Honestly, I'm pleasantly surprised by caddy. I've tested the server on a VM and it worked there, but after having issues with NGINX the last time I tried to set up the server, deploying this onto the real machine and seeing it work the first time was very nice.</p>
         <p dir="auto">The system is currently (2026-01-10) running in diskless mode, so the entire setup process looked like this:</p>
@@ -141,8 +141,8 @@ echo "and bash here"
         <p dir="auto">Sidenote: I've been battling the asciinema standalone player for the past 2 hours because my base styles refused to work with it and then because I wanted to make it fit in.</p>
         <p dir="auto"><em>Clarification</em>: I'm using docker in the video to create a test machine, the actual server is a VPS with no container engine.</p>
         <h2 data-heading="What's next?" dir="auto">What's next?</h2>
-        <p dir="auto">This project is <em>done</em>, now I need to update <a data-href="mk-bridge" href="mk-bridge" class="internal-link">mk-bridge</a> to support secret notes and status updates, then make the frontend able to read both.</p>
-        <p dir="auto">More on the secret notes in <a data-href="mk-secret" href="mk-secret" class="internal-link">mk-secret</a>.</p>
+        <p dir="auto">This project is <em>done</em>, now I need to update <a data-href="mk-bridge" href="/app://obsidian.md/mk-bridge" class="internal-link">mk-bridge</a> to support secret notes and status updates, then make the frontend able to read both.</p>
+        <p dir="auto">More on the secret notes in <a data-href="mk-secret" href="/app://obsidian.md/mk-secret" class="internal-link">mk-secret</a>.</p>
     </main>
     <script src="https://snlx.net/mobile.js"></script>
     <!-- TODO router.js -->

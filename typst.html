@@ -42,7 +42,7 @@
 <span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2025-07-24</span>
 <span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-30T13:37:37+03:00</span>
 <span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
-<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code></pre>
         <p dir="auto">I learned about it from <a data-tooltip-position="top" aria-label="https://sdr-podcast.com/episodes/typst-is-pretty-neat" class="external-link" href="https://sdr-podcast.com/episodes/typst-is-pretty-neat">an SDR episode called "typst is pretty neat"</a> and it is actually pretty neat</p>
         <h2 data-heading="Typst is Pretty Much Markdown" dir="auto">Typst is Pretty Much Markdown</h2>
         <pre class="language-typst"><code class="language-typst is-loaded">= L1 heading
@@ -59,29 +59,29 @@ Regular text. *Bold* text. _Italic_ text:
 https://automatic.links
 
 Code is done the same way it is in markdown
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <h2 data-heading="Until it Comes to Math" dir="auto">Until it Comes to Math</h2>
         <p dir="auto">It has way nicer math syntax than LaTeX:</p>
         <pre class="language-typst"><code class="language-typst is-loaded">$a = F / m$
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <p dir="auto">instead of</p>
         <pre class="language-markdown"><code class="language-markdown is-loaded">$a = \frac{F}{m}$
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <p dir="auto">and</p>
         <pre class="language-typst"><code class="language-typst is-loaded">$ lim_(x -&gt; +oo) x^2/x^3 = ... $
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <p dir="auto">instead of</p>
         <pre class="language-markdown"><code class="language-markdown is-loaded">$
 \lim_{x \to +\infty} \frac{x^2}{x^3} = ...
 $
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <h2 data-heading="And Complex Formatting" dir="auto">And Complex Formatting</h2>
         <p dir="auto">This is a figure, or an image that has a customizable caption. The <code>#</code> character at the start switches the line into code mode, so it's looks like C instead of MarkDown. This is done for flexibility, check out <a data-tooltip-position="top" aria-label="https://typst.app/docs/tutorial/formatting/" class="external-link" href="https://typst.app/docs/tutorial/formatting/">the docs</a> if you want to see some examples.</p>
         <pre class="language-typst"><code class="language-typst is-loaded">#figure(
   image("lab-signal-types.svg", width: 50%),
   caption: [ Hello, world! ],
 )
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <p dir="auto">Here's a simple presentation, for example:</p>
         <pre class="language-typst"><code class="language-typst is-loaded">// you can specify the colors manually or import them from a package
 #import "@preview/catppuccin:1.0.0": catppuccin, flavors
@@ -107,7 +107,7 @@ $
 #pagebreak() // new slide
 
 ...
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <h2 data-heading="And Other things" dir="auto">And Other things</h2>
         <p dir="auto">I'm still exploring this one, but typst is so much more than an office suite replacement</p>
         <p dir="auto">This is it <em>doing</em> math, not just displaying it:</p>
@@ -125,7 +125,7 @@ $
 
 // display
 $ V = equation = volume $
-</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+</code></pre>
         <p dir="auto">And you can draw <a data-tooltip-position="top" aria-label="https://typst.app/universe/package/cetz/" class="external-link" href="https://typst.app/universe/package/cetz/">geometry</a>.</p>
     </main>
     <script src="https://snlx.net/mobile.js"></script>
