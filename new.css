@@ -135,6 +135,22 @@ hr {
   border: .38em dashed var(--accent);
 }
 
+p code,
+li code {
+  overflow-wrap: anywhere;
+  box-sizing: content-box;
+  padding: 0.1rem 0.6rem;
+  border-radius: 0.6rem;
+  background: #181825;
+}
+
+pre {
+  overflow: auto;
+  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  background: #181825;
+}
+
 button {
   padding: 1rem;
   font-size: inherit;
