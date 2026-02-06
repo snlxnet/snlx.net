@@ -46,13 +46,13 @@
 <span class="token key atrule">up</span><span class="token punctuation">:</span> <span class="token string">"[[devlog]]"</span>
 <span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
 <span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code></pre>
-        <p dir="auto"><span alt="hello-world.svg" src="hello-world.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="hello-world.svg" src="hello-world.svg"></span></p>
+        <p dir="auto"><span alt="hello-world.svg" src="hello-world.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="hello-world.svg" src="/app://74457466b9e373291c13b8b75b4e7626d289/nix/persist/garden/hello-world.svg?1769254041166"></span></p>
         <p dir="auto">My university is preparing for an upcoming math competition. They want to give each attendant a certificate so they need a tool that will take a template, put in the names, and export as PDF. They asked me what editor they could use. Sure, they could use something like libreoffice, but filling in each name and saving into a new file manually takes a bit too long. I want to make a simple utility that takes the list of names and the template, generates the certificates and exports them both as a single PDF (to print out) and as separate files (to send via e-mail).</p>
         <p dir="auto">This is a really simple project, and also a perfect opportunity to build a simple site (this one) as the styles are going to be shared.<br>
             I don't want any <em>images</em> on the site, so I'll try to stick with SVGs.</p>
         <h2 data-heading="Cert Layout" dir="auto">Cert Layout</h2>
         <p dir="auto">I started by sketching out the UI on a piece of paper. Since I won't include raster images, here's an excalidraw version of that:<br>
-            <span alt="cert-excalidraw.light.svg" src="/cert-excalidraw.light.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="cert-excalidraw.light.svg" src="cert-excalidraw.light.svg"></span>
+            <span alt="cert-excalidraw.light.svg" src="/cert-excalidraw.light.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="cert-excalidraw.light.svg" src="/app://74457466b9e373291c13b8b75b4e7626d289/nix/persist/garden/cert-excalidraw.light.svg?1765130021315"></span>
         </p>
         <p dir="auto">I've considered using React or Lustre, but the project is simple enough I don't need them.</p>
         <p dir="auto">The bottom-left square is a placeholder for the university logo (for some reason we have 2 of them, this is for the simpler one). I've decided to write the SVG for it by hand (so it can be styled by the page), <a data-tooltip-position="top" aria-label="https://www.joshwcomeau.com/svg/interactive-guide-to-paths/" class="external-link" href="https://www.joshwcomeau.com/svg/interactive-guide-to-paths/">"An Interactive Guide to SVG Paths" by Josh W Comeau</a> is a very good resource to learn how to do that.</p>
