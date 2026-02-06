@@ -1,8 +1,9 @@
 /* ---- ---- ---- ---- */
 :root {
   --accent: #74c7ec;
-  --internal-link: #89b4fa;
-  --external-link: #cba6f7;
+  --em: #a6e3a1;
+  --internal-link: #74c7ec;
+  --external-link: #94e2d5;
   --dead-link: #f38ba8;
 }
 
@@ -123,7 +124,7 @@ a {
 }
 
 em, strong {
-  color: var(--accent);
+  color: var(--em);
   font-weight: bold;
 }
 
