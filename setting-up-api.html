@@ -95,7 +95,7 @@
             <li dir="auto">and if you force it to rebuild, you can say goodbye to your bootloader. It did warn me :)</li>
             <li dir="auto">my VPS provider <em>does</em> allow booting from and installation CD, but the boot order is set up so that it first tries the disk. Wiping the bootloader on the disk (or the entire disk, for that matter), makes it boot from the CDROM</li>
         </ol>
-        <p dir="auto">See <a data-href="dynamic-attempt-1-log" href="/app://obsidian.md/dynamic-attempt-1-log" class="internal-link">dynamic-attempt-1-log</a> for more details.</p>
+        <p dir="auto">See <a data-href="dynamic-attempt-1-log" href="/dynamic-attempt-1-log" class="internal-link">dynamic-attempt-1-log</a> for more details.</p>
         <h2 data-heading="Attempt 1" dir="auto">Attempt 1</h2>
         <p dir="auto">The plan is to use diskless alpine this time. It is tiny, immutable by default and NOT declarative. Although...</p>
         <p dir="auto">Since I need an API server anyway, I can put it on the OS directly, no container and make an endpoint that check GitHub for updates, pulls them and <em>sets up containers</em> with a compose file, <em>making it declarative</em>.</p>
@@ -117,7 +117,7 @@ setup-interfaces <span class="token parameter variable">-ar</span> <span class="
         <h3 data-heading="The first *actual* endpoint" dir="auto">The first <em>actual</em> endpoint</h3>
         <p dir="auto"><code>api.snlx.net/mail</code> is an unauthenticated endpoint that requires you to provide the SMTP credentials in the request body and then uses them to send the given emails to the given server.</p>
         <p dir="auto">Or I wanted it to. It didn't work, I couldn't make yandex accept my auth credentials. Fine, I'll try plunk and remove the requirement of SMTP credentials. May as well use something like emailjs, but its free tier is way worse and if I exceed plunk's free tier, I can self-host it.</p>
-        <p dir="auto">Unfortunately, the plunk gleam library does not support attachments, so I'll have to encode them myself. Or... <a data-href="2-hours" href="/app://obsidian.md/2-hours" class="internal-link">2-hours</a></p>
+        <p dir="auto">Unfortunately, the plunk gleam library does not support attachments, so I'll have to encode them myself. Or... <a data-href="2-hours" href="/2-hours" class="internal-link">2-hours</a></p>
     </main>
     <script src="https://snlx.net/mobile.js"></script>
     <!-- TODO router.js -->

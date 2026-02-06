@@ -45,12 +45,12 @@
 <span class="token key atrule">up</span><span class="token punctuation">:</span> <span class="token string">"[[devlog]]"</span>
 <span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
 <span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code></pre>
-        <p dir="auto"><span alt="hello-world.svg" src="hello-world.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="hello-world.svg" src="/app://74457466b9e373291c13b8b75b4e7626d289/nix/persist/garden/hello-world.svg?1769254041166"></span></p>
+        <p dir="auto"><span alt="hello-world.svg" src="hello-world.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="hello-world.svg" src="hello-world.svg"></span></p>
         <p dir="auto">Наш университет готовится к олимпиаде по математике. Нужно будет раздать всем участникам сертификаты, для этого необходим инструмент, который примет шаблон, впишет имена и сохранит как PDF. Меня попросили порекомендовать программу для этих целей. Конечно, можно было просто использовать libreoffice, но вбивать каждое имя вручную и пересохранять документ по 500 раз это долго. Решил сделать простую утилиту, которая принимает список имён и шаблон, генерирует сертификаты и экспортирует их как один документ для печати и как отдельные файлы для отправки на почту.</p>
         <p dir="auto">Это достаточно простой проект, поэтому он даёт возможность заодно поработать и над этим сайтом, т.к. стили будут общими. На сайте я не хочу держать растровые изображения, поэтому постараюсь использовать исключительно SVG.</p>
         <h2 data-heading="Компоновка генератора сертификатов" dir="auto">Компоновка генератора сертификатов</h2>
         <p dir="auto">Для начала я набросал интерфейс на бумаге. Поскольку растровые изображения я грузить не буду, вот excalidraw версия вместо фотографии:<br>
-            <span alt="cert excalidraw" src="/cert-excalidraw.light.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="cert excalidraw" src="/app://74457466b9e373291c13b8b75b4e7626d289/nix/persist/garden/cert-excalidraw.light.svg?1765130021315"></span>
+            <span alt="cert excalidraw" src="/cert-excalidraw.light.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="cert excalidraw" src="cert-excalidraw.light.svg"></span>
         </p>
         <p dir="auto">Начал думать насчёт использования React или Lustre, но остановился на том, что проект слишком простой, чтобы они были полезны.</p>
         <p dir="auto">Квадрат в левом нижнем углу картинки - место под логотип универа (у нас их 2, я возьму более новый / более простой). Написал SVG вручную по точкам, чтобы его могла стилизовать сама страница, это достаточно несложно, можете посмотреть исходник.</p>
