@@ -44,13 +44,13 @@
                     <path d="M21 3v5h-5"></path>
                     <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
                     <path d="M8 16H3v5"></path>
-                </svg>updated 0.67 hrs ago</div>
+                </svg>updated 0.00 hrs ago</div>
             <div class="tag">#project</div>
         </div>
         <pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">tags</span><span class="token punctuation">:</span>
   <span class="token punctuation">-</span> project
 <span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-05</span>
-<span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-02-06T22:40:36+03:00</span>
+<span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-02-06T23:24:28+03:00</span>
 <span class="token key atrule">up</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
 <span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
 <span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk
@@ -134,11 +134,11 @@ return {
 </span><span class="token prefix unchanged"> </span><span class="token line">   redirect: note.redirect,
 </span></span></code></pre>
         <p dir="auto">It was causing the call stack to overflow.</p>
-        <hr>
         <p dir="auto">It's almost ready, I just have to make the gh action &amp; add note metadata to the html output. Deploying to this site 2026-02-06!</p>
-        <hr>
+        <h2 data-heading="The Deployment" dir="auto">The Deployment</h2>
         <p dir="auto">To speed up the deployment, I will still go through eleventy. It will be doing nothing but moving around HTML files now, so I'll get rid of it in the action soon-ish.</p>
         <p dir="auto">Step one is deleting all the existing markdown files from the repo as they are not going to be updated for now. This is fun as I have to cancel the build early or it will delete the entire site. Step two is running the new plugin.</p>
+        <p dir="auto">(an hour later) Phewwww, that was fun! The newly generated links were either relative, like obsidian likes to use, or to <code>app://obsidian.md/...</code>. Of course, this is no good for the site, so I've patched that, but the links remained broken for that hour.</p>
     </main>
     <script src="https://snlx.net/mobile.js"></script>
     <!-- TODO router.js -->
