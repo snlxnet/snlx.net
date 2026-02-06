@@ -1,6 +1,7 @@
 /* ---- ---- ---- ---- */
 :root {
   --accent: #74c7ec;
+  --muted: #313244;
   --em: #a6e3a1;
   --internal-link: #74c7ec;
   --external-link: #94e2d5;
@@ -77,7 +78,6 @@ nav li.forward::before {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
-  font-weight: bold;
 }
 .metadata div {
   display: flex;
@@ -86,12 +86,10 @@ nav li.forward::before {
   gap: 1ch;
   padding: 1em 1.62em;
   border-radius: 1em;
-  background: #181825;
-  color: var(--accent);
+  background: var(--muted);
+  color: #cdd6f4;
 }
 .metadata .tag {
-  background: var(--accent);
-  color: #1e1e2e;
   flex: 1;
 }
 .metadata svg {
