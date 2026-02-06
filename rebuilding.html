@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>rebuilding</title>
+    <link rel="stylesheet" href="https://snlx.net/new.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+</head>
+
+<body>
+    <nav>
+        <h2>Linked Notes</h2>
+        <ul>
+            <li class="current"><a href="/rebuilding">rebuilding</a></li>
+            <li class="forward"><a href="/mk-api">mk-api</a></li>
+        </ul><a class="source" href="https://github.com/snlxnet/snlx.net"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>Source&nbsp;code</a>
+    </nav>
+    <main>
+        <div class="metadata">
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-feather-icon lucide-feather">
+                    <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"></path>
+                    <path d="M16 8 2 22"></path>
+                    <path d="M17.5 15H9"></path>
+                </svg>created 62d ago</div>
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                    <path d="M21 3v5h-5"></path>
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                    <path d="M8 16H3v5"></path>
+                </svg>updated 27d ago</div>
+            <div class="tag">#project</div>
+            <div class="tag">#archive</div>
+        </div>
+        <pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> project
+  <span class="token punctuation">-</span> archive
+<span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
+<span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2025-12-06</span>
+<span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-10T15:24:03+03:00</span>
+<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">There are a few small things I'd like to rebuild today which were annoying me for the past few months.</p>
+        <h2 data-heading="My editor" dir="auto">My editor</h2>
+        <p dir="auto">I've been using helix since (checks dotfiles) the end of June 2024. The reason I switched initially was that I didn't like installing a package manager into neovim and not knowing what half of my config did. I have 2 problems with helix:</p>
+        <ul>
+            <li dir="auto">non-standard keymap (see <a data-tooltip-position="top" aria-label="https://www.namtao.com/writing-at-the-speed-of-thought/" class="external-link" href="https://www.namtao.com/writing-at-the-speed-of-thought/">Tris's video</a> for more info on that)</li>
+            <li dir="auto">a lot of features that I don't use.</li>
+        </ul>
+        <p dir="auto">Reasons for going back to <em>neovim</em> specifically:</p>
+        <ul>
+            <li dir="auto">I've found <a data-tooltip-position="top" aria-label="https://blog.diovani.com/technology/2025/06/13/configuring-neovim-011-lsp.html" class="external-link" href="https://blog.diovani.com/technology/2025/06/13/configuring-neovim-011-lsp.html">an article on setting up LSP from scratch</a></li>
+            <li dir="auto">It works in the terminal, so plays nice with zellij.</li>
+        </ul>
+        <p dir="auto">It's been a while since I've tried configuring nvim, so I took the basic setup from <a data-tooltip-position="top" aria-label="https://ww2.coastal.edu/mmurphy2/oer/alpine/neovim/" class="external-link" href="https://ww2.coastal.edu/mmurphy2/oer/alpine/neovim/">this article</a>.</p>
+        <p dir="auto">The default hotkey for showing the diagnostics is <code>&lt;C-w&gt;d</code>, control window diagnosics, which I find completely reasonable.</p>
+        <p dir="auto">The colorscheme is weird though. Since I don't want any huge plugins, I've decided to take vim's theme and it's not the same as the helix's! Okay, I'll adapt <a data-tooltip-position="top" aria-label="https://github.com/catppuccin/helix/blob/main/themes/default/catppuccin_mocha.toml" class="external-link" href="https://github.com/catppuccin/helix/blob/main/themes/default/catppuccin_mocha.toml">helix's theme</a>.</p>
+        <p dir="auto">After fighting it for an hour I gave up and cloned the official catppuccin theme manually (I still don't want a plugin manager). I don't want it to pollute the root of my config, so I put it in <code>.config/nvim/pack/vendor/start/catppuccin</code>, which I learned about from <a data-tooltip-position="top" aria-label="https://vonheikemen.github.io/devlog/tools/installing-neovim-plugins-without-a-plugin-manager/" class="external-link" href="https://vonheikemen.github.io/devlog/tools/installing-neovim-plugins-without-a-plugin-manager/">this article</a>. <em>Great article</em> by the way, I now know that I can use ansible or a shell script as my plugin manager. Then I added a fallback in case the theme is not installed.</p>
+        <p dir="auto">With the editor done, I can now move onto</p>
+        <h2 data-heading="CSS on my website" dir="auto">CSS on my website</h2>
+        <p dir="auto">My problem with the current CSS file is that it's 226 lines, does almost nothing and yet has some strong opinions. The way I want to shrink it down is by having a few utility classes and nothing else. That won't work for markdown pages though, so I'll add a separate file there.</p>
+        <p dir="auto">Okay, not just utility classes, I need a reset.</p>
+        <p dir="auto">I've tried writing utils like <code>.row, .col, .items-center, .sticky, .sideways</code> and I don't like them. They feel like tailwind. But worse. I'll make a few semantic blocks:<br>
+            <span alt="rebuilding-excali-0.dark.svg" src="rebuilding-excali-0.dark.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="rebuilding-excali-0.dark.svg" src="rebuilding-excali-0.dark.svg"></span>
+        </p>
+        <p dir="auto">Okay, I've ended up kind of rethinking the design system a bit.<br>
+            <span alt="rebuilding-excali-1.dark.svg" src="rebuilding-excali-1.dark.svg" class="internal-embed media-embed image-embed is-loaded"><img alt="rebuilding-excali-1.dark.svg" src="rebuilding-excali-1.dark.svg"></span><br>
+            The site now has 2 layouts: one for the garden and the other for other apps.
+        </p>
+        <p dir="auto">Each note can be in 4 states:</p>
+        <ul>
+            <li dir="auto">idea (lightbulb)</li>
+            <li dir="auto">in progress (construction)</li>
+            <li dir="auto">done (checkmark)</li>
+            <li dir="auto">irrelevant (shredder)</li>
+        </ul>
+        <h2 data-heading="The API" dir="auto">The API</h2>
+        <p dir="auto">And that's a new project. I'm writing this line on 2026-01-02, the rest of the note was completed on 2025-12-06, this was supposed to be a quick one day project, I'm not doing it here.</p>
+        <p dir="auto">2026-01-06 update, it was moved to <a data-href="mk-api" href="mk-api" class="internal-link">mk-api</a>.</p>
+    </main>
+    <script src="https://snlx.net/mobile.js"></script>
+    <!-- TODO router.js -->
+    <!-- TODO include typ.js everywhere so it's downloaded in the bg & cached -->
+</body>
+
+</html>

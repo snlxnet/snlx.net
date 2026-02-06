@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>setting-up-api</title>
+    <link rel="stylesheet" href="https://snlx.net/new.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+</head>
+
+<body>
+    <nav>
+        <h2>Linked Notes</h2>
+        <ul>
+            <li class="back"><a href="/sys-design-at-1am">sys-design-at-1am</a></li>
+            <li class="back"><a href="/sys-design-at-1am">sys-design-at-1am</a></li>
+            <li class="back"><a href="/mk-api">mk-api</a></li>
+            <li class="back"><a href="/dynamic-attempt-1-log">dynamic-attempt-1-log</a></li>
+            <li class="back"><a href="/ctr-os-4-api">ctr-os-4-api</a></li>
+            <li class="back"><a href="/cert-typ">cert-typ</a></li>
+            <li class="back"><a href="/2-hours">2-hours</a></li>
+            <li class="current"><a href="/setting-up-api">setting-up-api</a></li>
+            <li class="forward"><a href="/dynamic-attempt-1-log">dynamic-attempt-1-log</a></li>
+            <li class="forward"><a href="/2-hours">2-hours</a></li>
+        </ul><a class="source" href="https://github.com/snlxnet/snlx.net"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>Source&nbsp;code</a>
+    </nav>
+    <main>
+        <div class="metadata">
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-feather-icon lucide-feather">
+                    <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"></path>
+                    <path d="M16 8 2 22"></path>
+                    <path d="M17.5 15H9"></path>
+                </svg>created 93d ago</div>
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                    <path d="M21 3v5h-5"></path>
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                    <path d="M8 16H3v5"></path>
+                </svg>updated 15d ago</div>
+            <div class="tag">#project</div>
+            <div class="tag">#archive</div>
+        </div>
+        <pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> project
+  <span class="token punctuation">-</span> archive
+<span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2025-11-05</span>
+<span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-21T23:15:51+03:00</span>
+<span class="token key atrule">up</span><span class="token punctuation">:</span> <span class="token string">"[[my-infra]]"</span>
+<span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
+<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk
+<span class="token key atrule">state</span><span class="token punctuation">:</span> done</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <h1 data-heading="Setting up `api.snlx.net`" dir="auto">Setting up <code>api.snlx.net</code></h1>
+        <h2 data-heading="The idea" dir="auto">The idea</h2>
+        <h3 data-heading="Goodbye Ubuntu!" dir="auto">Goodbye Ubuntu!</h3>
+        <p dir="auto">The sever is currently running Ubuntu Noble because, well, that was one of the default images. I don't like it because of its imperative nature.</p>
+        <p dir="auto">I came up with 2 options for the base system:</p>
+        <ol>
+            <li dir="auto">Immutable NixOS (declarative by default)</li>
+            <li dir="auto">Diskless Alpine (diskless = immutable basically, could be made declarative by building the <code>.apkovl</code> with a script)</li>
+        </ol>
+        <p dir="auto">The second option would allow me to save some space, but it takes away the <em>unified config file</em>, which is not worth it to me.</p>
+        <h3 data-heading="Why not Dokploy / Coolify?" dir="auto">Why not Dokploy / Coolify?</h3>
+        <p dir="auto">Those are nice for deploying apps, but I don't just want a production server, I want a <em>devbox</em>. Running an immutable OS with a fully declarative config means that if I break something, I can reboot the system and forget about it. If the provider goes down, again, I can redeploy and it will be unchanged. Except the state, I'll have to manage the backups for that manually :)</p>
+        <h3 data-heading="Goodbye NGINX!" dir="auto">Goodbye NGINX!</h3>
+        <p dir="auto">Don't get me wrong, there's nothing wrong with NGINX, but... When I was reading <a data-tooltip-position="top" aria-label="https://gleam.run/deployment/linux-server/" class="external-link" href="https://gleam.run/deployment/linux-server/">Gleam's guide on deploying to a Linux server</a>, one of the parts that stood out to me was the use of Caddy instead of, you know, NGINX or HTTPD. The main benefit to using Caddy, as I understand it, is the ease of configuration. It has HTTPS out of the box. You don't need to think about SSL. You don't need to set up certbot, and that sounds nice.</p>
+        <h3 data-heading="The Backend" dir="auto">The Backend</h3>
+        <p dir="auto">I've already mentioned Gleam and I want to try using that for the new services. The admin panel is going to be interesting, though that's a topic for a future note. For now I'll just mention that the server is going to be connected to my tailnet.</p>
+        <p dir="auto">Now for the existing services. <a class="external-link" href="https://qrs.snlx.net">https://qrs.snlx.net</a> needs a peerjs server instance which is running in a container, no problem there. It also needs coturn which is just <code>services.coturn.enable = true;</code>.</p>
+        <p dir="auto"><a class="external-link" href="https://github.com/snsalx/sld">https://github.com/snsalx/sld</a> is running a custom container image that has 2 exposed ports. The start command used to be:</p>
+        <pre class="language-bash"><code class="language-bash is-loaded"><span class="token function">docker</span> run <span class="token parameter variable">-p</span> <span class="token number">3000</span>:3000 <span class="token parameter variable">-p</span> <span class="token number">8090</span>:8090 <span class="token parameter variable">-e</span> <span class="token assign-left variable">BACKEND_URL</span><span class="token operator">=</span><span class="token string">"https://sld-backend.snlx.net"</span> <span class="token parameter variable">-v</span> sld:/pb/pb_data sld:latest
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">So the new config should run a container that:</p>
+        <ul>
+            <li dir="auto">publishes port 3000 to 8089 (since I'll need 3000 for development)</li>
+            <li dir="auto">publishes port 8090</li>
+            <li dir="auto">sets <code>BACKEND_URL</code> to <code>https://pb.api.snlx.net</code></li>
+            <li dir="auto">mounts a volume</li>
+        </ul>
+        <p dir="auto">Another thing I need to do with it is close down registration. Right now (morning of 2025-11-04) anyone can upload images, and the storage is unlimited.</p>
+        <h3 data-heading="Containers" dir="auto">Containers</h3>
+        <p dir="auto">This node is both my prod server and my devbox.</p>
+        <p dir="auto">As a prod server, it needs to run the containers declared in the system config. This can be set up using <code>virtualisation.oci-containers</code>.</p>
+        <p dir="auto">As a devbox, it needs to run containers without root permissions. This can be done imperatively (just using the podman CLI).</p>
+        <h2 data-heading="Attempt 0" dir="auto">Attempt 0</h2>
+        <p dir="auto">What I've learned:</p>
+        <ol>
+            <li dir="auto">installing NixOS on a device with 1 core and a gig of RAM is kinda fun if you do it remotely through <code>nixos-anywhere</code></li>
+            <li dir="auto">what isn't fun is running <code>nixos-rebuild</code> on that same limited system</li>
+            <li dir="auto">and if you install the unstable version it won't let you rebuild lower than the <code>system.stateVersion</code></li>
+            <li dir="auto">and if you force it to rebuild, you can say goodbye to your bootloader. It did warn me :)</li>
+            <li dir="auto">my VPS provider <em>does</em> allow booting from and installation CD, but the boot order is set up so that it first tries the disk. Wiping the bootloader on the disk (or the entire disk, for that matter), makes it boot from the CDROM</li>
+        </ol>
+        <p dir="auto">See <a data-href="dynamic-attempt-1-log" href="dynamic-attempt-1-log" class="internal-link">dynamic-attempt-1-log</a> for more details.</p>
+        <h2 data-heading="Attempt 1" dir="auto">Attempt 1</h2>
+        <p dir="auto">The plan is to use diskless alpine this time. It is tiny, immutable by default and NOT declarative. Although...</p>
+        <p dir="auto">Since I need an API server anyway, I can put it on the OS directly, no container and make an endpoint that check GitHub for updates, pulls them and <em>sets up containers</em> with a compose file, <em>making it declarative</em>.</p>
+        <p dir="auto">There are 3 components to this</p>
+        <h3 data-heading="The Bootstrap Script" dir="auto">The Bootstrap Script</h3>
+        <p dir="auto">This is a shell script that can be <code>curl | sh</code>'ed. It installs the erlang runtime, installs zellij, clones the server repo, adds zellij with it to boot and starts them.</p>
+        <p dir="auto">I want to be a bit more careful and do it in a VM so I can iterate quicker.</p>
+        <h3 data-heading="The github action" dir="auto">The github action</h3>
+        <p dir="auto">It tells the server to update itself.</p>
+        <h3 data-heading="The first endpoint" dir="auto">The first endpoint</h3>
+        <p dir="auto">The first endpoint is <code>api.snlx.net/update</code>, it downloads the repo, builds it and restarts the server.</p>
+        <p dir="auto">I'll use <a data-tooltip-position="top" aria-label="https://github.com/gleam-wisp/wisp/tree/main" class="external-link" href="https://github.com/gleam-wisp/wisp/tree/main">wisp</a> for the API framework because <em>popularity matters</em>, meaning I'm more likely to be able to find resources. The runtime will be <code>erlang</code>, its concurrency model is one of the reasons I chose gleam in the first place, though I won't use that part much for now to save time.</p>
+        <p dir="auto">For actually running the update I'm using the <a data-tooltip-position="top" aria-label="https://github.com/tynanbe/shellout" class="external-link" href="https://github.com/tynanbe/shellout">shellout</a> library to run a <code>git pull</code>. Long-term the server should be hot-loaded by erlang, but I need to get this running quickly, so I'll wrap the server in mprocs and make it send a restart command.</p>
+        <h3 data-heading="Minimal setup" dir="auto">Minimal setup</h3>
+        <p dir="auto">To configure a new server: 1) boot into alpine and 2) type</p>
+        <pre class="language-shell"><code class="language-shell is-loaded">root
+setup-interfaces <span class="token parameter variable">-ar</span> <span class="token operator">&amp;&amp;</span> <span class="token function">wget</span> snlx.net/api <span class="token operator">&amp;&amp;</span> <span class="token function">sh</span> api
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <h3 data-heading="The first *actual* endpoint" dir="auto">The first <em>actual</em> endpoint</h3>
+        <p dir="auto"><code>api.snlx.net/mail</code> is an unauthenticated endpoint that requires you to provide the SMTP credentials in the request body and then uses them to send the given emails to the given server.</p>
+        <p dir="auto">Or I wanted it to. It didn't work, I couldn't make yandex accept my auth credentials. Fine, I'll try plunk and remove the requirement of SMTP credentials. May as well use something like emailjs, but its free tier is way worse and if I exceed plunk's free tier, I can self-host it.</p>
+        <p dir="auto">Unfortunately, the plunk gleam library does not support attachments, so I'll have to encode them myself. Or... <a data-href="2-hours" href="2-hours" class="internal-link">2-hours</a></p>
+    </main>
+    <script src="https://snlx.net/mobile.js"></script>
+    <!-- TODO router.js -->
+    <!-- TODO include typ.js everywhere so it's downloaded in the bg & cached -->
+</body>
+
+</html>

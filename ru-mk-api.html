@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>ru-mk-api</title>
+    <link rel="stylesheet" href="https://snlx.net/new.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+</head>
+
+<body>
+    <nav>
+        <h2>Linked Notes</h2>
+        <ul>
+            <li class="back"><a href="/ru-why-obsi">ru-why-obsi</a></li>
+            <li class="back"><a href="/ru-index">ru-index</a></li>
+            <li class="current"><a href="/ru-mk-api">ru-mk-api</a></li>
+            <li class="forward"><a href="/ru-why-obsi">ru-why-obsi</a></li>
+            <li class="forward"><a href="/mk-bridge">mk-bridge</a></li>
+            <li class="forward"><a href="/mk-bridge">mk-bridge</a></li>
+            <li class="forward"><a href="/mk-secret">mk-secret</a></li>
+        </ul><a class="source" href="https://github.com/snlxnet/snlx.net"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>Source&nbsp;code</a>
+    </nav>
+    <main>
+        <div class="metadata">
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-feather-icon lucide-feather">
+                    <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"></path>
+                    <path d="M16 8 2 22"></path>
+                    <path d="M17.5 15H9"></path>
+                </svg>created 36d ago</div>
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                    <path d="M21 3v5h-5"></path>
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                    <path d="M8 16H3v5"></path>
+                </svg>updated 23d ago</div>
+            <div class="tag">#project</div>
+            <div class="tag">#archive</div>
+        </div>
+        <pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> project
+  <span class="token punctuation">-</span> archive
+<span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
+<span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-01</span>
+<span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-14T15:28:53+03:00</span>
+<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk
+<span class="token key atrule">state</span><span class="token punctuation">:</span> done</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <h1 data-heading="Создание api.snlx.net" dir="auto">Создание api.snlx.net</h1>
+        <h2 data-heading="Требования" dir="auto">Требования</h2>
+        <p dir="auto">После двух безуспешных попыток <a class="internal-link" data-href="/setting-up-api" href="/setting-up-api">сделать API этого сайта</a> и <a class="internal-link" data-href="/ctr-os-4-api" href="/ctr-os-4-api">подобрать под него систему</a> у меня сложилось достаточное представление о том, что этот самый API должен делать и из чего он должен состоять.</p>
+        <p dir="auto">Сейчас в процессе публикации заметок слишком много трения, поэтому и получается, что я и обновляю сайт раз в 500 лет. Цель этого проекта - избавиться от этого трения <em>самым простым способом</em>, т.е.</p>
+        <ol>
+            <li dir="auto">прийти к единой системе для всех заметок и документов, см. <a data-href="ru-why-obsi" href="ru-why-obsi" class="internal-link">ru-why-obsi</a></li>
+            <li dir="auto">доделать свои инструменты для этой системы</li>
+        </ol>
+        <p dir="auto">Самый простой набор своих инструментов, который я смог придумать</p>
+        <ol>
+            <li dir="auto">мост для obsidian для загрузки публичных заметок на github и закрытых на мой сервер, см. <a data-href="mk-bridge" href="mk-bridge" class="internal-link">mk-bridge</a></li>
+            <li dir="auto">сервер для хранения этих самых закрытых заметок, подробнее ниже</li>
+        </ol>
+        <p dir="auto">Основное требование к серверу - простота, поэтому он должен</p>
+        <ul>
+            <li dir="auto">работать на alpine linux</li>
+            <li dir="auto">не давать доступ к оболочке</li>
+            <li dir="auto">не иметь движка контейнеров</li>
+            <li dir="auto">иметь приложение для управления им (то же, которое хранит закрытые заметки)</li>
+            <li dir="auto">не хранить важных данных, т.е. очищать диск при перезагрузке</li>
+        </ul>
+        <p dir="auto">Управляющее приложение должно</p>
+        <ul>
+            <li dir="auto">в основном обрабатывать HTTP запросы</li>
+            <li dir="auto">заниматься простым auth (буду использовать перегенерируемый при перезагрузке UUID в качестве API ключа, что должно быть достаточно безопасно, т.к. zellij делает примерно так в своём web портале)</li>
+            <li dir="auto">управлять дочерними процессами (coturn, peerjs)</li>
+            <li dir="auto">хранить файлы</li>
+            <li dir="auto">немножко работать с вебсокетами</li>
+        </ul>
+        <p dir="auto">Эндпоинты</p>
+        <ul>
+            <li dir="auto"><code>GET /status</code> переключается на WS соединение и кидает обновления статуса</li>
+            <li dir="auto"><code>POST /status?pass=...&amp;action=...&amp;link=...&amp;location=...&amp;duration=...</code> задаёт статус</li>
+            <li dir="auto"><code>POST /upgrade?pass=...</code> обновляет сервер</li>
+            <li dir="auto"><code>GET /file?id=...</code> загружает файл</li>
+            <li dir="auto"><code>POST /file?pass=...&amp;id=...</code> сохраняет файл</li>
+        </ul>
+        <p dir="auto">Обновления статуса это карточка с "Currently..." на главной странице (ну когда я её доделаю).</p>
+        <p dir="auto">Подробнее про сервер как бэкап: он им как бы является, но как бы нет. Он хранит копию obsidian vault'а, но удаляет её при перезагрузке и не должен отличаться от других устройств (перезагрузки гарантируют это).</p>
+        <p dir="auto">Подробнее про <code>GET /file?id=...</code>: UI для этого это <a class="external-link" href="https://snlx.net/secret">https://snlx.net/secret</a>. Захóдите на страницу, вводите UUID закрытой заметки, страница идёт на сервер, запрашивает оттуда кучу HTML'а, он может содержать ссылки на другие закрытые файлы, которые тогда тоже доступны Вам. Это всё нужно для того, чтобы я мог делать заметки для работы и универа доступными им, но при этом не публичными.</p>
+        <h2 data-heading="Создание проекта" dir="auto">Создание проекта</h2>
+        <p dir="auto">Я хотел использовать gleam, но для сборки и запуска ему нужны:</p>
+        <ul>
+            <li dir="auto">erlang</li>
+            <li dir="auto">gleam (логично)</li>
+            <li dir="auto">rebar3</li>
+            <li dir="auto">git</li>
+        </ul>
+        <p dir="auto">И сборка происходит в несколько команд. Я хотел простую систему, поэтому остановлюсь вместо этого на deno. Основное, что я теряю, это масштабируемость, но сейчас у меня 0 пользователей, так что это не проблема. Вместо того, чтобы оптимизировать под будущее, которое может не наступить, делаем простую штуку, которая будет работает сейчас.</p>
+        <p dir="auto"><code>Deno.serve</code> достаточно приятно использовать для простых проектов вроде этого, я сделал auth очень быстро. На сервере не будет SSH, так что нужно придумать удобный способ вытащить из него ключ API. Один из вариантов это сделать - сгенерить для ключа QR код, вывести его в терминал и отсканировать оттуда. Для deno достаточно моного библиотек, которые могут это делать, я просто взял первую попавшуюся, которая нормально работала.</p>
+        <p dir="auto">С загрузкой файлов было веселее, потому что я долго не мог понять, может ли</p>
+        <ul>
+            <li dir="auto"><code>File</code> дать мне читаемый поток (он может, <code>file.stream()</code>)</li>
+            <li dir="auto"><code>Deno.writeFile</code> принять этот поток (может)</li>
+        </ul>
+        <p dir="auto">Потом, чтобы это протестировать, я сделал для него UI (на который потратил слишком много времени).</p>
+        <h2 data-heading="Куда делось полдня?" dir="auto">Куда делось полдня?</h2>
+        <p dir="auto">Я изначально вообще не планировал делать UI, но... <a class="external-link" href="https://api.snlx.net">https://api.snlx.net</a> делает отладку чуть удобнее.</p>
+        <h2 data-heading="Вечер 2026-01-06 - обновление" dir="auto">Вечер 2026-01-06 - обновление</h2>
+        <p dir="auto">Сам сервер готов, но я его ещё не деплоил. Попробую вернуться к этому 2026-01-10.</p>
+        <h2 data-heading="Деплой сервера (2026-01-10)" dir="auto">Деплой сервера (2026-01-10)</h2>
+        <p dir="auto">Скрипт первоначальной настройки уже есть, остался <a data-tooltip-position="top" aria-label="https://snlx.net/setting-up-api/#:~:text=minimal%20setup" class="external-link" href="https://snlx.net/setting-up-api/#:~:text=minimal%20setup">от прошлой попытки</a>. Последний раз проверяю это всё в виртуалке на моей системе, потом ставлю на реальный сервер.</p>
+        <p dir="auto">Вообщем наткнулся на то, что github давал старую версию скрипта вместо последнего коммита, <a data-tooltip-position="top" aria-label="https://github.com/orgs/community/discussions/46691" class="external-link" href="https://github.com/orgs/community/discussions/46691">это известная проблема</a> и самым простым решением в моём случае было перемещение скрипта на статический сайт (этот). Ещё я добавил ему немного стилизации, <a data-tooltip-position="top" aria-label="https://stackoverflow.com/questions/43158140/way-to-create-multiline-comments-in-bash" class="external-link" href="https://stackoverflow.com/questions/43158140/way-to-create-multiline-comments-in-bash">в ash можно делать многострочные комменты.</a> Интересный вариант получился, страница /api это файл, который интерпретируется по-разному разными средами, базовая структура:</p>
+        <pre><code>: '
+&lt;h1&gt;Html here&lt;/h1&gt;
+'
+
+echo "and bash here"
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">Текстовое сообщение сгенерено <code>figlet api.snlx.net -f cybermedium</code>.</p>
+        <p dir="auto">Теперь осталось только настроить caddy:</p>
+        <pre class="language-caddyfile"><code class="language-caddyfile is-loaded">api.snlx.net {
+    reverse_proxy localhost:4242
+}
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <h2 data-heading="Оно работает" dir="auto">Оно работает</h2>
+        <p dir="auto">Честно говоря, я приятно удивлён caddy. Не, я, конечно, проверял, что оно будет работать на ВМ, но в прошлый раз я поставил NGINX и потом день разбирался, как заставить HTTPS работать, здесь же он просто заработал из коробки.</p>
+        <p dir="auto">На данный момент (2026-01-10) система работает в бездисковом режиме, т.е. весь процесс установки выглядит очень близко к:</p>
+
+        <div class="asciinema" id="cast"></div>
+
+
+        <p dir="auto">Sidenote: последне 2 часа я воевал с asciinema standalone плеером, потому что вначале мои базовые стили с ним не работали, а потом я пытался подогнать его по стилю под остальной сайт.</p>
+        <p dir="auto"><em>Уточнение</em>: докер на видео используется для создания тестовой машины, в реальности это VPS и на ней нет движка контейнеров.</p>
+        <h2 data-heading="Что дальше?" dir="auto">Что дальше?</h2>
+        <p dir="auto">Этот проект <em>завершён</em>, теперь нужно добавить поддержку закрытых заметок и статуса в <a data-href="mk-bridge" href="mk-bridge" class="internal-link">mk-bridge</a>, потом доделать фронт.</p>
+        <p dir="auto">Подробнее о закрытых заметках в <a data-href="mk-secret" href="mk-secret" class="internal-link">mk-secret</a>.</p>
+    </main>
+    <script src="https://snlx.net/mobile.js"></script>
+    <!-- TODO router.js -->
+    <!-- TODO include typ.js everywhere so it's downloaded in the bg & cached -->
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>tg-bot</title>
+    <link rel="stylesheet" href="https://snlx.net/new.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+</head>
+
+<body>
+    <nav>
+        <h2>Linked Notes</h2>
+        <ul>
+            <li class="back"><a href="/index">index</a></li>
+            <li class="current"><a href="/tg-bot">tg-bot</a></li>
+        </ul><a class="source" href="https://github.com/snlxnet/snlx.net"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>Source&nbsp;code</a>
+    </nav>
+    <main>
+        <div class="metadata">
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-feather-icon lucide-feather">
+                    <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"></path>
+                    <path d="M16 8 2 22"></path>
+                    <path d="M17.5 15H9"></path>
+                </svg>created 7d ago</div>
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                    <path d="M21 3v5h-5"></path>
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                    <path d="M8 16H3v5"></path>
+                </svg>updated 3d ago</div>
+            <div class="tag">#project</div>
+        </div>
+        <pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-02-03T11:37:38+03:00</span>
+<span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-30T18:45:32+03:00</span>
+<span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
+<span class="token key atrule">state</span><span class="token punctuation">:</span> idea
+<span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> project
+<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <h2 data-heading="Status" dir="auto">Status</h2>
+        <p dir="auto">The project in on hold for a few days, then I'm moving it into the API and integrating with bridge. That makes it complex-ish, but makes it work without me having the computer on all the time.</p>
+        <h2 data-heading="Purpose" dir="auto">Purpose</h2>
+        <ul>
+            <li dir="auto">fleeting notes</li>
+            <li dir="auto">status updates</li>
+            <li dir="auto">for public comments?</li>
+        </ul>
+        <h2 data-heading="Log" dir="auto">Log</h2>
+        <p dir="auto">It turns out making bots like this for yourself is way too easy. I won't even put it on GitHub properly, here's the source:</p>
+        <pre class="language-ts"><code class="language-ts is-loaded"><span class="token keyword">import</span> <span class="token punctuation">{</span> Bot <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://deno.land/x/grammy@v1.39.3/mod.ts"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> bot <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Bot</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">TOKEN</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> owner <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">OWNER</span>
+
+bot<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"message"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>ctx<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> text <span class="token operator">=</span> ctx<span class="token punctuation">.</span>message<span class="token punctuation">.</span>text
+  <span class="token keyword">const</span> user <span class="token operator">=</span> ctx<span class="token punctuation">.</span>message<span class="token punctuation">.</span>chat<span class="token punctuation">.</span>username
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ctx<span class="token punctuation">.</span><span class="token function">reply</span><span class="token punctuation">(</span><span class="token string">"Sorry, but you don't have a username, so I can't save your note."</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>text <span class="token operator">===</span> <span class="token string">"/start"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ctx<span class="token punctuation">.</span><span class="token function">reply</span><span class="token punctuation">(</span><span class="token string">"Hi! Send a message to save it as a fleeting note. It will be deleted from here to keep the history clean"</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// status updates</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>text<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">":"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>user <span class="token operator">!==</span> owner<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      ctx<span class="token punctuation">.</span><span class="token function">reply</span><span class="token punctuation">(</span><span class="token string">"Remove the | at the beginning"</span><span class="token punctuation">)</span>
+      <span class="token keyword">return</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">[</span>action<span class="token punctuation">,</span> location<span class="token punctuation">]</span> <span class="token operator">=</span> text<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"@"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>part <span class="token operator">=&gt;</span> part<span class="token punctuation">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token punctuation">{</span>action<span class="token punctuation">,</span> location<span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> sanitized <span class="token operator">=</span> text<span class="token punctuation">.</span><span class="token function">replaceAll</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">,</span> <span class="token string">"-"</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[^\wа-яА-Я \-]</span><span class="token regex-delimiter">/</span><span class="token regex-flags">gm</span></span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">"bot-"</span> <span class="token operator">+</span> sanitized <span class="token operator">+</span> <span class="token string">".md"</span>
+    <span class="token keyword">const</span> body <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" from t.me/"</span> <span class="token operator">+</span> user <span class="token operator">+</span> <span class="token string">"\n#fleeting ::\n\n"</span> <span class="token operator">+</span> text
+
+    Deno<span class="token punctuation">.</span><span class="token function">writeTextFileSync</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> body<span class="token punctuation">)</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Saved"</span><span class="token punctuation">,</span> name<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  ctx<span class="token punctuation">.</span><span class="token function">react</span><span class="token punctuation">(</span><span class="token string">"⚡"</span><span class="token punctuation">)</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> ctx<span class="token punctuation">.</span><span class="token function">deleteMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">30</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+bot<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">It's that simple. I've moved it into the vault and starting from terminal with deno. I'll probably wrap it in an obsidian plugin later to make it a bit easier to host though. For now it's running with</p>
+        <pre class="language-bash"><code class="language-bash is-loaded">deno run <span class="token parameter variable">--watch</span> --allow-import --allow-net --allow-env --allow-write bot.ts
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+    </main>
+    <script src="https://snlx.net/mobile.js"></script>
+    <!-- TODO router.js -->
+    <!-- TODO include typ.js everywhere so it's downloaded in the bg & cached -->
+</body>
+
+</html>

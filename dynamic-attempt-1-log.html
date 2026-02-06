@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>dynamic-attempt-1-log</title>
+    <link rel="stylesheet" href="https://snlx.net/new.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+</head>
+
+<body>
+    <nav>
+        <h2>Linked Notes</h2>
+        <ul>
+            <li class="back"><a href="/setting-up-api">setting-up-api</a></li>
+            <li class="current"><a href="/dynamic-attempt-1-log">dynamic-attempt-1-log</a></li>
+            <li class="forward"><a href="/setting-up-api">setting-up-api</a></li>
+        </ul><a class="source" href="https://github.com/snlxnet/snlx.net"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>Source&nbsp;code</a>
+    </nav>
+    <main>
+        <div class="metadata">
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-feather-icon lucide-feather">
+                    <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"></path>
+                    <path d="M16 8 2 22"></path>
+                    <path d="M17.5 15H9"></path>
+                </svg>created 94d ago</div>
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                    <path d="M21 3v5h-5"></path>
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                    <path d="M8 16H3v5"></path>
+                </svg>updated 27d ago</div>
+            <div class="tag">#resource</div>
+            <div class="tag">#archive</div>
+        </div>
+        <pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> resource
+  <span class="token punctuation">-</span> archive
+<span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2025-11-04</span>
+<span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-10T15:23:40+03:00</span>
+<span class="token key atrule">up</span><span class="token punctuation">:</span> <span class="token string">"[[setting-up-api]]"</span>
+<span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
+<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <h3 data-heading="Flakes?" dir="auto">Flakes?</h3>
+        <p dir="auto">Flakes mean that I can't have unattended updates. I want unattended updates. So no, no flakes. I'll enable the support, but the system is going to be the regular old 2 files.</p>
+        <h3 data-heading="Setting it all up" dir="auto">Setting it all up</h3>
+        <p dir="auto">I could make a local VM and configure everything there, but there are 0 active users on the site, so I'll do it in prod.</p>
+        <pre class="language-bash"><code class="language-bash is-loaded">alex@snlx:~$ <span class="token function">docker</span> <span class="token function">ps</span> <span class="token parameter variable">--format</span> json
+<span class="token punctuation">{</span><span class="token string">"Command"</span><span class="token builtin class-name">:</span><span class="token string">"<span class="token entity" title="\&quot;">\"</span>docker-entrypoint.s…<span class="token entity" title="\&quot;">\"</span>"</span>,<span class="token string">"CreatedAt"</span><span class="token builtin class-name">:</span><span class="token string">"2025-05-13 10:10:13 +0300 MSK"</span>,<span class="token string">"ID"</span><span class="token builtin class-name">:</span><span class="token string">"ef8bbd96e694"</span>,<span class="token string">"Image"</span><span class="token builtin class-name">:</span><span class="token string">"sld:latest"</span>,<span class="token string">"Labels"</span><span class="token builtin class-name">:</span><span class="token string">""</span>,<span class="token string">"LocalVolumes"</span><span class="token builtin class-name">:</span><span class="token string">"1"</span>,<span class="token string">"Mounts"</span><span class="token builtin class-name">:</span><span class="token string">"sld"</span>,<span class="token string">"Names"</span><span class="token builtin class-name">:</span><span class="token string">"zen_aryabhata"</span>,<span class="token string">"Networks"</span><span class="token builtin class-name">:</span><span class="token string">"bridge"</span>,<span class="token string">"Platform"</span>:null,<span class="token string">"Ports"</span><span class="token builtin class-name">:</span><span class="token string">"0.0.0.0:3000-<span class="token entity" title="\u003e">\u003e</span>3000/tcp, [::]:3000-<span class="token entity" title="\u003e">\u003e</span>3000/tcp, 0.0.0.0:8090-<span class="token entity" title="\u003e">\u003e</span>8090/tcp, [::]:8090-<span class="token entity" title="\u003e">\u003e</span>8090/tcp"</span>,<span class="token string">"RunningFor"</span><span class="token builtin class-name">:</span><span class="token string">"5 months ago"</span>,<span class="token string">"Size"</span><span class="token builtin class-name">:</span><span class="token string">"0B"</span>,<span class="token string">"State"</span><span class="token builtin class-name">:</span><span class="token string">"running"</span>,<span class="token string">"Status"</span><span class="token builtin class-name">:</span><span class="token string">"Up 4 months"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token string">"Command"</span><span class="token builtin class-name">:</span><span class="token string">"<span class="token entity" title="\&quot;">\"</span>hbbr<span class="token entity" title="\&quot;">\"</span>"</span>,<span class="token string">"CreatedAt"</span><span class="token builtin class-name">:</span><span class="token string">"2025-05-10 16:01:18 +0300 MSK"</span>,<span class="token string">"ID"</span><span class="token builtin class-name">:</span><span class="token string">"0a34a0cb1521"</span>,<span class="token string">"Image"</span><span class="token builtin class-name">:</span><span class="token string">"rustdesk/rustdesk-server"</span>,<span class="token string">"Labels"</span><span class="token builtin class-name">:</span><span class="token string">"org.opencontainers.image.created=2025-01-25T12:55:10.112Z,org.opencontainers.image.description=RustDesk Server Program,org.opencontainers.image.licenses=AGPL-3.0,org.opencontainers.image.revision=8557c4ab8259a9084879ad78a41c5a9539fd75a3,org.opencontainers.image.source=https://github.com/rustdesk/rustdesk-server,org.opencontainers.image.title=rustdesk-server,org.opencontainers.image.url=https://github.com/rustdesk/rustdesk-server,org.opencontainers.image.version=1.1.14"</span>,<span class="token string">"LocalVolumes"</span><span class="token builtin class-name">:</span><span class="token string">"0"</span>,<span class="token string">"Mounts"</span><span class="token builtin class-name">:</span><span class="token string">"/home/alex/data"</span>,<span class="token string">"Names"</span><span class="token builtin class-name">:</span><span class="token string">"hbbr"</span>,<span class="token string">"Networks"</span><span class="token builtin class-name">:</span><span class="token string">"host"</span>,<span class="token string">"Platform"</span>:null,<span class="token string">"Ports"</span><span class="token builtin class-name">:</span><span class="token string">""</span>,<span class="token string">"RunningFor"</span><span class="token builtin class-name">:</span><span class="token string">"5 months ago"</span>,<span class="token string">"Size"</span><span class="token builtin class-name">:</span><span class="token string">"0B"</span>,<span class="token string">"State"</span><span class="token builtin class-name">:</span><span class="token string">"running"</span>,<span class="token string">"Status"</span><span class="token builtin class-name">:</span><span class="token string">"Up 8 weeks"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token string">"Command"</span><span class="token builtin class-name">:</span><span class="token string">"<span class="token entity" title="\&quot;">\"</span>hbbs<span class="token entity" title="\&quot;">\"</span>"</span>,<span class="token string">"CreatedAt"</span><span class="token builtin class-name">:</span><span class="token string">"2025-05-10 16:01:01 +0300 MSK"</span>,<span class="token string">"ID"</span><span class="token builtin class-name">:</span><span class="token string">"13810139d247"</span>,<span class="token string">"Image"</span><span class="token builtin class-name">:</span><span class="token string">"rustdesk/rustdesk-server"</span>,<span class="token string">"Labels"</span><span class="token builtin class-name">:</span><span class="token string">"org.opencontainers.image.created=2025-01-25T12:55:10.112Z,org.opencontainers.image.description=RustDesk Server Program,org.opencontainers.image.licenses=AGPL-3.0,org.opencontainers.image.revision=8557c4ab8259a9084879ad78a41c5a9539fd75a3,org.opencontainers.image.source=https://github.com/rustdesk/rustdesk-server,org.opencontainers.image.title=rustdesk-server,org.opencontainers.image.url=https://github.com/rustdesk/rustdesk-server,org.opencontainers.image.version=1.1.14"</span>,<span class="token string">"LocalVolumes"</span><span class="token builtin class-name">:</span><span class="token string">"0"</span>,<span class="token string">"Mounts"</span><span class="token builtin class-name">:</span><span class="token string">"/home/alex/data"</span>,<span class="token string">"Names"</span><span class="token builtin class-name">:</span><span class="token string">"hbbs"</span>,<span class="token string">"Networks"</span><span class="token builtin class-name">:</span><span class="token string">"host"</span>,<span class="token string">"Platform"</span>:null,<span class="token string">"Ports"</span><span class="token builtin class-name">:</span><span class="token string">""</span>,<span class="token string">"RunningFor"</span><span class="token builtin class-name">:</span><span class="token string">"5 months ago"</span>,<span class="token string">"Size"</span><span class="token builtin class-name">:</span><span class="token string">"0B"</span>,<span class="token string">"State"</span><span class="token builtin class-name">:</span><span class="token string">"running"</span>,<span class="token string">"Status"</span><span class="token builtin class-name">:</span><span class="token string">"Up 6 weeks"</span><span class="token punctuation">}</span>
+<span class="token punctuation">{</span><span class="token string">"Command"</span><span class="token builtin class-name">:</span><span class="token string">"<span class="token entity" title="\&quot;">\"</span>node peerjs.js<span class="token entity" title="\&quot;">\"</span>"</span>,<span class="token string">"CreatedAt"</span><span class="token builtin class-name">:</span><span class="token string">"2025-04-13 16:17:24 +0300 MSK"</span>,<span class="token string">"ID"</span><span class="token builtin class-name">:</span><span class="token string">"1c976b1b3b95"</span>,<span class="token string">"Image"</span><span class="token builtin class-name">:</span><span class="token string">"peerjs/peerjs-server"</span>,<span class="token string">"Labels"</span><span class="token builtin class-name">:</span><span class="token string">""</span>,<span class="token string">"LocalVolumes"</span><span class="token builtin class-name">:</span><span class="token string">"0"</span>,<span class="token string">"Mounts"</span><span class="token builtin class-name">:</span><span class="token string">""</span>,<span class="token string">"Names"</span><span class="token builtin class-name">:</span><span class="token string">"pedantic_moser"</span>,<span class="token string">"Networks"</span><span class="token builtin class-name">:</span><span class="token string">"bridge"</span>,<span class="token string">"Platform"</span>:null,<span class="token string">"Ports"</span><span class="token builtin class-name">:</span><span class="token string">"0.0.0.0:9000-<span class="token entity" title="\u003e">\u003e</span>9000/tcp, [::]:9000-<span class="token entity" title="\u003e">\u003e</span>9000/tcp"</span>,<span class="token string">"RunningFor"</span><span class="token builtin class-name">:</span><span class="token string">"6 months ago"</span>,<span class="token string">"Size"</span><span class="token builtin class-name">:</span><span class="token string">"0B"</span>,<span class="token string">"State"</span><span class="token builtin class-name">:</span><span class="token string">"running"</span>,<span class="token string">"Status"</span><span class="token builtin class-name">:</span><span class="token string">"Up 4 months"</span><span class="token punctuation">}</span>
+alex@snlx:~$ <span class="token function">uptime</span>
+ <span class="token number">11</span>:05:17 up <span class="token number">204</span> days, <span class="token number">17</span>:06,  <span class="token number">0</span> user,  load average: <span class="token number">0.00</span>, <span class="token number">0.00</span>, <span class="token number">0.00</span>
+alex@snlx:~$ <span class="token function">sudo</span> poweroff
+<span class="token punctuation">[</span>sudo<span class="token punctuation">]</span> password <span class="token keyword">for</span> alex:
+
+The system will power off now<span class="token operator">!</span>
+
+Goodbye, Ubuntu<span class="token operator">!</span>
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">My VPS provider gives me an option to select a custom image. Unfortunately, the VM keeps booting into the installed OS rather that the ISO, so I'll try <code>nixos-anywhere</code>. Hello, Ubuntu :)</p>
+        <p dir="auto">NixOS anywhere expects me to bootstrap the config on my machine and then deploys it via ssh. The system disk is called sda1, not vda.</p>
+        <p dir="auto">I'll start with a regular mutable OS. I wanted to go full tmpfs root right from the start, but that's a problem because the box has a gig of RAM.</p>
+        <p dir="auto">Running the command, I get <code>Out of memory: Killed process 1851 (kexec)</code>. Of course I do. Stopping:</p>
+        <ul>
+            <li dir="auto">containerd</li>
+            <li dir="auto">coturn</li>
+            <li dir="auto">snapd</li>
+            <li dir="auto">docker</li>
+            <li dir="auto">multipathd</li>
+        </ul>
+        <p dir="auto">Well that helped. Goodbye Ubuntu!</p>
+        <p dir="auto">It's been stuck on "Deleting garbage" for about 16 minutes now. I've tried to run <code>free -h</code> in its console and it's not responding. Poor machine. Don't know what else I expected from a node with 1 vCPU and a gig of RAM. Okay, waiting.</p>
+        <p dir="auto">I let the server sit there for about 5 hours. It failed with another out-of-memory error. I'll try to reinstall from the UI again.</p>
+        <p dir="auto">Oh, they had a <a data-tooltip-position="top" aria-label="https://github.com/nix-community/nixos-anywhere/blob/main/docs/howtos/limited-ram.md" class="external-link" href="https://github.com/nix-community/nixos-anywhere/blob/main/docs/howtos/limited-ram.md">docs page on this issue the whole time</a>. And that worked beautifully. Well, great to know.</p>
+        <pre class="language-bash"><code class="language-bash is-loaded"><span class="token punctuation">[</span>root@nixos:~<span class="token punctuation">]</span> <span class="token comment"># Hello, NixOS</span>
+
+<span class="token punctuation">[</span>root@nixos:~<span class="token punctuation">]</span> <span class="token function">ls</span> /etc/nixos
+
+<span class="token punctuation">[</span>root@nixos:~<span class="token punctuation">]</span> <span class="token comment"># Oh yeah, right, the config isn't on the server at all. Okay, let's start from scratch then</span>
+
+<span class="token punctuation">[</span>root@nixos:~<span class="token punctuation">]</span> nixos-generate-config
+writing /etc/nixos/hardware-configuration.nix<span class="token punctuation">..</span>.
+writing /etc/nixos/configuration.nix<span class="token punctuation">..</span>.
+For <span class="token function">more</span> hardware-specific settings, see https://github.com/NixOS/nixos-hardware.
+
+<span class="token punctuation">[</span>root@nixos:~<span class="token punctuation">]</span> <span class="token builtin class-name">cd</span> /etc/nixos
+
+<span class="token punctuation">[</span>root@nixos:/etc/nixos<span class="token punctuation">]</span> nix-shell --extra-experimental-features flakes <span class="token parameter variable">-p</span> helix
+<span class="token punctuation">(</span>cut<span class="token punctuation">)</span>
+
+<span class="token punctuation">[</span>nix-shell:/etc/nixos<span class="token punctuation">]</span> <span class="token function">git</span> init
+<span class="token punctuation">(</span>cut<span class="token punctuation">)</span>
+
+<span class="token punctuation">[</span>nix-shell:/etc/nixos<span class="token punctuation">]</span> <span class="token function">git</span> branch <span class="token parameter variable">-m</span> main
+
+<span class="token punctuation">[</span>nix-shell:/etc/nixos<span class="token punctuation">]</span> <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+
+<span class="token punctuation">[</span>nix-shell:/etc/nixos<span class="token punctuation">]</span> hx configuration.nix
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">Quick update: I can't rebuild the system. It's using flakes and refusing to build without them. And why is it using flakes? Because I installed it with flake support... The fix is:</p>
+        <pre class="language-bash"><code class="language-bash is-loaded">nix-build <span class="token string">'&lt;nixpkgs/nixos&gt;'</span> <span class="token parameter variable">-A</span> config.system.build.toplevel <span class="token parameter variable">-I</span> nixos-config<span class="token operator">=</span>./configuration.nix --extra-experimental-features flakes
+./result/activate
+nixos-rebuild boot
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">(2 hours later) That was fun but I think I accidentally broke the bootloader and the thing booted into THEIR image. Going to install it like normal now. Root on tmpfs, 100m max.</p>
+    </main>
+    <script src="https://snlx.net/mobile.js"></script>
+    <!-- TODO router.js -->
+    <!-- TODO include typ.js everywhere so it's downloaded in the bg & cached -->
+</body>
+
+</html>

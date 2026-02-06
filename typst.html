@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>typst</title>
+    <link rel="stylesheet" href="https://snlx.net/new.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+</head>
+
+<body>
+    <nav>
+        <h2>Linked Notes</h2>
+        <ul>
+            <li class="back"><a href="/why-obsi">why-obsi</a></li>
+            <li class="back"><a href="/ru-why-obsi">ru-why-obsi</a></li>
+            <li class="current"><a href="/typst">typst</a></li>
+        </ul><a class="source" href="https://github.com/snlxnet/snlx.net"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>Source&nbsp;code</a>
+    </nav>
+    <main>
+        <div class="metadata">
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-feather-icon lucide-feather">
+                    <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"></path>
+                    <path d="M16 8 2 22"></path>
+                    <path d="M17.5 15H9"></path>
+                </svg>created 197d ago</div>
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                    <path d="M21 3v5h-5"></path>
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                    <path d="M8 16H3v5"></path>
+                </svg>updated 7d ago</div>
+            <div class="tag">#resource</div>
+        </div>
+        <pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> resource
+<span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2025-07-24</span>
+<span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-30T13:37:37+03:00</span>
+<span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
+<span class="token key atrule">layout</span><span class="token punctuation">:</span> base.njk</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">I learned about it from <a data-tooltip-position="top" aria-label="https://sdr-podcast.com/episodes/typst-is-pretty-neat" class="external-link" href="https://sdr-podcast.com/episodes/typst-is-pretty-neat">an SDR episode called "typst is pretty neat"</a> and it is actually pretty neat</p>
+        <h2 data-heading="Typst is Pretty Much Markdown" dir="auto">Typst is Pretty Much Markdown</h2>
+        <pre class="language-typst"><code class="language-typst is-loaded">= L1 heading
+== L2 heading
+Regular text. *Bold* text. _Italic_ text:
++ ordered list item 1
++ item 2
++ item 3
+  - unordered list item
+  - another
+  - another
+
+#link("https://example.com")[See example.com], or, you know,
+https://automatic.links
+
+Code is done the same way it is in markdown
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <h2 data-heading="Until it Comes to Math" dir="auto">Until it Comes to Math</h2>
+        <p dir="auto">It has way nicer math syntax than LaTeX:</p>
+        <pre class="language-typst"><code class="language-typst is-loaded">$a = F / m$
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">instead of</p>
+        <pre class="language-markdown"><code class="language-markdown is-loaded">$a = \frac{F}{m}$
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">and</p>
+        <pre class="language-typst"><code class="language-typst is-loaded">$ lim_(x -&gt; +oo) x^2/x^3 = ... $
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">instead of</p>
+        <pre class="language-markdown"><code class="language-markdown is-loaded">$
+\lim_{x \to +\infty} \frac{x^2}{x^3} = ...
+$
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <h2 data-heading="And Complex Formatting" dir="auto">And Complex Formatting</h2>
+        <p dir="auto">This is a figure, or an image that has a customizable caption. The <code>#</code> character at the start switches the line into code mode, so it's looks like C instead of MarkDown. This is done for flexibility, check out <a data-tooltip-position="top" aria-label="https://typst.app/docs/tutorial/formatting/" class="external-link" href="https://typst.app/docs/tutorial/formatting/">the docs</a> if you want to see some examples.</p>
+        <pre class="language-typst"><code class="language-typst is-loaded">#figure(
+  image("lab-signal-types.svg", width: 50%),
+  caption: [ Hello, world! ],
+)
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">Here's a simple presentation, for example:</p>
+        <pre class="language-typst"><code class="language-typst is-loaded">// you can specify the colors manually or import them from a package
+#import "@preview/catppuccin:1.0.0": catppuccin, flavors
+#let flavor = flavors.mocha
+#show: catppuccin.with(flavor)
+#let palette = flavor.colors
+
+#set page(
+  paper: "presentation-16-9",
+  margin: (x: 6%, y: 10%),
+  header: [
+    #set align(right + horizon)
+    #text(fill: palette.teal.rgb)[Presentation Name]
+  ]
+)
+#set text(font: "JetBrains Mono", size: 16pt)
+#set align(center + horizon)
+#show emph: set text(fill: palette.lavender.rgb)
+
+= Hello world
+#lorem(10) // filler
+
+#pagebreak() // new slide
+
+...
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <h2 data-heading="And Other things" dir="auto">And Other things</h2>
+        <p dir="auto">I'm still exploring this one, but typst is so much more than an office suite replacement</p>
+        <p dir="auto">This is it <em>doing</em> math, not just displaying it:</p>
+        <pre class="language-typst"><code class="language-typst is-loaded">#import "@preview/eqalc:0.1.4": math-to-func
+
+// the equation to display
+#let equation = $(4 pi r^3)/3$
+
+// convert it into a function
+#let get-sphere-volume = math-to-func(equation)
+
+// solve
+#let radius = 10
+#let volume = calc.round(get-sphere-volume(radius), digits: 2)
+
+// display
+$ V = equation = volume $
+</code><button class="copy-code-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-copy"><rect x="8" y="8" width="14" height="14" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></pre>
+        <p dir="auto">And you can draw <a data-tooltip-position="top" aria-label="https://typst.app/universe/package/cetz/" class="external-link" href="https://typst.app/universe/package/cetz/">geometry</a>.</p>
+    </main>
+    <script src="https://snlx.net/mobile.js"></script>
+    <!-- TODO router.js -->
+    <!-- TODO include typ.js everywhere so it's downloaded in the bg & cached -->
+</body>
+
+</html>
