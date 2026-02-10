@@ -99,6 +99,8 @@ nav li.forward::before {
 
 main {
   margin: 0 auto;
+  width: 100%;
+  overflow-x: hidden;
   max-width: 80ch;
   color: #cdd6f4;
   padding: 2em;
@@ -181,7 +183,7 @@ button {
   right: 1rem;
 }
 
-@media (width <= 130ch) {
+@media (width <= calc(140ch + 8em)) {
   body {
     display: block;
   }
