@@ -1,0 +1,107 @@
+---
+layout: base.njk
+---
+
+<h1>Work in progress - status</h1>
+
+<p>The only thing I've done so far is the wave animation</p>
+
+<style>
+  #waves {
+    transform: translateX(0);
+  }
+  #status, #timer {
+    font-family: monospace;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: fill 1s ease-in-out;
+  }
+</style>
+
+<svg class="card" style="background: #181825" viewBox="0 0 210 90">
+  <path
+    id="wavypath"
+  ></path>
+
+  <rect
+    x="80"
+    y="0"
+    width="150%"
+    height="150%"
+    fill="#181825"
+  ></rect>
+  <text
+    x="40"
+    y="30"
+    fill="#181825"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    id="timer"
+  >
+    00:00
+  </text>
+  <text
+    x="40"
+    y="80"
+    fill="#181825"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    id="status"
+  >
+    WORKING
+  </text>
+</svg> 
+
+<script>
+frame()
+
+function frame() {
+  const waves = 100
+  const seconds = 5*60
+  const accent = "#74c7ec"
+
+  countdown(seconds)
+  function countdown(left) {
+    const s = left % 60
+    const m = Math.floor(left / 60)
+    timer.textContent = `${pad(m)}:${pad(s)}`
+
+    if (left === 0) {
+      return;
+    }
+
+    if (left < seconds*0.75) {
+      timer.style.fill = accent
+    }
+
+    setTimeout(() => countdown(left-1), 1000)
+  }
+
+  const wave = `
+    q 20,10
+      40,00
+    q 20,-10
+      40,00
+  `
+  wavypath.setAttribute(
+    "d",
+    `
+      M 00,-10
+
+      ${wave.repeat(waves)}
+
+      l 00,110
+      L 00,90
+      Z
+    `
+  )
+  wavypath.style.fill = accent
+  wavypath.style.transition = `ease-out ${seconds}s`
+  setTimeout(() => wavypath.style.transform = `translate(-${80*(waves-1)}px, 100px)`, 100)
+  setTimeout(() => wavypath.style.transform = `translate(-${80*(waves-1)}px, 120px)`, seconds * 1000)
+}
+
+function pad(number) {
+  return ("00" + (number || 0)).slice(-2)
+}
+</script>
