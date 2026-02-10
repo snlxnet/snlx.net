@@ -3,7 +3,7 @@
 
 <head>
     <title>mk-api</title>
-    <link rel="stylesheet" href="https://snlx.net/new.css">
+    <link rel="stylesheet" href="/new.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,13 +35,13 @@
                     <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"></path>
                     <path d="M16 8 2 22"></path>
                     <path d="M17.5 15H9"></path>
-                </svg>created 36d ago</div>
+                </svg>created <span data-date="2026-01-01" class="date">...</span> ago</div>
             <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
                     <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
                     <path d="M21 3v5h-5"></path>
                     <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
                     <path d="M8 16H3v5"></path>
-                </svg>updated 13d ago</div>
+                </svg>updated <span data-date="2026-01-24T11:58:49+03:00" class="date">...</span> ago</div>
             <div class="tag">#project</div>
             <div class="tag">#archive</div>
         </div>
@@ -141,9 +141,7 @@ echo "and bash here"
         <p dir="auto">This project is <em>done</em>, now I need to update <a data-href="mk-bridge" href="/mk-bridge" class="internal-link">mk-bridge</a> to support secret notes and status updates, then make the frontend able to read both.</p>
         <p dir="auto">More on the secret notes in <a data-href="mk-secret" href="/mk-secret" class="internal-link">mk-secret</a>.</p>
     </main>
-    <script src="https://snlx.net/mobile.js"></script>
-    <!-- TODO router.js -->
-    <!-- TODO include typ.js everywhere so it's downloaded in the bg & cached -->
+    <script type="module" src="/client.js"></script>
 </body>
 
 </html>
