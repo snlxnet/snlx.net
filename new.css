@@ -147,6 +147,16 @@ li code {
   background: var(--lower);
 }
 
+table {
+  border-collapse: collapse;
+}
+th, td {
+  text-align: left;
+  min-width: 6ch;
+  padding: 4px 8px;
+  border: 1px solid var(--higher);
+}
+
 .math-inline {
   display: inline-block;
 }
