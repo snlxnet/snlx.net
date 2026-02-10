@@ -27,16 +27,16 @@
                     <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"></path>
                     <path d="M16 8 2 22"></path>
                     <path d="M17.5 15H9"></path>
-                </svg>created 12d ago</div>
+                </svg>created 15d ago</div>
             <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
                     <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
                     <path d="M21 3v5h-5"></path>
                     <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
                     <path d="M8 16H3v5"></path>
-                </svg>updated 2d ago</div>
+                </svg>updated 22.64 hrs ago</div>
             <div class="tag">#project</div>
         </div>
-        <pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-02-04T16:58:18+03:00</span>
+        <pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-02-09T10:40:21+03:00</span>
 <span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2026-01-25T11:52:58+03:00</span>
 <span class="token key atrule">tags</span><span class="token punctuation">:</span>
   <span class="token punctuation">-</span> project
@@ -97,6 +97,33 @@
         <p dir="auto">Also I didn't want the screws to be visible and they are now. This makes me want to start from the very beginning.</p>
         <p dir="auto">The fisrt thing I'm doing is ditching the magnets. It's great to have them, but they slow down prototype and don't make for a rigid enough case.</p>
         <p dir="auto">I'll rewrite this section probably this week and add images, so far the redesign is going great. The new thing is simpler, it still has 3 parts, though I'm thinking of splitting it into 4 or 5. Everything is held together with regular M3x15mm screws.</p>
+        <h2 data-heading="Wiring It" dir="auto">Wiring It</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>6</th>
+                    <th>21</th>
+                    <th>10</th>
+                    <th>9</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>4</td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 data-heading="Software" dir="auto">Software</h2>
+        <p dir="auto">In the simplest case, I need to remember the down events, save them, then wait until one key is released, then fire that state, then block until all keys are released.</p>
+        <h2 data-heading="Battery problems" dir="auto">Battery problems</h2>
+        <p dir="auto">I've hooked it up to a CR2032 and it couldn't even start. Today I've realized that there's a very common type of batteries that I've completely overlooked. Nokia batteries.</p>
+        <p dir="auto">I've added an adapter as a new module and...</p>
+        <p dir="auto">(not uploading pocket-kb-with-battery-adapter.png, note to self: redraw as svg)</p>
+        <p dir="auto">it's way too thick, kinda defeats the purpose. So I'm making a new bottom plate that is <em>no longer gridfinity compatible</em>.</p>
+        <p dir="auto">at the end of the day it did end up working, I'll write about it when I have a bit more time.</p>
     </main>
     <script src="https://snlx.net/mobile.js"></script>
     <!-- TODO router.js -->
