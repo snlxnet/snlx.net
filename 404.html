@@ -53,6 +53,11 @@ permalink: 404.html
       }
 
       document.documentElement.innerHTML = await response.text()
+
+      if (document.documentElement.innerHTML.includes("⚙ Redirecting, please wait...")) {
+        eval(document.querySelector("script").innerText)
+      }
+      
       document.querySelector("script").remove()
       const client = document.createElement("script")
       client.setAttribute("type", "module")
