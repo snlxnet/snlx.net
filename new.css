@@ -94,6 +94,7 @@ nav li.forward::before {
 .metadata .up {
   color: var(--accent);
   stroke: var(--accent);
+  min-width: fit-content;
 }
 .metadata .tag {
   flex: 1;
