@@ -80,7 +80,8 @@ nav li.forward::before {
   flex-wrap: wrap;
   gap: 1em;
 }
-.metadata div {
+.metadata div,
+.metadata .tag {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,6 +90,10 @@ nav li.forward::before {
   border-radius: 1em;
   background: var(--higher);
   color: #cdd6f4;
+}
+.metadata .up {
+  color: var(--accent);
+  stroke: var(--accent);
 }
 .metadata .tag {
   flex: 1;
