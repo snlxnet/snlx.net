@@ -1,24 +1,34 @@
----
-layout: base.njk
----
-
-<h1>Work in progress - status</h1>
-
-<p>The only thing I've done so far is the wave animation</p>
-
 <style>
+  body {
+    background: #181825;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+  }
+
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("/deps/fonts/jetbrains_mono.ttf");
+  }
   #waves {
     transform: translateX(0);
   }
-  #status, #timer {
-    font-family: monospace;
-    font-size: 1.2em;
+  #status, #timer, #preposition, #location {
+    font-family: "JetBrains Mono";
+    font-size: 1em;
     font-weight: bold;
     transition: fill 1s ease-in-out;
   }
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 </style>
 
-<svg class="card" style="background: #181825" viewBox="0 0 210 90">
+<svg id="status" style="background: #181825" viewBox="0 0 210 90">
   <path
     id="wavypath"
   ></path>
@@ -42,14 +52,45 @@ layout: base.njk
   </text>
   <text
     x="40"
-    y="80"
+    y="78"
     fill="#181825"
     dominant-baseline="middle"
     text-anchor="middle"
     id="status"
   >
-    WORKING
+    working
   </text>
+
+  <text
+    x="85"
+    y="78"
+    fill="#cdd6f4"
+    dominant-baseline="middle"
+    id="preposition"
+  >
+    on
+
+    <a
+      id="project"
+    >
+      ...
+    </a>
+  </text>
+
+  <text
+    x="188"
+    y="15"
+    fill="#cdd6f4"
+    dominant-baseline="middle"
+    text-anchor="end"
+    id="location"
+  >
+    location
+  </text>
+  <svg x="192" y="8" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#cdd6f4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
+    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+    <circle cx="12" cy="10" r="3"/>
+  </svg>
 </svg> 
 
 <script>
@@ -59,6 +100,7 @@ function frame() {
   const waves = 100
   const seconds = 5*60
   const accent = "#74c7ec"
+  const note = "trk"
 
   countdown(seconds)
   function countdown(left) {
@@ -99,6 +141,10 @@ function frame() {
   wavypath.style.transition = `ease-out ${seconds}s`
   setTimeout(() => wavypath.style.transform = `translate(-${80*(waves-1)}px, 100px)`, 100)
   setTimeout(() => wavypath.style.transform = `translate(-${80*(waves-1)}px, 120px)`, seconds * 1000)
+
+  project.setAttribute("href", "/" + note)
+  project.textContent = note
+  project.style.fill = accent
 }
 
 function pad(number) {

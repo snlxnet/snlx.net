@@ -135,9 +135,14 @@ em, strong {
   font-weight: bold;
 }
 
-img, svg {
+img, svg, iframe {
   width: 100%;
+  border: none;
   border-radius: 1em;
+}
+
+iframe {
+  aspect-ratio: 21 / 9;
 }
 
 hr {
