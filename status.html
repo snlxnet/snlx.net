@@ -41,7 +41,7 @@
         </p>
         <p>
             Location:
-            <span id="location">Unknown</span>
+            <span id="geolocation">Unknown</span>
         </p>
       </div>
   </div>
@@ -113,18 +113,20 @@
       clearInterval(intervalId)
 
       if (!detail.endsAt) {
-        state.textContent = "stopped"
+        die()
         return
       }
 
       state.textContent = "running"
+      action.textContent = detail.action
+      link.textContent = detail.link
+      link.href = detail.link ? "/" + detail.link : "#"
+      geolocation.textContent = detail.location || "Unknown"
 
       intervalId = setInterval(() => {
         const ms = detail.endsAt - new Date()
         if (ms <= 0) {
-          state.textContent = "stopped"
-          countdown.textContent = "--:--"
-          clearInterval(intervalId)
+          die()
           return
         }
 
@@ -137,6 +139,16 @@
 
       console.log(detail)
     })
+
+    function die() {
+      state.textContent = "stopped"
+      countdown.textContent = "--:--"
+      action.textContent = "Offline"
+      link.textContent = ""
+      link.href = "#"
+      location.textContent = "Unknown"
+      clearInterval(intervalId)
+    }
 
     main()
 
