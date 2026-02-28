@@ -17,6 +17,10 @@ function fixIframes() {
     frame.contentWindow.addEventListener("keydown", resize)
     frame.onload()
 
+    const baseTag = document.createElement("base")
+    baseTag.setAttribute("target", "_parent")
+    frame.contentWindow.document.body.appendChild(baseTag)
+
     addEventListener("resize", () => {
       frame.style.height = frame.clientWidth / 21 * 9 + "px"
       resize()
