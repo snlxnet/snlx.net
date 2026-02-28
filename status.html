@@ -86,14 +86,15 @@
         endsAt: nextPhaseAt,
         action: currentPhase === "break" ? "break" : action,
         link,
-        location
+        location,
+        phase: currentPhase === "work" ? "🍅" : "🏖️",
       })
 
       const timeout = nextPhaseIn * 60 * 1000 + 100
       setTimeout(() => pomodoroDispatcher({started, action, link, location}), timeout)
     }
 
-    function dispatchTimerUpdate({endsInMinutes, endsAt, action, link, location}) {
+    function dispatchTimerUpdate({endsInMinutes, endsAt, action, link, location, phase}) {
       document.body.dispatchEvent(
         new CustomEvent("timerupdate", {
           bubbles: true,
@@ -103,6 +104,7 @@
             action,
             link,
             location,
+            phase,
           },
         })
       )
@@ -117,7 +119,7 @@
         return
       }
 
-      state.textContent = "running"
+      state.textContent = "running " + (detail.phase || "")
       action.textContent = detail.action
       link.textContent = detail.link
       link.href = detail.link ? "/" + detail.link : "#"
