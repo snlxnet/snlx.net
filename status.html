@@ -150,6 +150,7 @@
         const ms = detail.endsAt - new Date()
         if (ms <= 0) {
           die()
+          playNotification()
           return
         }
 
@@ -171,7 +172,6 @@
       link.href = "#"
       geolocation.textContent = ""
       clearInterval(intervalId)
-      playNotification()
     }
 
     // this is taken from https://github.com/kzhovn/statusbar-pomo-obsidian/
