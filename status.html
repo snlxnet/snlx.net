@@ -28,7 +28,7 @@
   }
 </style>
 
-<svg id="status" style="background: #181825" viewBox="0 0 210 90">
+<svg style="background: #181825" viewBox="0 0 210 90">
   <path
     id="wavypath"
   ></path>
@@ -94,13 +94,77 @@
 </svg> 
 
 <script>
-frame()
+function main() {
+  const socket = new WebSocket("wss://api.snlx.net/status")
+  console.log(socket)
+  socket.addEventListener("message", ({data}) => {
+    const now = new Date()
+    let {action, link, location, duration, started} = JSON.parse(data)
+    started = new Date(started)
+    duration = decodeURIComponent(duration)
 
-function frame() {
-  const waves = 100
-  const seconds = 5*60
+    if (duration.startsWith("+pomo")) {
+      pomodoroDispatcher({started, action, link, location})
+    } else if (duration.startsWith("+")) {
+      const lastsForMinutes = +duration.slice(1)
+      const endsAt = started
+      endsAt.setMinutes(started.getMinutes() + lastsForMinutes)
+
+      const endsInMinutes = (endsAt - now) / 1000 / 60
+      dispatchTimerUpdate({endsInMinutes, endsAt, action, link, location})
+    }
+  })
+}
+
+function pomodoroDispatcher({started, action, link, location}) {
+  const minutesSinceStart = (new Date() - started) / 1000 / 60
+  const minutesSinceBreak = minutesSinceStart % 30
+  const currentPhase = minutesSinceBreak < 25 ? "work" : "break"
+
+  const nextWorkIn = 30 - minutesSinceBreak
+  const nextBreakIn = currentPhase === "work" ? 25 - minutesSinceBreak : 55 - minutesSinceBreak
+
+  const nextPhaseIn = currentPhase === "work" ? nextBreakIn : nextWorkIn
+  let nextPhaseAt = new Date()
+  nextPhaseAt.setMinutes(nextPhaseAt.getMinutes() + nextPhaseIn)
+  dispatchTimerUpdate({
+    endsInMinutes: nextPhaseIn,
+    endsAt: nextPhaseAt,
+    action: currentPhase === "break" ? "break" : action,
+    link,
+    location
+  })
+
+  const timeout = nextPhaseIn * 60 * 1000 + 100
+  setTimeout(() => pomodoroDispatcher({started, action, link, location}), timeout)
+}
+
+function dispatchTimerUpdate({endsInMinutes, endsAt, action, link, location}) {
+  document.body.dispatchEvent(
+    new CustomEvent("timerupdate", {
+      bubbles: true,
+      detail: {
+        endsInMinutes,
+        endsAt,
+        action,
+        link,
+        location,
+      },
+    })
+  )
+}
+
+document.addEventListener("timerupdate", ({detail}) => {
+  frame(detail)
+})
+
+main()
+
+function frame({endsInMinutes, action, link, location}) {
+  const seconds = Math.floor(endsInMinutes * 60)
+  const waves = Math.floor(seconds / 2)
   const accent = "#74c7ec"
-  const note = "trk"
+  const note = link
 
   countdown(seconds)
   function countdown(left) {
@@ -114,6 +178,8 @@ function frame() {
 
     if (left < seconds*0.75) {
       timer.style.fill = accent
+    } else {
+      delete timer.style.fill
     }
 
     setTimeout(() => countdown(left-1), 1000)
@@ -138,7 +204,9 @@ function frame() {
     `
   )
   wavypath.style.fill = accent
-  wavypath.style.transition = `ease-out ${seconds}s`
+  delete wavypath.style.transition
+  delete wavypath.style.transform
+  wavypath.style.transition = `transform linear ${seconds}s`
   setTimeout(() => wavypath.style.transform = `translate(-${80*(waves-1)}px, 100px)`, 100)
   setTimeout(() => wavypath.style.transform = `translate(-${80*(waves-1)}px, 120px)`, seconds * 1000)
 
