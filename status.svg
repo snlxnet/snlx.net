@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="90mm"
+   viewBox="0 0 210 90"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="status.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showguides="true"
+     inkscape:zoom="0.89619809"
+     inkscape:cx="421.78175"
+     inkscape:cy="756.52917"
+     inkscape:window-width="3840"
+     inkscape:window-height="2160"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4">
+      <path
+         style="fill:#74c7ec;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+         d="m 0,55.842808 c 0,0 6.8890195,-8.87222 21.293332,-9.289738 C 35.697647,46.135555 36.010784,59.913594 51.458887,59.600454 66.906992,59.287317 69.734581,48.327514 80.22,47.909999 V 90 H 0 Z"
+         id="path5"
+         sodipodi:nodetypes="csscccc" />
+    </clipPath>
+  </defs>
+<style>
+   @font-face {
+      font-family: "JetBrains Mono";
+      src: url("https://snlx.net/deps/fonts/jetbrains_mono.ttf");
+    }
+</style>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#181825;stroke-width:0.808979;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       id="rect2"
+       width="210"
+       height="90"
+       x="0"
+       y="0" />
+    <path
+       style="fill:#74c7ec;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       d="m 0,55.842807 c 0,0 6.8890194,-8.87222 21.293332,-9.289737 14.404314,-0.417516 14.717451,13.360524 30.165554,13.047384 15.448105,-0.313137 18.275694,-11.27294 28.761115,-11.690456 l 0,42.090002 H 0 Z"
+       id="path2"
+       sodipodi:nodetypes="csscccc" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#74c7ec;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="16.109985"
+       y="30.381712"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="font-size:16px;letter-spacing:0px;stroke-width:0.5"
+         x="16.109985"
+         y="30.381712">08:00</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#cdd6f4;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="83.508759"
+       y="80.840012"
+       id="text9"><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         style="fill:#cdd6f4;stroke-width:0.5"
+         x="83.508759"
+         y="80.840012">ON</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#181825;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="6.8945127"
+       y="80.840012"
+       id="text11"><tspan
+         sodipodi:role="line"
+         id="tspan11"
+         style="fill:#181825;stroke-width:0.5"
+         x="6.8945127"
+         y="80.840012">WORKING</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#74c7ec;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="109.03365"
+       y="80.839996"
+       id="text10"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         style="fill:#74c7ec;stroke-width:0.5"
+         x="109.03365"
+         y="80.839996">TRK</tspan></text>
+    <path
+       d="m 145.14983,80.593368 5.66052,-5.660518 -5.66052,-5.660517"
+       id="path1"
+       style="fill:none;stroke:#74c7ec;stroke-width:1" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:end;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:end;fill:#cdd6f4;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="184.69521"
+       y="20.987595"
+       id="text12"><tspan
+         sodipodi:role="line"
+         id="tspan12"
+         style="text-align:end;text-anchor:end;fill:#cdd6f4;stroke:none;stroke-width:1"
+         x="184.69521"
+         y="20.987595">HOME</tspan></text>
+    <path
+       d="m 201.6137,13.52311 c 0,3.275431 -3.63361,6.686658 -4.85378,7.7402 a 0.65600492,0.65600492 0 0 1 -0.78852,0 c -1.22017,-1.053542 -4.85378,-4.464769 -4.85378,-7.7402 a 5.24804,5.24804 0 0 1 10.49608,0"
+       id="path1-6"
+       style="fill:none;stroke:#cdd6f4;stroke-width:0.656004" />
+    <circle
+       cx="196.36566"
+       cy="13.523105"
+       r="1.9680147"
+       id="circle1"
+       style="fill:none;stroke:#cdd6f4;stroke-width:0.656004" />
+    <rect
+       style="fill:#181825;stroke-width:0.808979;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       id="rect12"
+       width="210"
+       height="90"
+       x="0"
+       y="110.4155" />
+    <path
+       style="fill:#74c7ec;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       d="m 0,155.4155 c 0,0 5.3788482,9.29499 19.669575,11.14801 14.994771,1.94431 15.603136,-3.61513 30.460782,-6.58532 15.151486,-3.02894 20.047066,-4.33507 30.089644,-1.65268 v 42.09 H 0 Z"
+       id="path12"
+       sodipodi:nodetypes="csscccc" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#74c7ec;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="16.109985"
+       y="140.79723"
+       id="text13"><tspan
+         sodipodi:role="line"
+         id="tspan13"
+         style="font-size:16px;letter-spacing:0px;fill:#74c7ec;stroke-width:0.5"
+         x="16.109985"
+         y="140.79723">03:58</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#cdd6f4;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="86.018204"
+       y="191.25552"
+       id="text14"><tspan
+         sodipodi:role="line"
+         id="tspan14"
+         style="fill:#cdd6f4;stroke-width:0.5"
+         x="86.018204"
+         y="191.25552">FROM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#181825;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="39.722927"
+       y="191.25552"
+       id="text15"><tspan
+         sodipodi:role="line"
+         id="tspan15"
+         style="text-align:center;text-anchor:middle;fill:#181825;stroke-width:0.5"
+         x="39.722927"
+         y="191.25552">BREAK</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#74c7ec;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="128.66635"
+       y="191.25551"
+       id="text16"><tspan
+         sodipodi:role="line"
+         id="tspan16"
+         style="fill:#74c7ec;stroke-width:0.5"
+         x="128.66635"
+         y="191.25551">TRK</tspan></text>
+    <path
+       d="m 164.78253,191.00888 5.66052,-5.66052 -5.66052,-5.66052"
+       id="path16"
+       style="fill:none;stroke:#74c7ec;stroke-width:1" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:end;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:end;fill:#cdd6f4;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="184.69521"
+       y="131.40311"
+       id="text17"><tspan
+         sodipodi:role="line"
+         id="tspan17"
+         style="text-align:end;text-anchor:end;fill:#cdd6f4;stroke:none;stroke-width:1"
+         x="184.69521"
+         y="131.40311">HOME</tspan></text>
+    <path
+       d="m 201.6137,123.93862 c 0,3.27543 -3.63361,6.68666 -4.85378,7.7402 a 0.65600492,0.65600492 0 0 1 -0.78852,0 c -1.22017,-1.05354 -4.85378,-4.46477 -4.85378,-7.7402 a 5.24804,5.24804 0 0 1 10.49608,0"
+       id="path17"
+       style="fill:none;stroke:#cdd6f4;stroke-width:0.656004" />
+    <circle
+       cx="196.36566"
+       cy="123.93861"
+       r="1.9680147"
+       id="circle17"
+       style="fill:none;stroke:#cdd6f4;stroke-width:0.656004" />
+    <rect
+       style="fill:#181825;stroke-width:0.808979;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       id="rect17"
+       width="210"
+       height="90"
+       x="0"
+       y="243.416" />
+    <rect
+       style="fill:#cdd6f4;stroke:none;stroke-width:0.707107;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       id="rect22"
+       width="80.220001"
+       height="45"
+       x="0"
+       y="288.41602" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#cdd6f4;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="16.109985"
+       y="273.79773"
+       id="text18"><tspan
+         sodipodi:role="line"
+         id="tspan18"
+         style="font-size:16px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#cdd6f4;stroke-width:0.5"
+         x="16.109985"
+         y="273.79773">04:38</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#181825;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="39.722927"
+       y="317.46576"
+       id="text20"><tspan
+         sodipodi:role="line"
+         id="tspan20"
+         style="text-align:center;text-anchor:middle;fill:#181825;stroke-width:0.5"
+         x="39.722927"
+         y="317.46576">ASLEEP</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#cdd6f4;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="137.72417"
+       y="273.23407"
+       id="text22"><tspan
+         sodipodi:role="line"
+         id="tspan22"
+         style="stroke-width:1"
+         x="137.72417"
+         y="273.23407">&lt;- LOCAL TIME</tspan></text>
+    <rect
+       style="fill:#181825;stroke-width:0.808979;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       id="rect23"
+       width="210"
+       height="90"
+       x="0"
+       y="361.50745" />
+    <rect
+       style="fill:#cdd6f4;stroke:none;stroke-width:0.707107;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       id="rect24"
+       width="80.220001"
+       height="45"
+       x="0"
+       y="406.50748" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:start;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#cdd6f4;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="16.109985"
+       y="391.88919"
+       id="text24"><tspan
+         sodipodi:role="line"
+         id="tspan24"
+         style="font-size:16px;text-align:start;letter-spacing:0px;text-anchor:start;fill:#cdd6f4;stroke-width:0.5"
+         x="16.109985"
+         y="391.88919">13:45</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#181825;stroke-width:0.499999;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="40.24482"
+       y="435.55722"
+       id="text25"><tspan
+         sodipodi:role="line"
+         id="tspan25"
+         style="text-align:center;text-anchor:middle;fill:#181825;stroke-width:0.5"
+         x="40.24482"
+         y="435.55722">DND</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#cdd6f4;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="137.72417"
+       y="391.32553"
+       id="text26"><tspan
+         sodipodi:role="line"
+         id="tspan26"
+         style="stroke-width:1"
+         x="137.72417"
+         y="391.32553">&lt;- LOCAL TIME</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:end;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:end;fill:#cdd6f4;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="184.69521"
+       y="443.16452"
+       id="text27"><tspan
+         sodipodi:role="line"
+         id="tspan27"
+         style="text-align:end;text-anchor:end;fill:#cdd6f4;stroke:none;stroke-width:1"
+         x="184.69521"
+         y="443.16452">UNI</tspan></text>
+    <path
+       d="m 201.6137,435.70005 c 0,3.27543 -3.63361,6.68666 -4.85378,7.7402 a 0.65600492,0.65600492 0 0 1 -0.78852,0 c -1.22017,-1.05354 -4.85378,-4.46477 -4.85378,-7.7402 a 5.24804,5.24804 0 0 1 10.49608,0"
+       id="path27"
+       style="fill:none;stroke:#cdd6f4;stroke-width:0.656004" />
+    <circle
+       cx="196.36566"
+       cy="435.70004"
+       r="1.9680147"
+       id="circle27"
+       style="fill:none;stroke:#cdd6f4;stroke-width:0.656004" />
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:16px;font-family:'JetBrains Mono';-inkscape-font-specification:'JetBrains Mono Bold';text-align:center;letter-spacing:0px;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#11111b;stroke-width:1;stroke-linecap:round;stroke-linejoin:bevel;paint-order:fill markers stroke"
+       x="350.14117"
+       y="21.84692"
+       id="text7"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         style="fill:#11111b;stroke-width:1"
+         x="350.14117"
+         y="21.84692">the locations are clickable</tspan></text>
+  </g>
+</svg>
