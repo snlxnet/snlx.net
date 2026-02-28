@@ -183,7 +183,7 @@
 
     notify.addEventListener("click", () => {
       playNotification()
-      if (window.location.pathname.replace("/", "") === "status") {
+      if (window.location.pathname.replaceAll("/", "") === "status") {
         document.documentElement.requestFullscreen()
         document.body.style.background = "#181825"
         document.body.style.display = "flex"
