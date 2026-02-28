@@ -135,7 +135,7 @@
         seconds = Math.floor(seconds % 60)
 
         countdown.textContent = pad(minutes) + ":" + pad(seconds)
-      }, 1000)
+      }, 200)
 
       console.log(detail)
     })
@@ -146,7 +146,7 @@
       action.textContent = "Offline"
       link.textContent = ""
       link.href = "#"
-      location.textContent = "Unknown"
+      geolocation.textContent = "Unknown"
       clearInterval(intervalId)
     }
 

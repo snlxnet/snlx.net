@@ -12,9 +12,9 @@ function startRenderingDates() {
 
 function fixIframes() {
   document.querySelectorAll("iframe").forEach((frame) => {
-    frame.onload = resize
-    frame.contentWindow.addEventListener("click", resizeTwice)
-    frame.contentWindow.addEventListener("keydown", resizeTwice)
+    frame.onload = resizeMultipleTimes
+    frame.contentWindow.addEventListener("click", resize)
+    frame.contentWindow.addEventListener("keydown", resize)
     frame.onload()
 
     addEventListener("resize", () => {
@@ -22,9 +22,11 @@ function fixIframes() {
       resize()
     })
 
-    function resizeTwice() {
+    function resizeMultipleTimes() {
       resize()
+      setTimeout(resize, 50)
       setTimeout(resize, 100)
+      setTimeout(resize, 1000)
     }
     
     function resize() {
