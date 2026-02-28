@@ -65,6 +65,23 @@
 
           const endsInMinutes = (endsAt - now) / 1000 / 60
           dispatchTimerUpdate({endsInMinutes, endsAt, action, link, location})
+        } else {
+          const [hour, minute] = duration.split(":").map(segment => +segment)
+
+          if (hour === undefined || minute === undefined) {
+            return
+          }
+
+          let endsAt = new Date()
+          endsAt.setHours(hour)
+          endsAt.setMinutes(minute)
+          endsAt.setSeconds(0)
+          if (endsAt - now < 0) {
+            endsAt.setHours(24 + hour)
+          }
+          const endsInMinutes = (endsAt - now) / 1000 / 60
+
+          dispatchTimerUpdate({endsInMinutes, endsAt, action, link, location})
         }
       })
     }
@@ -155,7 +172,7 @@
     main()
 
     function pad(number) {
-      return ("00" + (number || 0)).slice(-2)
+      return String(number).length < 2 ? ("00" + (number || 0)).slice(-2) : number
     }
   </script>
 </body>
