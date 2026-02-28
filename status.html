@@ -1,221 +1,149 @@
-<style>
-  body {
-    background: #181825;
-    display: flex;
-    align-items: center;
-    margin: 0;
-    height: 100vh;
-  }
+<!doctype html>
+<html>
 
-  @font-face {
-    font-family: "JetBrains Mono";
-    src: url("/deps/fonts/jetbrains_mono.ttf");
-  }
-  #waves {
-    transform: translateX(0);
-  }
-  #status, #timer, #preposition, #location {
-    font-family: "JetBrains Mono";
-    font-size: 1em;
-    font-weight: bold;
-    transition: fill 1s ease-in-out;
-  }
-  a {
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
+<head>
+    <title>sld | snlx.net</title>
+    <link rel="stylesheet" href="/new.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="Digital Garden Note">
+    <style>
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: #181825;
+        width: 100vw;
+        aspect-ratio: 21 / 9;
+        padding: 0 2rem;
+      }
+    </style>
+</head>
+
+<body>
+  <div class="card">
+      <div style="display: flex; justify-content: space-between; align-items: center">
+          <h2>
+              Timer
+              <span id="state" style="color: var(--accent)"></span>
+          </h2>
+          <p>
+              <span id="countdown">--:--</span>
+              left
+          </p>
+      </div>
+      <div>
+        <p>
+            <span id="action">Offline</span>
+            <a id="link"></a>
+        </p>
+        <p>
+            Location:
+            <span id="location">Unknown</span>
+        </p>
+      </div>
+  </div>
+
+  <script>
+    function main() {
+      const socket = new WebSocket("wss://api.snlx.net/status")
+      console.log(socket)
+      socket.addEventListener("message", ({data}) => {
+        const now = new Date()
+        let {action, link, location, duration, started} = JSON.parse(data)
+        started = new Date(started)
+        duration = decodeURIComponent(duration)
+
+        if (duration.startsWith("+pomo")) {
+          pomodoroDispatcher({started, action, link, location})
+        } else if (duration.startsWith("+")) {
+          const lastsForMinutes = +duration.slice(1)
+          const endsAt = started
+          endsAt.setMinutes(started.getMinutes() + lastsForMinutes)
+
+          const endsInMinutes = (endsAt - now) / 1000 / 60
+          dispatchTimerUpdate({endsInMinutes, endsAt, action, link, location})
+        }
+      })
     }
-  }
-</style>
 
-<svg style="background: #181825" viewBox="0 0 210 90">
-  <path
-    id="wavypath"
-  ></path>
+    function pomodoroDispatcher({started, action, link, location}) {
+      const now = new Date()
 
-  <rect
-    x="80"
-    y="0"
-    width="150%"
-    height="150%"
-    fill="#181825"
-  ></rect>
-  <text
-    x="40"
-    y="30"
-    fill="#181825"
-    dominant-baseline="middle"
-    text-anchor="middle"
-    id="timer"
-  >
-    00:00
-  </text>
-  <text
-    x="40"
-    y="78"
-    fill="#181825"
-    dominant-baseline="middle"
-    text-anchor="middle"
-    id="status"
-  >
-    working
-  </text>
+      const minutesSinceStart = (now - started) / 1000 / 60
+      const minutesSinceBreak = minutesSinceStart % 30
+      const currentPhase = minutesSinceBreak < 25 ? "work" : "break"
 
-  <text
-    x="85"
-    y="78"
-    fill="#cdd6f4"
-    dominant-baseline="middle"
-    id="preposition"
-  >
-    on
+      const nextWorkIn = 30 - minutesSinceBreak
+      const nextBreakIn = currentPhase === "work" ? 25 - minutesSinceBreak : 55 - minutesSinceBreak
 
-    <a
-      id="project"
-    >
-      ...
-    </a>
-  </text>
-
-  <text
-    x="188"
-    y="15"
-    fill="#cdd6f4"
-    dominant-baseline="middle"
-    text-anchor="end"
-    id="location"
-  >
-    location
-  </text>
-  <svg x="192" y="8" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#cdd6f4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
-    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
-    <circle cx="12" cy="10" r="3"/>
-  </svg>
-</svg> 
-
-<script>
-function main() {
-  const socket = new WebSocket("wss://api.snlx.net/status")
-  console.log(socket)
-  socket.addEventListener("message", ({data}) => {
-    const now = new Date()
-    let {action, link, location, duration, started} = JSON.parse(data)
-    started = new Date(started)
-    duration = decodeURIComponent(duration)
-
-    if (duration.startsWith("+pomo")) {
-      pomodoroDispatcher({started, action, link, location})
-    } else if (duration.startsWith("+")) {
-      const lastsForMinutes = +duration.slice(1)
-      const endsAt = started
-      endsAt.setMinutes(started.getMinutes() + lastsForMinutes)
-
-      const endsInMinutes = (endsAt - now) / 1000 / 60
-      dispatchTimerUpdate({endsInMinutes, endsAt, action, link, location})
-    }
-  })
-}
-
-function pomodoroDispatcher({started, action, link, location}) {
-  const minutesSinceStart = (new Date() - started) / 1000 / 60
-  const minutesSinceBreak = minutesSinceStart % 30
-  const currentPhase = minutesSinceBreak < 25 ? "work" : "break"
-
-  const nextWorkIn = 30 - minutesSinceBreak
-  const nextBreakIn = currentPhase === "work" ? 25 - minutesSinceBreak : 55 - minutesSinceBreak
-
-  const nextPhaseIn = currentPhase === "work" ? nextBreakIn : nextWorkIn
-  let nextPhaseAt = new Date()
-  nextPhaseAt.setMinutes(nextPhaseAt.getMinutes() + nextPhaseIn)
-  dispatchTimerUpdate({
-    endsInMinutes: nextPhaseIn,
-    endsAt: nextPhaseAt,
-    action: currentPhase === "break" ? "break" : action,
-    link,
-    location
-  })
-
-  const timeout = nextPhaseIn * 60 * 1000 + 100
-  setTimeout(() => pomodoroDispatcher({started, action, link, location}), timeout)
-}
-
-function dispatchTimerUpdate({endsInMinutes, endsAt, action, link, location}) {
-  document.body.dispatchEvent(
-    new CustomEvent("timerupdate", {
-      bubbles: true,
-      detail: {
-        endsInMinutes,
-        endsAt,
-        action,
+      const nextPhaseIn = currentPhase === "work" ? nextBreakIn : nextWorkIn
+      let nextPhaseAt = new Date(now.getTime() + nextPhaseIn * 60 * 1000)
+      dispatchTimerUpdate({
+        endsInMinutes: nextPhaseIn,
+        endsAt: nextPhaseAt,
+        action: currentPhase === "break" ? "break" : action,
         link,
-        location,
-      },
+        location
+      })
+
+      const timeout = nextPhaseIn * 60 * 1000 + 100
+      setTimeout(() => pomodoroDispatcher({started, action, link, location}), timeout)
+    }
+
+    function dispatchTimerUpdate({endsInMinutes, endsAt, action, link, location}) {
+      document.body.dispatchEvent(
+        new CustomEvent("timerupdate", {
+          bubbles: true,
+          detail: {
+            endsInMinutes: endsInMinutes >= 0 ? endsInMinutes : null,
+            endsAt: endsAt - new Date() > 0 ? endsAt : null,
+            action,
+            link,
+            location,
+          },
+        })
+      )
+    }
+
+    let intervalId = 0;
+    document.addEventListener("timerupdate", ({detail}) => {
+      clearInterval(intervalId)
+
+      if (!detail.endsAt) {
+        state.textContent = "stopped"
+        return
+      }
+
+      state.textContent = "running"
+
+      intervalId = setInterval(() => {
+        const ms = detail.endsAt - new Date()
+        if (ms <= 0) {
+          state.textContent = "stopped"
+          countdown.textContent = "--:--"
+          clearInterval(intervalId)
+          return
+        }
+
+        let seconds = ms / 1000
+        const minutes = Math.floor(seconds / 60)
+        seconds = Math.floor(seconds % 60)
+
+        countdown.textContent = pad(minutes) + ":" + pad(seconds)
+      }, 1000)
+
+      console.log(detail)
     })
-  )
-}
 
-document.addEventListener("timerupdate", ({detail}) => {
-  frame(detail)
-})
+    main()
 
-main()
-
-function frame({endsInMinutes, action, link, location}) {
-  const seconds = Math.floor(endsInMinutes * 60)
-  const waves = Math.floor(seconds / 2)
-  const accent = "#74c7ec"
-  const note = link
-
-  countdown(seconds)
-  function countdown(left) {
-    const s = left % 60
-    const m = Math.floor(left / 60)
-    timer.textContent = `${pad(m)}:${pad(s)}`
-
-    if (left === 0) {
-      return;
+    function pad(number) {
+      return ("00" + (number || 0)).slice(-2)
     }
+  </script>
+</body>
 
-    if (left < seconds*0.75) {
-      timer.style.fill = accent
-    } else {
-      delete timer.style.fill
-    }
-
-    setTimeout(() => countdown(left-1), 1000)
-  }
-
-  const wave = `
-    q 20,10
-      40,00
-    q 20,-10
-      40,00
-  `
-  wavypath.setAttribute(
-    "d",
-    `
-      M 00,-10
-
-      ${wave.repeat(waves)}
-
-      l 00,110
-      L 00,90
-      Z
-    `
-  )
-  wavypath.style.fill = accent
-  delete wavypath.style.transition
-  delete wavypath.style.transform
-  wavypath.style.transition = `transform linear ${seconds}s`
-  setTimeout(() => wavypath.style.transform = `translate(-${80*(waves-1)}px, 100px)`, 100)
-  setTimeout(() => wavypath.style.transform = `translate(-${80*(waves-1)}px, 120px)`, seconds * 1000)
-
-  project.setAttribute("href", "/" + note)
-  project.textContent = note
-  project.style.fill = accent
-}
-
-function pad(number) {
-  return ("00" + (number || 0)).slice(-2)
-}
-</script>
+</html>
