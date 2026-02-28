@@ -40,12 +40,11 @@
       </div>
       <div>
         <p>
-            <span id="action">Offline</span>
+            <span id="action">offline</span>
             <a id="link"></a>
         </p>
         <p>
-            Location:
-            <span id="geolocation">Unknown</span>
+            <span id="geolocation"></span>
         </p>
       </div>
   </div>
@@ -144,7 +143,7 @@
       action.textContent = detail.action
       link.textContent = detail.link
       link.href = detail.link ? "/" + detail.link : "#"
-      geolocation.textContent = detail.location || "Unknown"
+      geolocation.textContent = detail.location ? `location: ${detail.location}` : ""
 
       intervalId = setInterval(() => {
         const ms = detail.endsAt - new Date()
@@ -166,10 +165,10 @@
     function die() {
       state.textContent = "stopped"
       countdown.textContent = "--:--"
-      action.textContent = "Offline"
+      action.textContent = "offline"
       link.textContent = ""
       link.href = "#"
-      geolocation.textContent = "Unknown"
+      geolocation.textContent = ""
       clearInterval(intervalId)
     }
 
