@@ -183,6 +183,13 @@
 
     notify.addEventListener("click", () => {
       playNotification()
+      if (window.location.pathname.replace("/", "") === "status") {
+        document.documentElement.requestFullscreen()
+        document.body.style.background = "#181825"
+        document.body.style.display = "flex"
+        document.body.style.alignItems = "center"
+        document.body.style.height="100vh"
+      }
       notify.remove()
     })
 
