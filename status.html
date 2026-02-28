@@ -38,6 +38,7 @@
               left
           </p>
       </div>
+      <button id="notify">Ding when the timer ends</button>
       <div>
         <p>
             <span id="action">offline</span>
@@ -179,6 +180,11 @@
     	const audio = new Audio(notificationUrl);
     	audio.play();
     }
+
+    notify.addEventListener("click", () => {
+      playNotification()
+      notify.remove()
+    })
 
     main()
 
