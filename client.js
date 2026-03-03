@@ -18,8 +18,9 @@ function fixIframes() {
     frame.onload()
 
     const baseTag = document.createElement("base")
-    baseTag.setAttribute("target", "_parent")
+    baseTag.setAttribute("target", "_top")
     frame.contentWindow.document.body.appendChild(baseTag)
+    frame.setAttribute("sandbox", "allow-top-navigation")
 
     addEventListener("resize", () => {
       frame.style.height = frame.clientWidth / 21 * 9 + "px"
