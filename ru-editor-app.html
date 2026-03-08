@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Поиск редактора markdown для универа | snlx.net</title>
+    <link rel="stylesheet" href="/new.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="Пользоваться терминалом и редактором кода не всем удобно, поэтому стоит найти что-то более простое, к чему потом можно прикрутить typst с шаблонами">
+</head>
+
+<body>
+    <nav>
+        <h2>Linked Notes</h2>
+        <ul>
+            <li class="back"><a href="/springnp">springnp</a></li>
+            <li class="current"><a href="/ru-editor-app">ru-editor-app</a></li>
+        </ul><a class="source" href="/src"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github-icon lucide-github">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>Source&nbsp;code</a>
+    </nav>
+    <main>
+        <div class="metadata">
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-feather-icon lucide-feather">
+                    <path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z"></path>
+                    <path d="M16 8 2 22"></path>
+                    <path d="M17.5 15H9"></path>
+                </svg>created <span data-date="2026-03-08T20:01:52+03:00" class="date">...</span> ago</div>
+            <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                    <path d="M21 3v5h-5"></path>
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                    <path d="M8 16H3v5"></path>
+                </svg>updated <span data-date="2026-03-08T20:39:15+03:00" class="date">...</span> ago</div>
+            <div class="tag">#resource</div>
+        </div>
+        <pre class="frontmatter language-yaml" style="display: none;"><code class="language-yaml is-loaded"><span class="token key atrule">updated</span><span class="token punctuation">:</span> <span class="token datetime number">2026-03-08T20:39:15+03:00</span>
+<span class="token key atrule">created</span><span class="token punctuation">:</span> <span class="token datetime number">2026-03-08T20:01:52+03:00</span>
+<span class="token key atrule">post</span><span class="token punctuation">:</span> <span class="token string">"[[snlx.net]]"</span>
+<span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> resource
+<span class="token key atrule">title</span><span class="token punctuation">:</span> Поиск редактора markdown для универа
+<span class="token key atrule">tldr</span><span class="token punctuation">:</span> Пользоваться терминалом и редактором кода не всем удобно<span class="token punctuation">,</span> поэтому стоит найти что<span class="token punctuation">-</span>то более простое<span class="token punctuation">,</span> к чему потом можно прикрутить typst с шаблонами</code></pre>
+        <h1 data-heading="Упрощение системы написания заметок" dir="auto">Упрощение системы написания заметок</h1>
+        <h2 data-heading="Актуальность" dir="auto">Актуальность</h2>
+        <p dir="auto">Пользоваться терминалом и редактором кода не всем удобно, поэтому стоит найти что-то более простое.</p>
+        <p dir="auto">Задачи, которые должна выполнять итоговая сборка:</p>
+        <ul>
+            <li dir="auto">простое, желательно <em>одно</em> приложение</li>
+            <li dir="auto">без лишних опций и кнопок</li>
+            <li dir="auto">позволяющее писать текст в markdown</li>
+            <li dir="auto">и экспортировать его как
+                <ul>
+                    <li dir="auto">презентации</li>
+                    <li dir="auto">документацию</li>
+                </ul>
+            </li>
+        </ul>
+        <p dir="auto">Что не нужно в этом проекте:</p>
+        <ul>
+            <li dir="auto">поддержка программного создания чертежей</li>
+            <li dir="auto">поддержка плагинов</li>
+            <li dir="auto">прямое редактирование кода</li>
+        </ul>
+        <h2 data-heading="Существующие редакторы" dir="auto">Существующие редакторы</h2>
+        <h3 data-heading="Obsidian.md" dir="auto">Obsidian.md</h3>
+        <p dir="auto">Простой по умолчанию, но идёт в разрез с пунктами про одно приложение и лишние элементы интерфейса. Это достаточно мощная система, но фокус на создании ссылок просто не нужен в данном контексте... Хотя...</p>
+        <p dir="auto">Всё равно, у него есть порог входа - нужно объяснять, что такое vault и доставлять плагины для экспорта, которых, к тому же, сейчас нет, так что надо такой ещё написать.</p>
+        <p dir="auto">Полувизуальный редактор frontmatter - большой плюс, т.к. это позволяет задавать метаданные для экспорта.</p>
+        <h3 data-heading="GhostWriter" dir="auto">GhostWriter</h3>
+        <p dir="auto">Искал кроссплатформенный редактор, нашёл его. GhostWriter - один из проектов KDE, который удобен как минимум полным отсутствием лишних частей интерфейса. Просто открыл и пишешь. WYSIWYG у него вроде как есть, синтаксис <em>всегда</em> явно показан, в отличие от Obsidian.</p>
+        <p dir="auto">Порог входа, я бы сказал, ниже, т.к. он открывается просто в новый файл, а б<em>о</em>льшая часть его опций - статистика. Минус в том, что</p>
+        <ol>
+            <li dir="auto">по умолчанию открыты боковая панель и превью, т.е. что-то всё-таки нужно объяснять</li>
+            <li dir="auto">нет особых возможностей для расширения</li>
+        </ol>
+        <p dir="auto">С другой стороны, вот пишу это в нём и мне вполне удобно.</p>
+        <h3 data-heading="Typst.app." dir="auto">Typst.app.</h3>
+        <p dir="auto">Официалный редактор неплох, но для загрузки файлов надо регестрироваться, плюс это облачный сервис. Хотелось бы что-то локальное.</p>
+        <p dir="auto">Интерфейс простой, нет ничего лишнего, но есть <em>полный доступ ко всем возможностям typst</em>, в которые надо вникнуть. Это удобно для меня, но не для кого-то, кому просто нужен редактор, способный экспортировать 2 типа файлов.</p>
+        <h3 data-heading="SimpleMDE" dir="auto">SimpleMDE</h3>
+        <p dir="auto">Это просто библиотека для JS. Она достаточно хорошо работает, source-режим у неё как у GhostWriter, но при этом она не рендерит картинки в этом режиме. Я проверил, GhostWriter тоже их не рендерит. Не сильно удобно, лучше уж obsidian тогда.</p>
+        <h3 data-heading="MarkText" dir="auto">MarkText</h3>
+        <p dir="auto">Когда-то я начинал с него (до перехода на Obsidian). Сейчас пробую снова. В целом, вполне приятный редактор, как и GhostWriter. Только ещё проще, т.к. меню скрыты, а режим preview открыт по умолчанию, как в Obsidian. Пишу сейчас в нём.</p>
+        <img width="501" alt="" src="/draw.svg" title="" referrerpolicy="no-referrer">
+        <p dir="auto">А вот вставка картинок у него не совсем понятная:</p>
+        <ol>
+            <li dir="auto">
+                <p>почему он даёт менять их размер?</p>
+            </li>
+            <li dir="auto">
+                <p>как вообще вызвать эту вставку? Через @-меню он не захотел, через drag&amp;drop тоже, поэтому пришлось вручную писать <code>![](</code>, чтобы он подсказал. Появилась кнопка для вставки изображения, окей, диалог удобный, но это лишнее действие.</p>
+            </li>
+        </ol>
+        <p dir="auto">Автосохранение выключено по умолчанию, "нечитаемые символы", ну, то есть разрывы неочевидны. Несмотря на это, он мне нравится чуть-чуть больше, чем GhostWriter из-за его простоты (ну кроме картинок).</p>
+        <p dir="auto">Ковыряю его настройки. У него есть глобальная папка для изображений, что подразумевает, что если скопировать картинку и нажать ctrl-v, он...<br>
+            да, он её вставляет. Что интересно, если она скопирована из браузера, он берёт её по ссылке, если это возможно. Если нет, он сохраняет её по этому самому глобальному пути.</p>
+        <p dir="auto">Вроде бы у него был вечный сайдбар, так вот, теперь он появляется только если открыта папка.</p>
+        <h2 data-heading="Итоги по существующим редакторам" dir="auto">Итоги по существующим редакторам</h2>
+        <p dir="auto">Думаю, что для обычного пользователя самыми простыми будут MarkText и Obsidian.</p>
+        <p dir="auto">Плюсы Obsidian:</p>
+        <ul>
+            <li dir="auto">явное указание папки проекта</li>
+            <li dir="auto">возможность переноса всех настроек</li>
+            <li dir="auto">лёгкое расширение</li>
+            <li dir="auto">кроссплатформенность</li>
+            <li dir="auto">популярность</li>
+        </ul>
+        <p dir="auto">Минусы Obsidian:</p>
+        <ul>
+            <li dir="auto">запускается не в редактор при первом старте, надо объяснять</li>
+            <li dir="auto">возможность перегрузить, обратная сторона его плюсов</li>
+        </ul>
+        <p dir="auto">Плюсы MarkText:</p>
+        <ul>
+            <li dir="auto">простой до безобразия, буквально ничего лишнего на глазах</li>
+            <li dir="auto">удобное контекстное меню для мышатников</li>
+            <li dir="auto">централизованное хранение изображений, т.е. заведомо известен путь</li>
+        </ul>
+        <p dir="auto">Минусы MarkText:</p>
+        <ul>
+            <li dir="auto">markdown и картинки в разных местах</li>
+            <li dir="auto">для нужного функционала нужно полностью отдельное своё приложение</li>
+            <li dir="auto">таскалки размеров на изображении, которые не записываются в файл</li>
+        </ul>
+        <p dir="auto">Относительно критериев:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>критерий</th>
+                    <th>Obsidian</th>
+                    <th>MarkText</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>простота</td>
+                    <td>да</td>
+                    <td>да</td>
+                </tr>
+                <tr>
+                    <td>одно приложение</td>
+                    <td>да*, с плагином</td>
+                    <td>нет</td>
+                </tr>
+                <tr>
+                    <td>без лишних опций и кнопок</td>
+                    <td>нет*, можно скрыть</td>
+                    <td>да*, скрыты по умолчанию</td>
+                </tr>
+                <tr>
+                    <td>позволяющее писать текст в markdown</td>
+                    <td>да</td>
+                    <td>да</td>
+                </tr>
+                <tr>
+                    <td>и экспортировать его как ...</td>
+                    <td>нет</td>
+                    <td>нет</td>
+                </tr>
+                <tr>
+                    <td>сумма</td>
+                    <td>3</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+        <p dir="auto">Экспорт им и не нужен, для этого будет отдельная штука на typst.</p>
+        <p dir="auto">В результате <em>всё равно</em> самым удобным решением является <em>Obsidian</em>, просто надо сделать vault.</p>
+    </main>
+    <script type="module" src="/client.js"></script>
+</body>
+
+</html>
