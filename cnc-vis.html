@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <title>CNC Visualizer Demo | snlx.net</title>
+    <link rel="stylesheet" href="./cnc-vis.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="A quick project I did at the uni for generating & visualizing G-Code">
+</head>
+<body>
+  <header id="info">
+    <h1>Визуализатор / Генератор G-Code</h1>
+    <p>Эксперементальный проект студента КубГТУ</p>
+  </header>
+
+  <textarea id="input">
+let l1 = 80.5
+let l2 = 18
+let l3 = 29.5
+let d1 = 135
+let d2 = 27
+let d3 = 61.5
+let d4 = 90
+let r1 = 2.5
+let r2 = 6.5
+let dx2 = 5
+let dz2 = 2
+let dx3 = 32
+let dz3 = 40
+
+let safe = 10
+
+jump(0, d4 - safe)
+go(0, d4 + 3*r1)
+ccw(r1, -r1, d4 + 4*r1)
+go(-l3 +r2, d4 + 4*r1)
+cw(r2, -l3, d4 + 4*r1 + r2)
+go(-l3, d1)
+go(-l3 -l2 -safe, d1)
+go(-l3 - l2 -safe, d1 +safe)
+park()
+
+jump(safe, d4)
+go(-l2, d4)
+go(-l2, d3)
+go(-l2*2 +r2, d2 + 2*r2)
+ccw(r2, -l2*2, d2)
+go(-l2*3 -safe, d2)
+go(-l2*3 -safe, d2 -safe)
+jump(safe, d2 -safe)
+park()
+  </textarea>
+  
+  <div id="output">
+    <pre id="display"></pre>
+
+    <svg id="svg" viewBox="0 0 100 100">
+      <rect id="desk"></rect>
+      <circle id="zerocircle" cx="0" cy="0" r="5"></circle>
+      <path id="zeropath">
+      </path>
+    </svg>
+  </div>
+
+  <script src="./cnc-vis.js"></script>
+</body>
+</html>
