@@ -4,6 +4,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("**/*.svg");
   eleventyConfig.addPassthroughCopy("**/*.js");
   eleventyConfig.addPassthroughCopy("**/*.cast");
+  eleventyConfig.addPassthroughCopy("**/*.pdf");
   eleventyConfig.addPassthroughCopy("status-bg.jpg");
   eleventyConfig.addPassthroughCopy("deps/**/*");
   eleventyConfig.addFilter("dateToStr", (dateObj) => {
