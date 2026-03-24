@@ -3,19 +3,25 @@
 #let color(name) = flavors.mocha.colors.at(name).rgb
 
 #set page(paper: "presentation-16-9")
-#let notes(body) = []
 #set text(font: "JetBrains Mono", size: 24pt)
 #set align(horizon)
 #show heading: set text(fill: color("sapphire"), size: 32pt)
 
-= Разработка системы визуализации и автоматической генерации G-Code
+#slide[
+  = Разработка системы визуализации и автоматической генерации G-Code
 
-Эксперементальный проект
+  Эксперементальный проект
 
-#pagebreak()
+  (Нажмите n, чтобы открыть заметки к презентации)
+]
+#notes[
+  (введение, нужно для конференции, не очень интересно на сайте. Следующий слайд)
+]
 
-== Введение
-
+#slide[
+  == Введение
+  Программирование станков с ЧПУ
+]
 #notes[
   Сейчас наша группа, АП1, изучает программирование станков с ЧПУ.
   На практических занятиях нам нужно писать G-Code для станков в лаборатории.
@@ -23,12 +29,13 @@
   Потом его можно проверить при помощи встроенных в эти машины визуализаторов.
 ]
 
-Программирование станков с ЧПУ
-
-#pagebreak()
-
-== Актуальность
-
+#slide[
+  == Актуальность
+  Решаемые проблемы:
+  - параллельная работа
+  - проверка вне лаборатории
+  - читаемость кода
+]
 #notes[
   В таком режиме работы группы она оказывается ограничена этим самым станком,
   т.к. других способов проверки у нас просто нет.
@@ -40,48 +47,41 @@
   кто работает с ним редко.
 ]
 
-Решаемые проблемы:
-- параллельная работа
-- проверка вне лаборатории
-- читаемость кода
-
-#pagebreak()
-
-== Задачи
-
+#slide[
+  == Задачи
+  - генерировать G-Code из более читаемого языка
+  - показывать предпросмотр траектроии
+]
 #notes[
   Для решения этих проблем решил написать программу, которая будет:
 ]
 
-- генерировать G-Code из более читаемого языка
-- показывать предпросмотр траектроии
-
-#pagebreak()
-
-== Выбор языка
-
+#slide[
+  == Выбор языка
+  - легкое введение переменных
+  - встроенная математическая библиотека
+  - возможность написания формул
+  - доступность / кроссплатформенность
+  - графические библиотеки
+]
 #notes[
   Вот требования к "человекочитаемому языку":
 
   под них подходит, по сути, любой язык общего назначения, но
 ]
 
-- легкое введение переменных
-- встроенная математическая библиотека
-- возможность написания формул
-- доступность / кроссплатформенность
-- графические библиотеки
-
-#pagebreak()
-
-== Языки общего назначения
-
-- C / C++
-- C\#
-- Swift
-- Python
-- Typst
-
+#slide[
+  == Языки общего назначения
+  - C / C++
+  - C\#
+  - Swift
+  - Python
+  - Typst
+  - Web платформа
+    #text(fill: color("maroon"))[HTML] |
+    #text(fill: color("lavender"))[CSS] |
+    #text(fill: color("yellow"))[JS]
+]
 #notes[
   - C / C++ с библиотеками вроде OpenGL / QT / GTK, довольно сложно
     и ручная работа с памятью
@@ -95,23 +95,17 @@
     (DOM, SVG и Canvas), предустановленным везде и работающим на любом устройстве
 ]
 
-- Web платформа
-  #text(fill: color("maroon"))[HTML] |
-  #text(fill: color("lavender"))[CSS] |
-  #text(fill: color("yellow"))[JS]
+#slide[
+  == Функции
 
-#pagebreak()
-
-== Функции
-
-```js
-jump(x, y)        //   G0   быстрое перемещение
-go(x, y)          //   G1   линия
-cw(radius, x, y)  //   G2   по часовой
-ccw(radius, x, y) //   G3   против часовой
-park()            //        в нуль инструмента
-```
-
+  ```js
+  jump(x, y)        //   G0   быстрое перемещение
+  go(x, y)          //   G1   линия
+  cw(radius, x, y)  //   G2   по часовой
+  ccw(radius, x, y) //   G3   против часовой
+  park()            //        в нуль инструмента
+  ```
+]
 #notes[
   Начнём с команд линейной и круговой интерполяции,
   кривые Безье нам ещё не были нужны.
@@ -119,9 +113,25 @@ park()            //        в нуль инструмента
   Думаю, такие имена достаточно легко читать и писать
 ]
 
-#pagebreak()
+#slide[
+  == Хранение состояния
+  ```js
+  let gcode = []
+  let lastX = 50
+  let lastY = 50
+  ```
 
-== Хранение состояния
+  ```html
+  <svg id="svg" viewBox="0 0 100 100">
+    <rect id="desk"></rect>
+  
+    <circle id="zerocircle" cx="0" cy="0" r="5"></circle>
+  
+    <path id="zeropath">
+    </path>
+  </svg>
+  ```
+]
 
 #notes[
   Набор G-Code команд проще всего хранить как массив строк,
@@ -134,53 +144,36 @@ park()            //        в нуль инструмента
   визуализации, плюс добавить координаты последней точки
 ]
 
-```js
-let gcode = []
-let lastX = 50
-let lastY = 50
-```
+#slide[
+  == Пример команды
 
-```html
-<svg id="svg" viewBox="0 0 100 100">
-  <rect id="desk"></rect>
-  
-  <circle id="zerocircle" cx="0" cy="0" r="5"></circle>
-  
-  <path id="zeropath">
-  </path>
-</svg>
-```
+  ```js
+  function go(x, y) {
+    gcode.push(`G01 X${x} Y${y}`)
+    pushSVG(`L ${x} ${machineY - y}`)
+    lastX = x
+    lastY = y
+  }
+  ```
+]
 
-== Пример команды
+#slide[
+  == Что такое pushSVG?
 
-```js
-function go(x, y) {
-  gcode.push(`G01 X${x} Y${y}`)
-  pushSVG(`L ${x} ${machineY - y}`)
-  lastX = x
-  lastY = y
-}
-```
+  ```js
+  function pushSVG(cmd, className = "cutpath") {
+    const prevPos = `M ${lastX} ${machineY - lastY}\n`
 
-// не буду описывать, здесь просто по ходу текста
+    const element = document.createElementNS("http://www.w3.org/2000/svg", "path")
 
-#pagebreak()
+    element.setAttribute("d", prevPos + cmd.toUpperCase())
+    element.classList.add("toolpath")
+    element.classList.add(className)
+    svg.appendChild(element)
+  }
+  ```
+]
 
-== Что такое pushSVG?
-
-```js
-function pushSVG(cmd, className = "cutpath") {
-  const prevPos = `M ${lastX} ${machineY - lastY}\n`
-
-  const element = document.createElementNS("http://www.w3.org/2000/svg", "path")
-
-  element.setAttribute("d", prevPos + cmd.toUpperCase())
-  element.classList.add("toolpath")
-  element.classList.add(className)
-  svg.appendChild(element)
-}
-```
-
-// Класс toolpath нужен для чистки
-
-== Демонстрация!
+#slide[
+  == Демонстрация!
+]
