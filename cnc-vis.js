@@ -2,11 +2,13 @@ let machineX = 400
 let machineY = 200
 let zeroX = machineX * 0.618
 let zeroY = 0
+let parkX = 50
+let parkY = 50
 
 let gcode = []
 let plane = "xy"
-let lastX = 50
-let lastY = 50
+let lastX = 0
+let lastY = 0
 
 function getAxis() {
   return [plane[0], plane[1]]
@@ -57,10 +59,17 @@ function ccw(radius, x, y) {
 }
 
 function park() {
-  jump(50, 50)
+  jump(parkX, parkY)
 }
 
 // ---- ---- ---- ---- //
+
+// so the university wanted it in russian, so... okay //
+let прыг = jump
+let режь = go
+let кружись = cw
+let кружисьОбратно = ccw
+let нуль = park
 
 function exec() {
   const oldElements = Array.from(document.querySelectorAll(".toolpath"))

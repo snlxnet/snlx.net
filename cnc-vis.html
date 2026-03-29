@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <title>CNC Visualizer Demo | snlx.net</title>
-    <link rel="stylesheet" href="/cnc-vis.css">
+    <link rel="stylesheet" href="./cnc-vis.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,41 +16,40 @@
   </header>
 
   <textarea id="input">
-let l1 = 80.5
-let l2 = 18
-let l3 = 29.5
-let d1 = 135
-let d2 = 27
-let d3 = 61.5
-let d4 = 90
-let r1 = 2.5
-let r2 = 6.5
-let dx2 = 5
-let dz2 = 2
-let dx3 = 32
-let dz3 = 40
+l1 = 80.5
+l2 = 18
+l3 = 29.5
+d1 = 135
+d2 = 27
+d3 = 61.5
+d4 = 90
+r1 = 2.5
+r2 = 6.5
+dx2 = 5
+dz2 = 2
+dx3 = 32
+dz3 = 40
+запас = 10
 
-let safe = 10
+прыг(0, d4 - запас)
+режь(0, d4 + 3*r1)
+кружисьОбратно(r1, -r1, d4 + 4*r1)
+режь(-l3 +r2, d4 + 4*r1)
+кружись(r2, -l3, d4 + 4*r1 + r2)
+режь(-l3, d1)
+режь(-l3 -l2 -запас, d1)
+режь(-l3 - l2 -запас, d1 +запас)
+нуль()
 
-jump(0, d4 - safe)
-go(0, d4 + 3*r1)
-ccw(r1, -r1, d4 + 4*r1)
-go(-l3 +r2, d4 + 4*r1)
-cw(r2, -l3, d4 + 4*r1 + r2)
-go(-l3, d1)
-go(-l3 -l2 -safe, d1)
-go(-l3 - l2 -safe, d1 +safe)
-park()
-
-jump(safe, d4)
-go(-l2, d4)
-go(-l2, d3)
-go(-l2*2 +r2, d2 + 2*r2)
-ccw(r2, -l2*2, d2)
-go(-l2*3 -safe, d2)
-go(-l2*3 -safe, d2 -safe)
-jump(safe, d2 -safe)
-park()
+прыг(запас, d4)
+режь(-l2, d4)
+режь(-l2, d3)
+режь(-l2*2 +r2, d2 + 2*r2)
+кружисьОбратно(r2, -l2*2, d2)
+режь(-l2*3 -запас, d2)
+режь(-l2*3 -запас, d2 -запас)
+прыг(запас, d2 -запас)
+нуль()
   </textarea>
   
   <div id="output">
@@ -64,6 +63,6 @@ park()
     </svg>
   </div>
 
-  <script src="/cnc-vis.js"></script>
+  <script src="./cnc-vis.js"></script>
 </body>
 </html>
