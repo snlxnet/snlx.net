@@ -16,8 +16,9 @@
 <code>
 '
 
-typst --version &> /dev/null || (echo "please, install typst before proceeding"; exit)
-wget --version &> /dev/null  || (echo "please, install wget before proceeding";  exit)
+typst --version &> /dev/null || (echo "please, install typst before proceeding"; FAIL=1)
+wget --version &> /dev/null  || (echo "please, install wget before proceeding";  FAIL=1)
+$FAIL && exit
 
 base=https://raw.githubusercontent.com/snlxnet/YapTyp/refs/heads/main
 
