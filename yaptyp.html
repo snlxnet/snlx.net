@@ -16,9 +16,17 @@
 <code>
 '
 
-typst --version &> /dev/null || (echo "please, install typst before proceeding"; FAIL=1)
-wget --version &> /dev/null  || (echo "please, install wget before proceeding";  FAIL=1)
-$FAIL && exit
+NOTYP=false
+NOWGET=false
+NEWSTYLE=false
+NEWTEXT=false
+
+typst --version &> /dev/null || NOTYP=true
+wget --version &> /dev/null  || NOWGET=true
+$NOTYP && echo "please, install typst before proceeding";
+$NOWGET && echo "please, install wget before proceeding";
+$NOTYP && exit
+$NOWGET && exit
 
 base=https://raw.githubusercontent.com/snlxnet/YapTyp/refs/heads/main
 
@@ -28,8 +36,10 @@ wget $base/head.html &> /dev/null
 wget $base/mid.html  &> /dev/null
 wget $base/tail.html &> /dev/null
 wget $base/bundle.sh &> /dev/null
-test -f main.typ || (wget $base/styles.css &> /dev/null; NEWSTYLE=1)
-test -f main.typ || (wget $base/main.typ &> /dev/null; NEWTEXT=1)
+test -f main.typ || NEWSTYLE=true
+test -f main.typ || NEWTEXT=true
+$NEWSTYLE && wget $base/styles.css &> /dev/null
+$NEWTEXT && wget $base/main.typ &> /dev/null
 
 sh bundle.sh
 rm head.html mid.html tail.html bundle.sh yap.typ
