@@ -1,26 +1,37 @@
-<!doctype html>
-<html>
-	<head>
-		<title>redirecting | snlx.net</title>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="color-scheme" content="light dark">
-		<style>
-		  body {
-		    background: #1e1e2e;
-		    color: #fab387;
-		    font-family: monospace;
-		  }
-		  code {
-		    color: transparent;
-		  }
-		</style>
-	</head>
-	<body>
-		<h1>⚙ Redirecting, please wait...</h1>
-		<script>
-		  window.location.href = "https://github.com/snlxnet/YapTyp"
-		</script>
-	</body>
-</html>
+: '
+<style>
+  body {
+    background: #1e1e2e;
+    color: #fab387;
+    font-family: monospace;
+  }
+  code {
+    color: transparent;
+  }
+</style>
+<h1>⚙ Redirecting, please wait...</h1>
+<script>
+  window.location.href = "https://github.com/snlxnet/YapTyp"
+</script>
+<code>
+'
+
+typst --version &> /dev/null || (echo "please, install typst before proceeding"; exit)
+wget --version &> /dev/null  || (echo "please, install wget before proceeding";  exit)
+
+base=https://raw.githubusercontent.com/snlxnet/YapTyp/refs/heads/main
+
+echo Downloading...
+wget $base/yap.typ   &> /dev/null
+wget $base/head.html &> /dev/null
+wget $base/mid.html  &> /dev/null
+wget $base/tail.html &> /dev/null
+wget $base/bundle.sh &> /dev/null
+test -f main.typ || (wget $base/styles.css &> /dev/null; NEWSTYLE=1)
+test -f main.typ || (wget $base/main.typ &> /dev/null; NEWTEXT=1)
+
+sh bundle.sh
+rm head.html mid.html tail.html bundle.sh yap.typ
+$NEWSTYLE && echo "- main.typ (edit this one)"
+$NEWTEXT && echo "- styles.css (for the article)"
+
