@@ -3,7 +3,7 @@
 #import "qr.typ": qr
 
 #let theme(
-  url,
+  path,
   colorscheme,
   seed,
   ..args,
@@ -27,7 +27,7 @@
         columns: (1fr, auto),
         box(image("./card.svg", height: 6.2cm)),
         [#set text(size: 10pt)
-        #qr(url, background: colorscheme.qrbg, color: colorscheme.qrfg)],
+        #qr("https://snlx.net" + path, background: colorscheme.qrbg, color: colorscheme.qrfg)],
       )
     )
   }
@@ -53,11 +53,11 @@
   box(fill: colorscheme.header, width: 100%, outset: 10mm)[
     \@snlxnet
     | #link("https://snlx.net")[home]
-    | #link("#")[source code]
-    | #link("#")[print version]
+    | #link("https://github.com/snlxnet/snlx.net")[source code]
+    | #link(path + ".pdf")[print version]
   ]
 }
 
-#show: theme("https://snlx.net", colors.screen.dark, 0)
+#show: theme("/site", colors.screen.dark, 0)
 = Heading
 Colors: custom.
