@@ -4,7 +4,10 @@
   html.div(
     class: "squiggles",
     html.frame(
-      fn((width: 2000mm))
+      box(
+        height: 10mm,
+        fn((width: 2000mm))
+      )
     )
   )
 } else {

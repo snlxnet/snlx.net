@@ -45,11 +45,13 @@
   paleo: print.paleo.pairs().map(((k, v)) => (k, rgb(v))).to-dict(),
 )
 
-#let css = ""
-#let tab = "    "
+#let css = (:)
+#let tab = "    --"
 #for (colorscheme, colors) in screen.pairs() {
-  css += "." + colorscheme + " {\n"
-  css += colors.pairs().map(((k, v)) => tab + k + ": " + v.to-hex() + ";").join("\n")
-  css += "\n}\n"
+  let style = ":root {\n"
+  style += colors.pairs().map(((k, v)) => tab + k + ": " + v.to-hex() + ";").join("\n")
+  style += "\n}"
+
+  css.insert(colorscheme, style)
 }
 

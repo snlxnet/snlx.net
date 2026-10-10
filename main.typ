@@ -16,8 +16,20 @@
   show strong: set text(fill: colorscheme.accent)
   set text(fill: colorscheme.text)
 
+  let footer(it) = context if target() == "html" {
+    html.footer(it)
+  } else {
+    box(fill: colorscheme.header, width: 100%, outset: 10mm, it)
+  }
+
   context if target() == "html" {
-    todo
+    html.header[
+      #image("./card.svg", height: 6.2cm)
+      #html.frame[
+        #set text(size: 10pt)
+        #qr("https://snlx.net" + path, background: colorscheme.qrbg, color: colorscheme.qrfg)
+      ]
+    ]
   } else {
     box(
       fill: colorscheme.header,
@@ -35,6 +47,7 @@
     seed,
     fill: colorscheme.header,
     stroke: 0.3mm + colorscheme.border,
+    up: 3,
     ..args,
   )
 
@@ -50,7 +63,7 @@
     down: -10,
     ..args,
   )
-  box(fill: colorscheme.header, width: 100%, outset: 10mm)[
+  footer[
     \@snlxnet
     | #link("https://snlx.net")[home]
     | #link("https://github.com/snlxnet/snlx.net")[source code]
@@ -58,6 +71,49 @@
   ]
 }
 
+#html.style(colors.css.dark)
+#html.style(```css
+body {
+  padding: 0 1em;
+  max-width: 90ch;
+  margin: auto;
+  overflow-x: hidden;
+}
+.squiggles {
+  display: flex;
+  justify-content: center;
+}
+.squiggles svg {
+  height: unset;
+}
+
+html, body {
+  background: var(--page);
+  color: var(--text);
+  font-size: 16px;
+  font-family: "JetBrainsMono NF";
+}
+header, footer {
+  background: var(--header);
+  box-shadow: 0 0 0 100vmax var(--header);
+  clip-path: inset(0 -100vmax);
+  padding: 1em 0;
+}
+.squiggles:last-of-type svg {
+  position: absolute;
+  bottom: 3.2em;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+h1, h2, h3, h4, a, strong {
+  color: var(--accent);
+}
+```.text)
 #show: theme("/site", colors.screen.dark, 0)
 = Heading
 Colors: custom.

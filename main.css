@@ -1,0 +1,28 @@
+body {
+  padding: 0 1em;
+  max-width: 90ch;
+  margin: auto;
+  overflow-x: hidden;
+}
+.squiggles {
+  display: flex;
+  justify-content: center;
+}
+.squiggles svg {
+  height: unset;
+}
+
+html, body {
+  background: #eee;
+  font-size: 16px;
+  font-family: "JetBrainsMono NF";
+}
+.top {
+  background: #fff;
+  box-shadow: 0 0 0 100vmax #fff;
+  clip-path: inset(0 -100vmax);
+  padding: 1em 0;
+}
+strong {
+  color: #6c7;
+}
