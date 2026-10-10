@@ -6,6 +6,8 @@
     deep:   cmyk(0%, 0%, 0%, 100%),
     text:   cmyk(0%, 0%, 0%, 80%),
     accent: cmyk(90%, 0%, 80%, 0%),
+    qrbg:   cmyk(0%, 0%, 0%, 0%),
+    qrfg: cmyk(0%, 0%, 0%, 100%),
   ),
   paleo: (
     header: cmyk(46%, 55%, 54%, 56%),
@@ -14,6 +16,8 @@
     deep:   cmyk(23%, 21%, 24%, 2%),
     text:   cmyk(30%, 31%, 37%, 10%),
     accent: cmyk(23%, 21%, 24%, 2%),
+    qrbg:   cmyk(23%, 21%, 24%, 2%),
+    qrfg:   cmyk(46%, 55%, 54%, 56%),
   ),
 )
 
@@ -25,6 +29,8 @@
     deep:   rgb("#000000"),
     text:   rgb("#444444"),
     accent: rgb("#00ac6d"),
+    qrbg:   rgb("#dddddd"),
+    qrfg:   rgb("#444444"),
   ),
   dark: (
     header: rgb("#2e2d39"),
@@ -33,6 +39,8 @@
     deep:   rgb("#eeeeee"),
     text:   rgb("#cccccc"),
     accent: rgb("#a8a5ff"),
+    qrbg:   rgb("#eeeeee"),
+    qrfg:   rgb("#121212"),
   ),
   paleo: print.paleo.pairs().map(((k, v)) => (k, rgb(v))).to-dict(),
 )

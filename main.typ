@@ -3,6 +3,7 @@
 #import "qr.typ": qr
 
 #let theme(
+  url,
   colorscheme,
   seed,
   ..args,
@@ -10,26 +11,53 @@
   set page(margin: 10mm)
   set text(font: "JetBrainsMono NF")
 
-  let header(it) = context if target() == "html" {
-    html.div(class: "top", it)
-  } else {
-    box(fill: colorscheme.header, width: 100%, outset: 10mm, it)
-  }
-
   set page(fill: colorscheme.page)
   show heading: set text(fill: colorscheme.deep)
   show strong: set text(fill: colorscheme.accent)
-
-  set text(fill: colorscheme.deep)
-  header[
-    Smooth / light, *bold*.
-  ]
-  squiggles(seed, fill: colorscheme.header, stroke: 0.3mm + colorscheme.border, ..args)
-
   set text(fill: colorscheme.text)
+
+  context if target() == "html" {
+    todo
+  } else {
+    box(
+      fill: colorscheme.header,
+      width: 100%,
+      outset: 10mm,
+      grid(
+        columns: (1fr, auto),
+        box(image("./card.svg", height: 6.2cm)),
+        [#set text(size: 10pt)
+        #qr(url, background: colorscheme.qrbg, color: colorscheme.qrfg)],
+      )
+    )
+  }
+  squiggles(
+    seed,
+    fill: colorscheme.header,
+    stroke: 0.3mm + colorscheme.border,
+    ..args,
+  )
+
+  show link: underline
+  show link: set text(fill: colorscheme.accent)
   doc
+
+  set align(bottom + center)
+  squiggles(
+    seed + 1,
+    fill: colorscheme.header,
+    stroke: 0.3mm + colorscheme.border,
+    down: -10,
+    ..args,
+  )
+  box(fill: colorscheme.header, width: 100%, outset: 10mm)[
+    \@snlxnet
+    | #link("https://snlx.net")[home]
+    | #link("#")[source code]
+    | #link("#")[print version]
+  ]
 }
 
-#show: theme(colors.screen.dark, 0)
+#show: theme("https://snlx.net", colors.screen.dark, 0)
 = Heading
 Colors: custom.

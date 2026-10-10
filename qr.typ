@@ -1,7 +1,7 @@
 #import "@preview/cades:0.3.1": qr-code
 #set page(paper: "a6", flipped: true)
 
-#let k = 6
+#let k = 7
 #let qr(url, background: white, color: black, width: 50mm, radius: 1em) = box(width: width, radius: radius, clip: true, align(
   center + horizon,
   stack(
