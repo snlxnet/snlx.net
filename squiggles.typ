@@ -50,7 +50,7 @@
 #set page(fill: rgb("#eee"))
 #let fill = rgb("#fff")
 #set text(fill: rgb("#333"))
-#show strong: set text(fill: rgb("#8c9"))
+#show strong: set text(fill: rgb("#6c7"))
 #box(fill: fill, width: 100%, inset: 5mm)[
   Smooth / light, *bold*.
 ]
@@ -59,7 +59,7 @@
 #set page(fill: rgb("#121212"))
 #let fill = rgb("#2e2d39")
 #set text(fill: rgb("#eee"))
-#show strong: set text(fill: rgb("#caf"))
+#show strong: set text(fill: rgb("#dbf"))
 #box(fill: fill, width: 100%, inset: 5mm)[
   Smooth / dark, *bold*.
 ]
