@@ -46,13 +46,13 @@
 #set page(margin: 0mm, paper: "a6", flipped: true)
 #set box(outset: 3mm)
 
-#set page(fill: rgb("#ddd"))
+#set page(fill: rgb("#eee"))
 #set text(fill: rgb("#333"))
-#let fill = rgb("#eee")
+#let fill = rgb("#fff")
 #box(fill: fill, width: 100%, inset: 5mm)[
   Smooth
 ]
-#squiggles(0, segment: 30, amplitude: 10, gap: 3, fill: fill)
+#squiggles(0, segment: 30, amplitude: 10, gap: 3, fill: fill, stroke: 0.3mm + rgb("#aaa"))
 
 #set page(fill: rgb("#121212"))
 #set text(fill: rgb("#eee"))
@@ -60,7 +60,7 @@
 #box(fill: fill, width: 100%, inset: 5mm)[
   High frequency
 ]
-#squiggles(1, segment: 1, amplitude: 5, fill: fill)
+#squiggles(1, segment: 1, amplitude: 5, fill: fill, stroke: 0.3mm + rgb("#c9e"))
 
 #set page(fill: rgb("#321"))
 #set text(fill: rgb("#eee"))
@@ -68,4 +68,4 @@
 #box(fill: fill, width: 100%, inset: 5mm)[
   Spiky
 ]
-#squiggles(2, spikes: true, segment: 7, fill: fill)
+#squiggles(2, spikes: true, segment: 7, fill: fill, stroke: 0.8mm + rgb("#111"))
