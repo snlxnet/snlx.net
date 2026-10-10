@@ -16,6 +16,17 @@
   show strong: set text(fill: colorscheme.accent)
   set text(fill: colorscheme.text)
 
+  let header = box(
+    fill: colorscheme.header,
+    width: 100%,
+    outset: 10mm,
+    grid(
+      columns: (1fr, auto),
+      box(image("./card.svg", height: 6.2cm)),
+      [#set text(size: 10pt)
+      #qr("https://snlx.net" + path, background: colorscheme.qrbg, color: colorscheme.qrfg)],
+    )
+  )
   let footer(it) = context if target() == "html" {
     html.footer(it)
   } else {
@@ -23,25 +34,9 @@
   }
 
   context if target() == "html" {
-    html.header[
-      #image("./card.svg", height: 6.2cm)
-      #html.frame[
-        #set text(size: 10pt)
-        #qr("https://snlx.net" + path, background: colorscheme.qrbg, color: colorscheme.qrfg)
-      ]
-    ]
+    html.header(html.frame(box(width: 180mm, header)))
   } else {
-    box(
-      fill: colorscheme.header,
-      width: 100%,
-      outset: 10mm,
-      grid(
-        columns: (1fr, auto),
-        box(image("./card.svg", height: 6.2cm)),
-        [#set text(size: 10pt)
-        #qr("https://snlx.net" + path, background: colorscheme.qrbg, color: colorscheme.qrfg)],
-      )
-    )
+    header
   }
   squiggles(
     seed,
@@ -92,6 +87,10 @@ html, body {
   color: var(--text);
   font-size: 16px;
   font-family: "JetBrainsMono NF";
+}
+header svg {
+  width: 100% !important;
+  height: unset !important;
 }
 header, footer {
   background: var(--header);
