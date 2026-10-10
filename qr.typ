@@ -1,5 +1,5 @@
 #import "@preview/cades:0.3.1": qr-code
-#set page(paper: "a6", fill: rgb("#eee"))
+#set page(paper: "a6", flipped: true)
 
 #let k = 6
 #let qr(url, background: white, color: black, width: 50mm, radius: 1em) = box(width: width, radius: radius, clip: true, align(
@@ -25,4 +25,10 @@
   ),
 ))
 
-#qr("https://snlx.net")
+#grid(
+  columns: (auto,)*3,
+  gutter: 3em,
+  qr("https://snlx.net", width: 40mm, background: rgb("#eee"), color: rgb("#444")),
+  qr("https://snlx.net", width: 40mm, background: rgb("#121212"), color: rgb("#eee")),
+  qr("https://snlx.net", width: 40mm, background: rgb("#c9c1ba"), color: rgb("5a4741")),
+)
