@@ -2,72 +2,7 @@
 #import "squiggles.typ": squiggles
 #import "qr.typ": qr
 
-#let theme(
-  path,
-  colorscheme,
-  seed,
-  ..args,
-) = (doc) => {
-  set page(margin: 10mm)
-  set text(font: "JetBrainsMono NF")
-
-  set page(fill: colorscheme.page)
-  show heading: set text(fill: colorscheme.deep)
-  show strong: set text(fill: colorscheme.accent)
-  set text(fill: colorscheme.text)
-
-  let header = box(
-    fill: colorscheme.header,
-    width: 100%,
-    outset: 10mm,
-    grid(
-      columns: (1fr, auto),
-      box(image("./card.svg", height: 6.2cm)),
-      [#set text(size: 10pt)
-      #qr("https://snlx.net" + path, background: colorscheme.qrbg, color: colorscheme.qrfg)],
-    )
-  )
-  let footer(it) = context if target() == "html" {
-    html.footer(it)
-  } else {
-    box(fill: colorscheme.header, width: 100%, outset: 10mm, it)
-  }
-
-  context if target() == "html" {
-    html.header(html.frame(box(width: 180mm, header)))
-  } else {
-    header
-  }
-  squiggles(
-    seed,
-    fill: colorscheme.header,
-    stroke: 0.3mm + colorscheme.border,
-    up: 3,
-    ..args,
-  )
-
-  show link: underline
-  show link: set text(fill: colorscheme.accent)
-  doc
-
-  set align(bottom + center)
-  squiggles(
-    seed + 1,
-    fill: colorscheme.header,
-    stroke: 0.3mm + colorscheme.border,
-    down: -10,
-    ..args,
-  )
-  footer[
-    \@snlxnet
-    | #link("https://snlx.net")[home]
-    | #link("https://github.com/snlxnet/snlx.net")[source code]
-    | #link(path + ".pdf")[print version]
-  ]
-}
-
-#html.style(colors.css.dark)
-#html.style(```css
+#let base-css = ```css
 body {
   padding: 0 1em;
   padding-bottom: 8em;
@@ -89,6 +24,7 @@ html, body {
   color: var(--text);
   font-size: 16px;
   font-family: "JetBrainsMono NF";
+  scrollbar-color: var(--text) transparent;
 }
 header svg {
   width: 100% !important;
@@ -114,8 +50,76 @@ footer {
 h1, h2, h3, h4, a, strong {
   color: var(--accent);
 }
-```.text)
-#show: theme("/site", colors.screen.dark, 0)
+```
+
+#let theme(
+  path,
+  colorscheme-name,
+  seed,
+  ..args,
+) = (doc) => context {
+  let colorscheme = if target() == "html" {
+    colors.screen.at(colorscheme-name)
+  } else {
+    (: ..colors.screen, ..colors.print).at(colorscheme-name)
+  }
+
+  let header = box(
+    fill: colorscheme.header,
+    width: 100%,
+    outset: 10mm,
+    grid(
+      columns: (1fr, auto),
+      box(image("./card.svg", height: 6.2cm)),
+      [#set text(size: 10pt)
+      #qr(path, background: colorscheme.qrbg, color: colorscheme.qrfg)],
+    )
+  )
+  let footer(it) = if target() == "html" {
+    html.footer(it)
+  } else {
+    box(fill: colorscheme.header, width: 100%, outset: 10mm, it)
+  }
+
+  set text(font: "JetBrainsMono NF", fill: colorscheme.text)
+  show heading: set text(fill: colorscheme.deep)
+  show strong: set text(fill: colorscheme.accent)
+  set page(margin: 10mm, fill: colorscheme.page)
+  
+  if target() == "html" {
+    html.style(base-css.text)
+    html.style(colors.css.at(colorscheme-name))
+    html.header(html.frame(box(width: 180mm, header)))
+  } else {
+    header
+  }
+  squiggles(
+    seed,
+    fill: colorscheme.header,
+    stroke: 0.3mm + colorscheme.border,
+    up: 3,
+    ..args,
+  )
+  show link: underline
+  show link: set text(fill: colorscheme.accent)
+  doc
+  set align(bottom + center)
+  squiggles(
+    seed + 1,
+    fill: colorscheme.header,
+    stroke: 0.3mm + colorscheme.border,
+    down: -10,
+    ..args,
+  )
+  footer[
+    \@snlxnet
+    | #link("https://snlx.net")[home]
+    | #link("https://github.com/snlxnet/snlx.net")[source code]
+    | #link(path + ".pdf")[print version]
+  ]
+}
+
+#show: theme("/site", "light", 0)
 
 = Heading
 
