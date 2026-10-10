@@ -1,5 +1,16 @@
 #import "@preview/suiji:0.5.1": gen-rng, integers
 
+#let wrap(fn) = context if target() == "html" {
+  html.div(
+    class: "squiggles",
+    html.frame(
+      fn((width: 2000mm))
+    )
+  )
+} else {
+  layout(fn)
+}
+
 #let squiggles(
   seed,
   spikes: false,
@@ -10,7 +21,7 @@
   overflow: false,
   fill: luma(90%),
   stroke: none,
-) = layout(size => {
+) = wrap(size => {
   let rng = gen-rng(seed)
   let n = 0
   let k = if overflow { 1.5 } else { 1 }
