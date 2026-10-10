@@ -17,7 +17,8 @@
 
 #html.style(```css
 body {
-  max-width: 80ch;
+  padding: 0 1em;
+  max-width: 90ch;
   margin: auto;
   overflow-x: hidden;
 }
