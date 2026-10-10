@@ -70,9 +70,11 @@
 #html.style(```css
 body {
   padding: 0 1em;
+  padding-bottom: 8em;
   max-width: 90ch;
   margin: auto;
   overflow-x: hidden;
+  position: relative;
 }
 .squiggles {
   display: flex;
@@ -114,5 +116,11 @@ h1, h2, h3, h4, a, strong {
 }
 ```.text)
 #show: theme("/site", colors.screen.dark, 0)
+
 = Heading
-Colors: custom.
+
+Was it worh making this typst thing?
+
+Next question
+
+#lorem(2000)
