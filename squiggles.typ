@@ -6,7 +6,7 @@
   amplitude: 8,
   segment: 10,
   gap: 0,
-  up: 5,
+  up: 2,
   overflow: false,
   fill: luma(90%),
   stroke: none,
@@ -44,6 +44,7 @@
 })
 
 #set page(margin: 0mm, paper: "a6", flipped: true)
+#set box(outset: 3mm)
 
 #set page(fill: rgb("#ddd"))
 #set text(fill: rgb("#333"))
