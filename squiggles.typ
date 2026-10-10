@@ -15,18 +15,16 @@
   seed,
   spikes: false,
   amplitude: 8,
-  segment: 10,
-  gap: 0,
-  up: 2,
-  overflow: false,
+  segment: 20,
+  down: 5,
+  up: 0,
   fill: luma(90%),
   stroke: none,
 ) = wrap(size => {
   let rng = gen-rng(seed)
   let n = 0
-  let k = if overflow { 1.5 } else { 1 }
 
-  let segments = calc.ceil(size.width * k / (2mm * segment))
+  let segments = calc.ceil(size.width / (2mm * segment)) + 1
   let points = ()
   let end = 1mm * (segments * segment * 2)
 
@@ -34,7 +32,7 @@
     (rng, n) = integers(rng, low: 0, high: segment)
     let x = n * 1mm
     (rng, n) = integers(rng, low: 0, high: amplitude)
-    let y = (gap+n) * 1mm
+    let y = (down+n) * 1mm
 
     points.push((segment*1mm*i+x, y))
   }
@@ -65,7 +63,7 @@
 #box(fill: fill, width: 100%, outset: 10mm)[
   Smooth / light, *bold*.
 ]
-#squiggles(0, segment: 30, amplitude: 10, gap: 3, fill: fill, stroke: 0.3mm + rgb("#aaa"))
+#squiggles(0, segment: 30, amplitude: 10, down: 3, fill: fill, stroke: 0.3mm + rgb("#aaa"))
 = Heading
 #set text(fill: rgb("#444"))
 Colors: custom.
@@ -73,11 +71,11 @@ Colors: custom.
 #set page(fill: rgb("#121212"))
 #let fill = rgb("#2e2d39")
 #set text(fill: rgb("#eee"))
-#show strong: set text(fill: rgb("#dbf"))
+#show strong: set text(fill: rgb("#a8a5ff"))
 #box(fill: fill, width: 100%, outset: 10mm)[
   Smooth / dark, *bold*.
 ]
-#squiggles(1, segment: 20, amplitude: 6, fill: fill, stroke: 0.3mm + rgb("#556"), gap: 8)
+#squiggles(1, segment: 20, amplitude: 6, fill: fill, stroke: 0.3mm + rgb("#556"), down: 8)
 = Heading
 #set text(fill: rgb("#ccc"))
 Colors: excalidraw.
@@ -89,7 +87,7 @@ Colors: excalidraw.
 #box(fill: fill, width: 100%, outset: 10mm)[
   Spiky, *bold*.
 ]
-#squiggles(2, spikes: true, segment: 7, fill: fill, stroke: 0.8mm + rgb("#111"), gap: 5, overflow: true)
+#squiggles(2, spikes: true, segment: 7, fill: fill, stroke: 0.8mm + rgb("#111"), down: 5)
 = Heading
 #set text(fill: rgb("#ccc"))
 Colors: TBD

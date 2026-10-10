@@ -45,20 +45,3 @@
   css += "\n}\n"
 }
 
-#let theme = screen.paleo
-
-#import "squiggles.typ": squiggles
-#set page(margin: 10mm)
-#set text(font: "JetBrainsMono NF")
-
-#set page(fill: theme.page)
-#set text(fill: theme.deep)
-#show strong: set text(fill: theme.accent)
-#box(fill: theme.header, width: 100%, outset: 10mm)[
-  Smooth, *bold*.
-]
-#squiggles(0, segment: 30, amplitude: 10, gap: 5, fill: theme.header, stroke: 0.3mm + theme.border)
-= Heading
-#set text(fill: theme.text)
-Colors: *custom*.
-
