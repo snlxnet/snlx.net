@@ -7,6 +7,7 @@ body {
   padding: 0 1em;
   padding-bottom: 8em;
   max-width: 90ch;
+  min-height: calc(100svh - 8em);
   margin: auto;
   overflow-x: hidden;
   position: relative;
@@ -38,7 +39,7 @@ header, footer {
 }
 .squiggles:last-of-type svg {
   position: absolute;
-  bottom: 3.2em;
+  bottom: 3em;
 }
 footer {
   position: absolute;
