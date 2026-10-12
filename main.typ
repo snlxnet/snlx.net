@@ -23,7 +23,7 @@ html, body {
   background: var(--page);
   color: var(--text);
   font-size: 16px;
-  font-family: "JetBrainsMono NF";
+  font-family: "JetBrains Mono";
   scrollbar-color: var(--text) transparent;
 }
 header svg {
@@ -54,6 +54,7 @@ h1, h2, h3, h4, a, strong {
 
 #let theme(
   path,
+  card,
   colorscheme-name,
   seed,
   ..args,
@@ -70,7 +71,7 @@ h1, h2, h3, h4, a, strong {
     outset: 10mm,
     grid(
       columns: (1fr, auto),
-      box(image("./card.svg", height: 6.2cm)),
+      box(image(card, height: 6.2cm)),
       [#set text(size: 10pt)
       #qr(path, background: colorscheme.qrbg, color: colorscheme.qrfg)],
     )
@@ -81,7 +82,7 @@ h1, h2, h3, h4, a, strong {
     box(fill: colorscheme.header, width: 100%, outset: 10mm, it)
   }
 
-  set text(font: "JetBrainsMono NF", fill: colorscheme.text)
+  set text(font: "JetBrains Mono", fill: colorscheme.text)
   show heading: set text(fill: colorscheme.deep)
   show strong: set text(fill: colorscheme.accent)
   set page(margin: 10mm, fill: colorscheme.page)
@@ -114,12 +115,12 @@ h1, h2, h3, h4, a, strong {
   footer[
     \@snlxnet
     | #link("https://snlx.net")[home]
-    | #link("https://github.com/snlxnet/snlx.net")[source code]
+    | #link("https://github.com/snlxnet")[github]
     | #link(path + ".pdf")[print version]
   ]
 }
 
-#show: theme("/site", "light", 0)
+#show: theme("/site", "card.svg", "dark", 0)
 
 = Heading
 

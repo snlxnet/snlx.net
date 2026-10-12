@@ -34,7 +34,7 @@
   ),
   dark: (
     header: rgb("#2e2d39"),
-    border: rgb("#555566"),
+    border: rgb("#000000"),
     page:   rgb("#121212"),
     deep:   rgb("#eeeeee"),
     text:   rgb("#cccccc"),
