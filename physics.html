@@ -67,7 +67,11 @@ function stepper() {
   }, 150)
 }
 function step() {
-  stepidx += 1 / +microstep.value
+  const ms = 1 / +microstep.value
+  stepidx += ms
+  if (stepidx % ms !== 0) {
+    stepidx = Math.ceil(stepidx)
+  }
 
   const q = stepidx%4
   if (q <= 1) {
