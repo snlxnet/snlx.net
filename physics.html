@@ -22,6 +22,10 @@ html, body {
 <div id="stp">loading...</div>
 <button id="mkstp">step</button>
 <label>
+  <input type="checkbox" id="autostep">
+  Auto run
+</label>
+<label>
   <input type="checkbox" id="stpcase">
   Show case
 </label>
@@ -32,6 +36,7 @@ html, body {
     <option value="2">1/2</option>
     <option value="4">1/4</option>
     <option value="8">1/8</option>
+    <option value="16">1/16</option>
   </select>
 </label>
 
@@ -40,8 +45,7 @@ fetch("brushless.svg").then(r => r.text()).then(t => br1.outerHTML = t)
 .then(() => fetch("brushless-real.svg")).then(r => r.text()).then(t => br2.outerHTML = t)
 .then(() => fetch("stepper.svg")).then(r => r.text()).then(t => stp.outerHTML = t).then(main)
 
-let auto = true
-let stepidx = 0
+let stepidx = -1
 function main() {
   brushless()
   stepper()
@@ -55,17 +59,17 @@ function stepper() {
   step()
   mkstp.onclick = step
   stpcase.oninput = () => casestp.style.opacity = +stpcase.checked
+
+  setInterval(() => {
+    if (+autostep.checked) {
+      step()
+    }
+  }, 150)
 }
 function step() {
-  const states = [stpa1, stpb2, stpa2, stpb1]
-  states.map((el, idx) => {
-    const delta = idx - stepidx % 4
-    const power = 1 - Math.abs(delta)
-    return el.style.opacity = power
-  })
+  stepidx += 1 / +microstep.value
 
   const q = stepidx%4
-  console.log(stepidx)
   if (q <= 1) {
     stpa1.style.opacity = 1 - q
     stpb2.style.opacity = q
@@ -89,8 +93,6 @@ function step() {
   }
 
   rotorstp.style.rotate = -1.8*stepidx + "deg"
-  
-  stepidx += 1 / +microstep.value
 }
 function brushless() {
   arrow.style.transformOrigin = "center"
@@ -147,10 +149,6 @@ function brushless() {
   }
 
   setInterval(() => {
-    if (!auto) {
-      return
-    }
-
     t = new Date().getTime() / 1000
     frame()
   }, 10)
