@@ -6,11 +6,7 @@ html, body {
 </style>
 
 <div id="dcm">loading...</div>
-<label>
-  <input type="checkbox" id="pwrdc">
-  Power
-</label>
-<input type="range" id="voltage" min="-5" max="5" step="0.1" value="0.5">
+<input type="range" id="voltage" min="-5" max="5" step="0.5" value="0">
 <br></br>
 
 <div id="brl">loading...</div>
@@ -61,10 +57,8 @@ fetch("dc.svg").then(r => r.text()).then(t => dcm.outerHTML = t)
 .then(() => fetch("stepper.svg")).then(r => r.text()).then(t => stp.outerHTML = t).then(main)
 
 let stepidx = -1
-let powerDc = false
 let powerBrushless = false
 let powerStepper = false
-pwrdc.oninput = () => powerDc = pwrdc.checked
 pwrbr.oninput = () => powerBrushless = pwrbr.checked
 pwrst.oninput = () => {
   powerStepper = pwrst.checked
@@ -84,17 +78,26 @@ function dcmot() {
   setInterval(() => {
     brushes.style.transform = voltage.value > 0 ? "" : "scaleX(-1)"
 
-    if (!powerDc) {
+    if (voltage.value == 0) {
+      dcmplus.style.opacity = 0
+      dcmminus.style.opacity = 0
       north.style.opacity = 0
       south.style.opacity = 0
       return
     }
-
     north.style.opacity = 1
     south.style.opacity = 1
-    const angle = +dcmagnet.style.rotate.slice(0, -3) + +voltage.value*2
+
+    const angle = (+dcmagnet.style.rotate.slice(0, -3) + +voltage.value*2)%360
+    if ((angle > 70 && angle < 110) || (angle > 250&& angle < 290)) {
+      north.style.opacity = 0
+      south.style.opacity = 0
+    } else {
+      dcmplus.style.opacity = 1
+      dcmminus.style.opacity = 1
+    }
     dcmagnet.style.rotate = angle + "deg"
-    dcmagnet.style.transform = ((90+angle) % 360 > 180) ? "scaleY(-1)" : ""
+    dcmagnet.style.transform = ((angle+90)%360 > 180) ? "scaleY(-1)" : ""
   }, 10)
 }
 function stepper() {
