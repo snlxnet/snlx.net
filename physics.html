@@ -25,6 +25,15 @@ html, body {
   <input type="checkbox" id="stpcase">
   Show case
 </label>
+<label>
+  Microstep
+  <select id="microstep">
+    <option value="1">Off</option>
+    <option value="2">1/2</option>
+    <option value="4">1/4</option>
+    <option value="8">1/8</option>
+  </select>
+</label>
 
 <script>
 fetch("brushless.svg").then(r => r.text()).then(t => br1.outerHTML = t)
@@ -49,11 +58,39 @@ function stepper() {
 }
 function step() {
   const states = [stpa1, stpb2, stpa2, stpb1]
-  states.map((el, idx) => el.style.opacity = +(stepidx % 4 === idx))
+  states.map((el, idx) => {
+    const delta = idx - stepidx % 4
+    const power = 1 - Math.abs(delta)
+    return el.style.opacity = power
+  })
+
+  const q = stepidx%4
+  console.log(stepidx)
+  if (q <= 1) {
+    stpa1.style.opacity = 1 - q
+    stpb2.style.opacity = q
+    stpa2.style.opacity = 0
+    stpb1.style.opacity = 0
+  } else if (q <= 2) {
+    stpa1.style.opacity = 0
+    stpb2.style.opacity = 2 - q
+    stpa2.style.opacity = q - 1
+    stpb1.style.opacity = 0
+  } else if (q <= 3) {
+    stpa1.style.opacity = 0
+    stpb2.style.opacity = 0
+    stpa2.style.opacity = 3 - q
+    stpb1.style.opacity = q - 2
+  } else {
+    stpa1.style.opacity = q - 3
+    stpb2.style.opacity = 0
+    stpa2.style.opacity = 0
+    stpb1.style.opacity = 4 - q
+  }
 
   rotorstp.style.rotate = -1.8*stepidx + "deg"
   
-  stepidx++
+  stepidx += 1 / +microstep.value
 }
 function brushless() {
   arrow.style.transformOrigin = "center"
