@@ -74,6 +74,8 @@ function dcmot() {
   dcmagnet.style.transformBox = "border-box"
   brushes.style.transformOrigin = "center"
   brushes.style.transformBox = "border-box"
+  north.style.transition = "ease-in-out 0.1s"
+  south.style.transition = "ease-in-out 0.1s"
 
   setInterval(() => {
     brushes.style.transform = voltage.value > 0 ? "" : "scaleX(-1)"
