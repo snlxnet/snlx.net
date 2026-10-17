@@ -18,12 +18,23 @@ html, body {
   Show coils & case
 </label>
 
+<br></br>
+<div id="stp">loading...</div>
+
 <script>
 fetch("brushless.svg").then(r => r.text()).then(t => br1.outerHTML = t)
-.then(() => fetch("brushless-real.svg")).then(r => r.text()).then(t => br2.outerHTML = t).then(main)
+.then(() => fetch("brushless-real.svg")).then(r => r.text()).then(t => br2.outerHTML = t)
+.then(() => fetch("stepper.svg")).then(r => r.text()).then(t => stp.outerHTML = t).then(main)
 
 let auto = true
-function main(svg) {
+function main() {
+  brushless()
+  stepper()
+}
+function stepper() {
+  
+}
+function brushless() {
   arrow.style.transformOrigin = "center"
   rotor.style.transformOrigin = "center"
   rotorlid.style.transformOrigin = "center"
