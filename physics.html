@@ -9,6 +9,10 @@ html, body {
 
 <input type="range" id="speed" min="10" max="120" step="0.1" value="15">
 <label>
+  <input type="checkbox" id="pwrbr">
+  Power
+</label>
+<label>
   <input type="checkbox" id="simpleb">
   Use pole pairs
 </label>
@@ -19,6 +23,10 @@ html, body {
 
 <br></br>
 <div id="stp">loading...</div>
+<label>
+  <input type="checkbox" id="pwrst">
+  Power
+</label>
 <button id="mkstp">step</button>
 <label>
   <input type="checkbox" id="autostep">
@@ -44,6 +52,13 @@ fetch("brushless-real.svg").then(r => r.text()).then(t => brl.outerHTML = t)
 .then(() => fetch("stepper.svg")).then(r => r.text()).then(t => stp.outerHTML = t).then(main)
 
 let stepidx = -1
+let powerBrushless = false
+let powerStepper = false
+pwrbr.oninput = () => powerBrushless = pwrbr.checked
+pwrst.oninput = () => {
+  powerStepper = pwrst.checked
+  step()
+}
 function main() {
   brushless()
   stepper()
@@ -65,6 +80,11 @@ function stepper() {
   }, 150)
 }
 function step() {
+  if (!powerStepper) {
+    [stpa1, stpb2, stpa2, stpb1].forEach(el => el.style.opacity = 0)
+    return
+  }
+
   const ms = 1 / +microstep.value
   stepidx += ms
   if (stepidx % ms !== 0) {
@@ -120,6 +140,19 @@ function brushless() {
       return
     }
 
+    if (!powerBrushless) {
+      [
+        an1, an2,
+        bn1, bn2,
+        cn1, cn2,
+        as1, as2,
+        bs1, bs2,
+        cs1, cs2,
+      ].forEach(el => el.style.opacity = 0)
+      arrow.style.opacity = 0
+      return
+    }
+
     const omega = +speed.value * 6.28 / 60
 
     const va = u0 * Math.sin(omega * t)
@@ -140,6 +173,7 @@ function brushless() {
     cn2.style.opacity = 1-vc
     cs2.style.opacity = vc
 
+    arrow.style.opacity = 1
     arrow.style.rotate = -(omega * t) + "rad"
     rotor.style.rotate = -(omega * t) + "rad"
     rotorlid.style.rotate = -(omega * t) + "rad"
