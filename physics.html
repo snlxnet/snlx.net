@@ -20,6 +20,11 @@ html, body {
 
 <br></br>
 <div id="stp">loading...</div>
+<button id="mkstp">step</button>
+<label>
+  <input type="checkbox" id="stpcase">
+  Show case
+</label>
 
 <script>
 fetch("brushless.svg").then(r => r.text()).then(t => br1.outerHTML = t)
@@ -27,12 +32,28 @@ fetch("brushless.svg").then(r => r.text()).then(t => br1.outerHTML = t)
 .then(() => fetch("stepper.svg")).then(r => r.text()).then(t => stp.outerHTML = t).then(main)
 
 let auto = true
+let stepidx = 0
 function main() {
   brushless()
   stepper()
 }
 function stepper() {
+  casestp.style.opacity = 0
+  casestp.style.transition = "opacity ease-in-out 1s"
+  rotorstp.style.transition = "ease-out 0.2s"
+  rotorstp.style.transformOrigin = "center"
+  rotorstp.style.transformBox = "border-box"
+  step()
+  mkstp.onclick = step
+  stpcase.oninput = () => casestp.style.opacity = +stpcase.checked
+}
+function step() {
+  const states = [stpa1, stpb2, stpa2, stpb1]
+  states.map((el, idx) => el.style.opacity = +(stepidx % 4 === idx))
+
+  rotorstp.style.rotate = -1.8*stepidx + "deg"
   
+  stepidx++
 }
 function brushless() {
   arrow.style.transformOrigin = "center"
