@@ -1,0 +1,109 @@
+<style>
+html, body {
+  background: #121212;
+  color: #ccc;
+}
+</style>
+
+<div id="br1">loading...</div>
+<div id="br2">loading...</div>
+
+<input type="range" id="speed" min="10" max="120" step="0.1" value="15">
+<label>
+  <input type="checkbox" id="pairs" checked>
+  Show inner poles
+</label>
+<label>
+  <input type="checkbox" id="brushlesscase">
+  Show coils & case
+</label>
+
+<script>
+fetch("brushless.svg").then(r => r.text()).then(t => br1.outerHTML = t)
+.then(() => fetch("brushless-real.svg")).then(r => r.text()).then(t => br2.outerHTML = t).then(main)
+
+let auto = true
+function main(svg) {
+  arrow.style.transformOrigin = "center"
+  rotor.style.transformOrigin = "center"
+  rotorlid.style.transformOrigin = "center"
+  rotor.style.transformBox = "border-box"
+  rotorlid.style.transformBox = "border-box"
+
+  rotorlid.style.opacity = 0
+  rotorlid.style.display = "inline"
+  rotorlid.style.transition = "opacity ease-in-out 1s"
+  coils.style.opacity = 0
+  coils.style.display = "inline"
+  coils.style.transition = "ease-in-out 0.2s"
+  let t = 0
+  let globalPause = false
+
+  const u0 = 1
+
+  function frame() {
+    if (globalPause) {
+      return
+    }
+
+    const omega = +speed.value * 6.28 / 60
+
+    const va = u0 * Math.sin(omega * t)
+    anorth.style.opacity = va
+    asouth.style.opacity = -va
+    an1.style.opacity = va
+    as1.style.opacity = -va
+    an2.style.opacity = -va
+    as2.style.opacity = va
+
+    const vb = u0 * Math.sin(omega * t + 6.28/3)
+    bnorth.style.opacity = vb
+    bsouth.style.opacity = -vb
+    bn1.style.opacity = vb
+    bs1.style.opacity = -vb
+    bn2.style.opacity = -vb
+    bs2.style.opacity = vb
+
+    const vc = u0 * Math.sin(omega * t - 6.28/3)
+    cnorth.style.opacity = vc
+    csouth.style.opacity = -vc
+    cn1.style.opacity = vc
+    cs1.style.opacity = -vc
+    cn2.style.opacity = -vc
+    cs2.style.opacity = vc
+
+    arrow.style.rotate = -(omega * t) + "rad"
+    rotor.style.rotate = -(omega * t) + "rad"
+    rotorlid.style.rotate = -(omega * t) + "rad"
+  }
+
+  setInterval(() => {
+    if (!auto) {
+      return
+    }
+
+    t = new Date().getTime() / 1000
+    frame()
+  }, 10)
+
+  speed.oninput = () => {
+    clearTimeout(globalPause)
+    document.querySelectorAll("#rpm").forEach(el => el.textContent = speed.value)
+    globalPause = setTimeout(() => globalPause = false, 100)
+  }
+  pairs.oninput = () => {
+    setOtherPoles(pairs.checked ? "inline" : "none")
+  }
+  brushlesscase.oninput = () => {
+    setBrushlessLid(brushlesscase.checked)
+  }
+}
+function setOtherPoles(display) {
+  [an1, an2, bn1, bn2, cn1, cn2, as1, as2, bs1, bs2, cs1, cs2]
+    .forEach(el => el.lastElementChild.style.display = display)
+}
+function setBrushlessLid(show) {
+  coils.style.opacity = +show
+  rotorlid.style.opacity = +show
+}
+</script>
