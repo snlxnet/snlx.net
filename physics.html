@@ -5,13 +5,12 @@ html, body {
 }
 </style>
 
-<div id="br1">loading...</div>
-<div id="br2">loading...</div>
+<div id="brl">loading...</div>
 
 <input type="range" id="speed" min="10" max="120" step="0.1" value="15">
 <label>
-  <input type="checkbox" id="pairs" checked>
-  Show inner poles
+  <input type="checkbox" id="simpleb">
+  Use pole pairs
 </label>
 <label>
   <input type="checkbox" id="brushlesscase">
@@ -41,8 +40,7 @@ html, body {
 </label>
 
 <script>
-fetch("brushless.svg").then(r => r.text()).then(t => br1.outerHTML = t)
-.then(() => fetch("brushless-real.svg")).then(r => r.text()).then(t => br2.outerHTML = t)
+fetch("brushless-real.svg").then(r => r.text()).then(t => brl.outerHTML = t)
 .then(() => fetch("stepper.svg")).then(r => r.text()).then(t => stp.outerHTML = t).then(main)
 
 let stepidx = -1
@@ -111,6 +109,7 @@ function brushless() {
   coils.style.opacity = 0
   coils.style.display = "inline"
   coils.style.transition = "ease-in-out 0.2s"
+  simplifyBrushless("none")
   let t = 0
   let globalPause = false
 
@@ -124,27 +123,21 @@ function brushless() {
     const omega = +speed.value * 6.28 / 60
 
     const va = u0 * Math.sin(omega * t)
-    anorth.style.opacity = va
-    asouth.style.opacity = -va
     an1.style.opacity = va
-    as1.style.opacity = -va
-    an2.style.opacity = -va
+    as1.style.opacity = 1-va
+    an2.style.opacity = 1-va
     as2.style.opacity = va
 
     const vb = u0 * Math.sin(omega * t + 6.28/3)
-    bnorth.style.opacity = vb
-    bsouth.style.opacity = -vb
     bn1.style.opacity = vb
-    bs1.style.opacity = -vb
-    bn2.style.opacity = -vb
+    bs1.style.opacity = 1-vb
+    bn2.style.opacity = 1-vb
     bs2.style.opacity = vb
 
     const vc = u0 * Math.sin(omega * t - 6.28/3)
-    cnorth.style.opacity = vc
-    csouth.style.opacity = -vc
     cn1.style.opacity = vc
-    cs1.style.opacity = -vc
-    cn2.style.opacity = -vc
+    cs1.style.opacity = 1-vc
+    cn2.style.opacity = 1-vc
     cs2.style.opacity = vc
 
     arrow.style.rotate = -(omega * t) + "rad"
@@ -162,16 +155,16 @@ function brushless() {
     document.querySelectorAll("#rpm").forEach(el => el.textContent = speed.value)
     globalPause = setTimeout(() => globalPause = false, 100)
   }
-  pairs.oninput = () => {
-    setOtherPoles(pairs.checked ? "inline" : "none")
+  simpleb.oninput = () => {
+    simplifyBrushless(simpleb.checked ? "inline" : "none")
   }
   brushlesscase.oninput = () => {
     setBrushlessLid(brushlesscase.checked)
   }
 }
-function setOtherPoles(display) {
-  [an1, an2, bn1, bn2, cn1, cn2, as1, as2, bs1, bs2, cs1, cs2]
-    .forEach(el => el.lastElementChild.style.display = display)
+function simplifyBrushless(display) {
+  [as2, an2, bs2, bn2, cs2, cn2]
+    .forEach(el => el.style.display = display)
 }
 function setBrushlessLid(show) {
   coils.style.opacity = +show
