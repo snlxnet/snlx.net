@@ -11,14 +11,10 @@ html, body {
 
 <div id="brl">loading...</div>
 
-<input type="range" id="speed" min="10" max="120" step="0.1" value="15">
+<input type="range" id="speed" min="1" max="120" step="0.1" value="5">
 <label>
   <input type="checkbox" id="pwrbr">
   Power
-</label>
-<label>
-  <input type="checkbox" id="simpleb">
-  Use pole pairs
 </label>
 <label>
   <input type="checkbox" id="brushlesscase">
@@ -72,13 +68,14 @@ function main() {
 function dcmot() {
   dcmagnet.style.transformOrigin = "center"
   dcmagnet.style.transformBox = "border-box"
+  dcmagnet.style.rotate = "20deg"
   brushes.style.transformOrigin = "center"
   brushes.style.transformBox = "border-box"
   north.style.transition = "ease-in-out 0.1s"
   south.style.transition = "ease-in-out 0.1s"
 
   setInterval(() => {
-    brushes.style.transform = voltage.value > 0 ? "" : "scaleX(-1)"
+    brushes.style.transform = voltage.value > 0 ? "" : "scaleY(-1)"
 
     if (voltage.value == 0) {
       dcmplus.style.opacity = 0
@@ -90,8 +87,8 @@ function dcmot() {
     north.style.opacity = 1
     south.style.opacity = 1
 
-    const angle = (+dcmagnet.style.rotate.slice(0, -3) + +voltage.value*2)%360
-    if ((angle > 70 && angle < 110) || (angle > 250&& angle < 290)) {
+    const angle = (+dcmagnet.style.rotate.slice(0, -3) + +voltage.value)%360
+    if ((angle > 340 || angle < 20) || (angle > 160&& angle < 200)) {
       north.style.opacity = 0
       south.style.opacity = 0
     } else {
@@ -99,7 +96,7 @@ function dcmot() {
       dcmminus.style.opacity = 1
     }
     dcmagnet.style.rotate = angle + "deg"
-    dcmagnet.style.transform = ((angle+90)%360 > 180) ? "scaleY(-1)" : ""
+    dcmagnet.style.transform = (angle > 180) ? "scaleY(-1)" : ""
   }, 10)
 }
 function stepper() {
@@ -168,7 +165,6 @@ function brushless() {
   coils.style.opacity = 0
   coils.style.display = "inline"
   coils.style.transition = "ease-in-out 0.2s"
-  simplifyBrushless("none")
   let t = 0
   let globalPause = false
 
@@ -228,16 +224,9 @@ function brushless() {
     document.querySelectorAll("#rpm").forEach(el => el.textContent = speed.value)
     globalPause = setTimeout(() => globalPause = false, 100)
   }
-  simpleb.oninput = () => {
-    simplifyBrushless(simpleb.checked ? "inline" : "none")
-  }
   brushlesscase.oninput = () => {
     setBrushlessLid(brushlesscase.checked)
   }
-}
-function simplifyBrushless(display) {
-  [as2, an2, bs2, bn2, cs2, cn2]
-    .forEach(el => el.style.display = display)
 }
 function setBrushlessLid(show) {
   coils.style.opacity = +show
