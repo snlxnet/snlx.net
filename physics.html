@@ -5,6 +5,14 @@ html, body {
 }
 </style>
 
+<div id="dcm">loading...</div>
+<label>
+  <input type="checkbox" id="pwrdc">
+  Power
+</label>
+<input type="range" id="voltage" min="-5" max="5" step="0.1" value="0.5">
+<br></br>
+
 <div id="brl">loading...</div>
 
 <input type="range" id="speed" min="10" max="120" step="0.1" value="15">
@@ -48,20 +56,46 @@ html, body {
 </label>
 
 <script>
-fetch("brushless-real.svg").then(r => r.text()).then(t => brl.outerHTML = t)
+fetch("dc.svg").then(r => r.text()).then(t => dcm.outerHTML = t)
+.then(() => fetch("brushless-real.svg")).then(r => r.text()).then(t => brl.outerHTML = t)
 .then(() => fetch("stepper.svg")).then(r => r.text()).then(t => stp.outerHTML = t).then(main)
 
 let stepidx = -1
+let powerDc = false
 let powerBrushless = false
 let powerStepper = false
+pwrdc.oninput = () => powerDc = pwrdc.checked
 pwrbr.oninput = () => powerBrushless = pwrbr.checked
 pwrst.oninput = () => {
   powerStepper = pwrst.checked
   step()
 }
 function main() {
+  dcmot()
   brushless()
   stepper()
+}
+function dcmot() {
+  dcmagnet.style.transformOrigin = "center"
+  dcmagnet.style.transformBox = "border-box"
+  brushes.style.transformOrigin = "center"
+  brushes.style.transformBox = "border-box"
+
+  setInterval(() => {
+    brushes.style.transform = voltage.value > 0 ? "" : "scaleX(-1)"
+
+    if (!powerDc) {
+      north.style.opacity = 0
+      south.style.opacity = 0
+      return
+    }
+
+    north.style.opacity = 1
+    south.style.opacity = 1
+    const angle = +dcmagnet.style.rotate.slice(0, -3) + +voltage.value*2
+    dcmagnet.style.rotate = angle + "deg"
+    dcmagnet.style.transform = ((90+angle) % 360 > 180) ? "scaleY(-1)" : ""
+  }, 10)
 }
 function stepper() {
   casestp.style.opacity = 0
@@ -185,7 +219,7 @@ function brushless() {
   }, 10)
 
   speed.oninput = () => {
-    clearTimeout(globalPause)
+    clearTimeout(globalPause || -1)
     document.querySelectorAll("#rpm").forEach(el => el.textContent = speed.value)
     globalPause = setTimeout(() => globalPause = false, 100)
   }
