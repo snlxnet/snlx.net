@@ -82,6 +82,7 @@ pre {
   card,
   colorscheme-name,
   seed,
+  ru-footer: false,
   ..args,
 ) = (doc) => context {
   let colorscheme = if target() == "html" {
@@ -144,10 +145,16 @@ pre {
     ..args,
   )
   footer[
-    \@snlxnet
-    | #link("https://snlx.net")[home]
-    | #link("https://github.com/snlxnet")[github]
-    | #link(path + ".pdf")[pdf]
+    #if ru-footer [
+      alexanderthestudent\@yandex.ru
+      | #link("https://snlx.net/ru")[Главная]
+      | #link(ru-path + ".pdf")[PDF]
+    ] else [
+      \@snlxnet
+      | #link("https://snlx.net")[home]
+      | #link("https://github.com/snlxnet")[github]
+      | #link(path + ".pdf")[pdf]
+    ]
   ]
 }
 
