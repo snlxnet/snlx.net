@@ -2,10 +2,9 @@
 #import "main.typ": theme
 #set document(title: [Magnets | snlx.net articles])
 #show: catppuccin.with(flavors.mocha)
-// this was supposed to be a squirrel, but it's an axalotl now I guess
 #show: theme("/magnets", "magnets-sketch.svg", "dark", 1015)
 
-#let sidenote(it) = html.div(class: "sidenote", it)
+#let sidenote(it) = html.div(class: "sidenote", [Sidenote: #it])
 
 #html.link(rel: "stylesheet", href: "magnets.css")
 
@@ -36,7 +35,7 @@ In the middle is an electromagnet (dark frame with gray contacts) powered by two
   #figure(image("dc.svg"))
 ]
 
-When you connect power, the top of the electromagnet repels the permanent magnet above
+When you connect power (slide voltage to the right), the top of the electromagnet repels the permanent magnet above
 and is attracted to the magnet below, so it turns. When it completes half a turn,
 the brushes disconnect. No power = the electromagnet doesn't work.
 It keeps spinning (because it is already in motion) until it reconnects with the brushes the opposite way,

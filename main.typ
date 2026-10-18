@@ -21,9 +21,10 @@ main, header, footer {
   display: flex;
   justify-content: center;
   overflow: hidden;
+  height: 5em;
 }
-.squiggles svg {
-  height: unset;
+.squiggles:last-of-type {
+  align-items: flex-end;
 }
 
 html, body {
@@ -41,8 +42,6 @@ header, footer {
   background: var(--header);
   box-shadow: 0 0 0 100vmax var(--header);
   clip-path: inset(0 -100vmax);
-}
-.squiggles:last-of-type {
 }
 footer {
   text-align: center;
