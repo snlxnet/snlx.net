@@ -3,24 +3,27 @@
 #import "qr.typ": qr
 
 #let base-css = ```css
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 body {
   padding: 0 1em;
   padding-bottom: 8em;
   max-width: 90ch;
   min-height: calc(100svh - 8em);
   margin: auto;
-  overflow-x: hidden;
   position: relative;
 }
 .squiggles {
   display: flex;
   justify-content: center;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 .squiggles svg {
   height: unset;
 }
 
 html, body {
+  overflow-x: hidden;
   background: var(--page);
   color: var(--text);
   font-size: 16px;
@@ -37,9 +40,10 @@ header, footer {
   clip-path: inset(0 -100vmax);
   padding: 1em 0;
 }
-.squiggles:last-of-type svg {
+.squiggles:last-of-type {
   position: absolute;
   bottom: 3em;
+  left: 0;
 }
 footer {
   position: absolute;
@@ -50,6 +54,9 @@ footer {
 }
 h1, h2, h3, h4, a, strong {
   color: var(--accent);
+}
+pre {
+  overflow: auto;
 }
 ```
 
@@ -117,7 +124,7 @@ h1, h2, h3, h4, a, strong {
     \@snlxnet
     | #link("https://snlx.net")[home]
     | #link("https://github.com/snlxnet")[github]
-    | #link(path + ".pdf")[print version]
+    | #link(path + ".pdf")[pdf]
   ]
 }
 

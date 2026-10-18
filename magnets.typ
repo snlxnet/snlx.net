@@ -1,5 +1,17 @@
-#set document(title: [Magnets])
+#import "@preview/catppuccin:1.1.0": catppuccin, flavors, set-code-theme
+#import "main.typ": theme
+#show: catppuccin.with(flavors.mocha)
+#show: theme("/magnets", "card.svg", "dark", 20261015)
+
+#set document(title: [Magnets | snlx.net articles])
 #let sidenote(it) = html.div(class: "sidenote", it)
+
+#html.style(```css
+svg {
+  width: 100%;
+  height: unset;
+}
+```.text)
 
 A magnet has a north pole (red) and a south pole (blue). Opposite poles attract, same poles repel each other.
 
