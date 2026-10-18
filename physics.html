@@ -88,7 +88,8 @@ function dcmot() {
     south.style.opacity = 1
 
     const angle = (+dcmagnet.style.rotate.slice(0, -3) + +voltage.value)%360
-    if ((angle > 340 || angle < 20) || (angle > 160&& angle < 200)) {
+    const abs = Math.abs(angle)
+    if ((abs > 340 || abs < 20) || (abs > 160&& abs < 200)) {
       north.style.opacity = 0
       south.style.opacity = 0
     } else {
@@ -96,7 +97,7 @@ function dcmot() {
       dcmminus.style.opacity = 1
     }
     dcmagnet.style.rotate = angle + "deg"
-    dcmagnet.style.transform = (angle > 180) ? "scaleY(-1)" : ""
+    dcmagnet.style.transform = (abs > 180) ? "scaleY(-1)" : ""
   }, 10)
 }
 function stepper() {
