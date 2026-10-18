@@ -107,6 +107,24 @@ pre {
   } else {
     box(fill: colorscheme.header, width: 100%, outset: 10mm, it)
   }
+  let wrapper(it) = if target() == "html" {
+    html.html({
+      html.head({
+        html.meta(charset: "utf-8")
+        html.meta(name: "viewport", content: "width=device-width, initial-scale=1")
+        html.elem("meta", attrs: (property: "og:image", content: "https://snlx.net/" + card))
+        html.title(document.title)
+        if document.description != none {
+          html.meta(name: "description", content: document.description.text)
+        }
+        html.style(base-css.text)
+        html.style(colors.css.at(colorscheme-name))
+      })
+      html.body(it)
+    })
+  } else {
+    it
+  }
 
   set text(font: "JetBrains Mono", fill: colorscheme.text)
   show heading: set text(fill: colorscheme.deep)
@@ -114,48 +132,48 @@ pre {
   show raw.where(block: true): it => block(inset: 1em, fill: colorscheme.header, radius: 3mm, width: 100%, it)
   set page(margin: 10mm, fill: colorscheme.page)
   
-  if target() == "html" {
-    html.style(base-css.text)
-    html.style(colors.css.at(colorscheme-name))
-    html.header(html.frame(box(width: 180mm, header)))
-  } else {
-    header
-  }
-  squiggles(
-    seed,
-    fill: colorscheme.header,
-    stroke: 0.3mm + colorscheme.border,
-    up: 3,
-    ..args,
-  )
-  show link: underline
-  show link: set text(fill: colorscheme.accent)
-  if target() == "html" {
-    html.script(load-sketch.text)
-    html.main(doc)
-  } else {
-    doc
-  }
-  set align(bottom + center)
-  squiggles(
-    seed + 1,
-    fill: colorscheme.header,
-    stroke: 0.3mm + colorscheme.border,
-    down: -10,
-    ..args,
-  )
-  footer[
-    #if ru-footer [
-      alexanderthestudent\@yandex.ru
-      | #link("https://snlx.net/ru")[Главная]
-      | #link(ru-path + ".pdf")[PDF]
-    ] else [
-      \@snlxnet
-      | #link("https://snlx.net")[home]
-      | #link("https://github.com/snlxnet")[github]
-      | #link(path + ".pdf")[pdf]
+  wrapper({
+    if target() == "html" {
+      html.header(html.frame(box(width: 180mm, header)))
+    } else {
+      header
+    }
+    squiggles(
+      seed,
+      fill: colorscheme.header,
+      stroke: 0.3mm + colorscheme.border,
+      up: 3,
+      ..args,
+    )
+    show link: underline
+    show link: set text(fill: colorscheme.accent)
+    if target() == "html" {
+      html.script(load-sketch.text)
+      html.main(doc)
+    } else {
+      doc
+    }
+    set align(bottom + center)
+    squiggles(
+      seed + 1,
+      fill: colorscheme.header,
+      stroke: 0.3mm + colorscheme.border,
+      down: -10,
+      ..args,
+    )
+    footer[
+      #if ru-footer [
+        alexanderthestudent\@yandex.ru
+        | #link("https://snlx.net/ru")[Главная]
+        | #link(ru-path + ".pdf")[PDF]
+      ] else [
+        \@snlxnet
+        | #link("https://snlx.net")[home]
+        | #link("https://github.com/snlxnet")[github]
+        | #link(path + ".pdf")[pdf]
+      ]
     ]
-  ]
+  })
 }
 
 #show: theme("/site", "/site", "card.svg", "dark", 0)

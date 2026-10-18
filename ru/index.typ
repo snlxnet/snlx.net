@@ -1,7 +1,8 @@
-#import "@preview/catppuccin:1.1.0": catppuccin, flavors, set-code-theme
 #import "/main.typ": theme
-#set document(title: [Главная | snlx.net])
-#show: catppuccin.with(flavors.mocha)
+#set document(
+  title: "Главная | snlx.net",
+  description: "Я Александр, веб-разработчик с небольшим уклоном в робототехнику; это мой сайт",
+)
 #show: theme("/", "/ru", "ru/index.svg", "dark", 1018)
 
 #html.style("footer, .squiggles:last-of-type { display: none; }")
