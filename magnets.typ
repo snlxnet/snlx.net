@@ -11,10 +11,6 @@
 
 A magnet has a north pole (red) and a south pole (blue). Opposite poles attract, same poles repel each other.
 
-Placing one magnet on top and another magnet on the left is effectively the same as putting a single one in the top-left.
-
-(./magnets.svg)
-
 Electromagnets only work as magnets when there's electricity flowing through them.
 If you turn up the current, the magnet becomes stronger. If you connect it backwards,
 the poles switch.
@@ -76,8 +72,8 @@ They have many small magnets along the inside of the rotor (the rotating part)
 which act as one big round magnet.
 
 In the middle, there are 6 (sometimes 9, usually 12) electromagnets
-that turn on sequentially in 3 groups. They create a rotating magnetic field
-and the rotor rotates synchronously with that field (hence the name).
+that turn on one after the nxet in 3 groups, creating a *rotating magnetic field*.
+The rotor turns in sync with that field (hence the name).
 Since the electromagnets are not spinning, they don't need brushes,
 wires connect directly (hence the other name).
 

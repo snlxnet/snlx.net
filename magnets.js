@@ -1,3 +1,17 @@
+sketch()
+async function sketch() {
+  const svg = await fetch("magnets-sketch.svg").then(r => r.text())
+  const old = document.querySelector("header svg image")
+  const width = old.width.baseVal.value
+  const height = old.height.baseVal.value
+  const container = old.parentElement
+
+  container.innerHTML = svg
+  const replaced = container.querySelector("svg")
+  replaced.setAttribute("width", width)
+  replaced.setAttribute("height", height)
+}
+
 dcmot()
 async function dcmot() {
   await fetch("dc.svg").then(r => r.text()).then(t => dcm.outerHTML = t)
