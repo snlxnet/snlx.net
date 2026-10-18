@@ -197,5 +197,29 @@ m1.throttle = -0.2 # назад, мощность 20%
 Микрошаги --- это когда драйвер плавно регулирует подачу тока
 на каждую группу электромагнитов, а не просто включает и выключает их.
 
+Управление:
+```python
+import time
+import board
+from digitalio import DigitalInOut, Direction
+
+dir = DigitalInOut(board.D5)
+stp = DigitalInOut(board.D6)
+dir.direction = Direction.OUTPUT
+stp.direction = Direction.OUTPUT
+
+def move(steps, direction):
+    dir.value = direction
+    time.sleep(0.001)
+
+    for _ in range(steps):
+        step_pin.value = True
+        time.sleep(0.001)
+        step_pin.value = False
+        time.sleep(0.001)
+
+move(100, False) # полоборота
+```
+
 #html.script(src: "/magnets.js")
 
