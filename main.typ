@@ -112,7 +112,7 @@ pre {
       html.head({
         html.meta(charset: "utf-8")
         html.meta(name: "viewport", content: "width=device-width, initial-scale=1")
-        html.elem("meta", attrs: (property: "og:image", content: "https://snlx.net/" + card))
+        html.elem("meta", attrs: (property: "og:image", content: "https://snlx.net/" + card.replace(".svg", ".png")))
         html.title(document.title)
         if document.description != none {
           html.meta(name: "description", content: document.description.text)

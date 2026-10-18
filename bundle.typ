@@ -3,10 +3,20 @@
   #html.script("window.location = 'https://" + to + "'")
 ]
 
+#let png(..args) = for file in args.pos() { document(file.replace(".svg", ".png"), format: "png")[
+  #set page(
+    width: 600pt,
+    height: 315pt,
+    background: image(file, height: 100%),
+    fill: rgb("#00000000"),
+  )
+]}
+
 #context if target() == "bundle" {
   document("index.html", include "index.typ")
   document("ru/index.html", include "ru/index.typ")
   use("index.svg", "ru/index.svg")
+  png("index.svg", "ru/index.svg")
 
   redir("yap", "yap.snlx.net")
   redir("dyno", "dyno.snlx.net")
@@ -23,10 +33,12 @@
 
   document("magnets.html", include "magnets.typ")
   document("magnets.pdf", include "magnets.typ")
+  png("magnets-sketch.svg")
 
   redir("ru/magnets", "snlx.net/магниты")
   document("магниты.html", include "ru/magnets.typ")
   document("магниты.pdf", include "ru/magnets.typ")
+  png("ru/magnets-sketch.svg")
 
   use(
     "magnets-sketch.svg",

@@ -1,6 +1,9 @@
 #import "@preview/catppuccin:1.1.0": catppuccin, flavors, set-code-theme
 #import "/main.typ": theme
-#set document(title: [Магниты | snlx.net articles])
+#set document(
+  title: "Магниты | статьи от snlx.net",
+  description: "Как устроены электродвигатели",
+)
 #show: catppuccin.with(flavors.mocha)
 #show: theme("/magnets", "/магниты", "ru/magnets-sketch.svg", "dark", 1015, ru-footer: true)
 
@@ -8,7 +11,7 @@
 
 #html.link(rel: "stylesheet", href: "/magnets.css")
 
-#sidenote[Translation assisted by GPT-6 Luna]
+#sidenote[черновик перевода был сделан GPT-6 Luna.]
 
 У магнита есть северный (красный) и южный (синий) полюс. Противоположные полюса притягиваются, одноимённые --- отталкиваются.
 
@@ -69,9 +72,9 @@ m1.throttle = -0.6 # назад, мощность 60%
 
 Подробнее об этом позже.
 
-== Бесщёточные (синхронные) двигатели
+== Бесколлекторные (синхронные) двигатели
 
-Бесщёточные двигатели меньше и мощнее, но ими сложнее управлять.
+Бесщеточные двигатели меньше и мощнее, но ими сложнее управлять.
 
 Внутри ротора (вращающейся части) у них расположено много маленьких магнитов,
 которые вместе действуют как один большой кольцевой магнит.
@@ -132,7 +135,7 @@ from adafruit_motor import servo
 pwm = pwmio.PWMOut(board.D5, frequency=50)
 m1 = servo.ContinuousServo(pwm, min_pulse=1000, max_pulse=2000)
 
-esc.throttle = -0.2 # назад, мощность 20%
+m1.throttle = -0.2 # назад, мощность 20%
 ```
 
 #html.script(src: "/magnets.js")

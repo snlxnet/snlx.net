@@ -1,6 +1,9 @@
 #import "@preview/catppuccin:1.1.0": catppuccin, flavors, set-code-theme
 #import "/main.typ": theme
-#set document(title: [Magnets | snlx.net articles])
+#set document(
+  title: "Magnets | snlx.net articles",
+  description: "How electric motors work",
+)
 #show: catppuccin.with(flavors.mocha)
 #show: theme("/magnets", "/магниты", "magnets-sketch.svg", "dark", 1015)
 
@@ -123,12 +126,24 @@ from adafruit_motor import servo
 pwm = pwmio.PWMOut(board.D5, frequency=50)
 m1 = servo.ContinuousServo(pwm, min_pulse=1000, max_pulse=2000)
 
-esc.throttle = -0.2 # backward, 20% power
+m1.throttle = -0.2 # backward, 20% power
 ```
 
 == Stepper
 
-// don't forget about the current adjust thing
+If you need to turn a DC or a brushless motor to a certain angle,
+you need a sensor to measure its position.
+
+Stepper motors are a simpler alternative. Pulse the `STP` pin of its driver
+(#link("https://duck.com/a4988%20!i")[A4988], #link("https://duck.com/drv8825%20!i")[DRV8835])
+and the motor turns 1.8 degrees. Pulse it again and it turns another 1.8 degrees.
+Put 3 volts on the `DIR` pin of the driver, pulse `STP` and it moves 1.8 degrees the other way.
+That's it.
+
+If you need to go slow, pulse it slow. If you need it to go faster, pulse it faster.
+
+The driver also has a current limiting dial that makes sure the motor doesn't overheat, more about it
+#link("https://lastminuteengineers.com/a4988-stepper-motor-driver-arduino-tutorial/#current-limiting")[here].
 
 #context if target() == "html" [
   #html.div(id: "stp")
