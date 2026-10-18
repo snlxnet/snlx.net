@@ -10,6 +10,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: calc(100svh - 8em);
+  accent-color: var(--accent);
 }
 main, header, footer {
   max-width: 90ch;
