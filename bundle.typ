@@ -8,7 +8,7 @@
     width: 600pt,
     height: 315pt,
     background: image(file, height: 100%),
-    fill: rgb("#00000000"),
+    fill: rgb("#2e2d39"),
   )
 ]}
 
