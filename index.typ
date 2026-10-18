@@ -16,7 +16,7 @@
 
 = Articles
 
-- #link("/magnets")[Magnets] --- how electric motors work
+- #link("/magnets")[Magnets] --- how electric motors work (work in progress)
 
 = Contact info
 - #link("https://github.com/snlxnet")[GitHub]

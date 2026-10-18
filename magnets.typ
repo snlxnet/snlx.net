@@ -1,12 +1,12 @@
 #import "@preview/catppuccin:1.1.0": catppuccin, flavors, set-code-theme
-#import "main.typ": theme
-#set document(title: [Magnets | snlx.net articles])
+#import "/main.typ": theme
+#set document(title: [Магниты | snlx.net articles])
 #show: catppuccin.with(flavors.mocha)
 #show: theme("/magnets", "magnets-sketch.svg", "dark", 1015)
 
 #let sidenote(it) = html.div(class: "sidenote", [Sidenote: #it])
 
-#html.link(rel: "stylesheet", href: "magnets.css")
+#html.link(rel: "stylesheet", href: "/magnets.css")
 
 A magnet has a north pole (red) and a south pole (blue). Opposite poles attract, same poles repel each other.
 
@@ -32,7 +32,7 @@ In the middle is an electromagnet (dark frame with gray contacts) powered by two
     ]
   ]
 ] else [
-  #figure(image("dc.svg"))
+  #figure(image("/dc.svg"))
 ]
 
 When you connect power (slide voltage to the right), the top of the electromagnet repels the permanent magnet above
@@ -97,7 +97,7 @@ wires connect directly (hence the other name).
     ]
   ]
 ] else [
-  #figure(image("brushless.svg"))
+  #figure(image("/brushless.svg"))
 ]
 
 The real RPM is usually 3000+.
@@ -155,6 +155,6 @@ esc.throttle = -0.2 # backward, 20% power
   ]
   #html.script(src: "/magnets.js")
 ] else [
-  #figure(image("stepper.svg"))
+  #figure(image("/stepper.svg"))
 ]
 

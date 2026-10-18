@@ -20,7 +20,7 @@
       #set text(fill: color)
       #link("https://snlx.net" + path, box(width: 40%, align(right, underline("EN"))))
       \/
-      #link("https://ru.snlx.net" + path, box(width: 40%, align(left, underline("RU"))))
+      #link("https://snlx.net/ru" + path, box(width: 40%, align(left, underline("RU"))))
     ]
   ),
 ))
