@@ -6,6 +6,7 @@
 )
 #show: catppuccin.with(flavors.mocha)
 #show: theme("/magnets", "/магниты", "ru/magnets-sketch.svg", "dark", 1015, ru-footer: true)
+#set image(width: 70%)
 
 #let sidenote(it) = html.div(class: "sidenote", [Отступление: #it])
 
