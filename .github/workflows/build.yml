@@ -1,0 +1,40 @@
+---
+name: Deploy
+on:
+  push:
+    branches:
+      - main
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install typst
+        run: sudo snap install typst
+      - name: check out repo code
+        uses: actions/checkout@v5
+      - name: setup pages
+        uses: actions/configure-pages@v5
+      - name: build
+        run: |
+          git clone https://github.com/snlxnet/obsidian-garden bundle # Cool URIs don't change!
+          typst compile bundle.typ --format=bundle --features=bundle,html --font-path=.
+      - name: upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "bundle"
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

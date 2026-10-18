@@ -10,6 +10,7 @@
   app[dyno]
   app[backbone]
   redir("eqrun", "typst.app/universe/package/eqrun")
+  redir("src", "github.com/snlxnet/snlx.net")
 
   document("magnets.html", include "magnets.typ")
   document("magnets.pdf", include "magnets.typ")
