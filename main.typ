@@ -7,23 +7,25 @@
 body {
   padding: 0 1em;
   padding-bottom: 8em;
-  max-width: 90ch;
+  margin: 0;
+  padding: 0;
   min-height: calc(100svh - 8em);
+}
+main, header, footer {
+  max-width: 90ch;
   margin: auto;
-  position: relative;
+  padding: 1em;
 }
 .squiggles {
   display: flex;
   justify-content: center;
-  max-width: 100%;
-  box-sizing: border-box;
+  overflow: hidden;
 }
 .squiggles svg {
   height: unset;
 }
 
 html, body {
-  overflow-x: hidden;
   background: var(--page);
   color: var(--text);
   font-size: 16px;
@@ -38,25 +40,17 @@ header, footer {
   background: var(--header);
   box-shadow: 0 0 0 100vmax var(--header);
   clip-path: inset(0 -100vmax);
-  padding: 1em 0;
 }
 .squiggles:last-of-type {
-  position: absolute;
-  bottom: 3em;
-  left: 0;
 }
 footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
   text-align: center;
 }
 h1, h2, h3, h4, a, strong {
   color: var(--accent);
 }
 pre {
-  overflow: auto;
+  overflow-x: auto;
 }
 ```
 
@@ -111,7 +105,11 @@ pre {
   )
   show link: underline
   show link: set text(fill: colorscheme.accent)
-  doc
+  if target() == "html" {
+    html.main(doc)
+  } else {
+    doc
+  }
   set align(bottom + center)
   squiggles(
     seed + 1,

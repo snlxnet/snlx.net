@@ -1,9 +1,9 @@
 #import "@preview/catppuccin:1.1.0": catppuccin, flavors, set-code-theme
 #import "main.typ": theme
+#set document(title: [Magnets | snlx.net articles])
 #show: catppuccin.with(flavors.mocha)
 #show: theme("/magnets", "card.svg", "dark", 20261015)
 
-#set document(title: [Magnets | snlx.net articles])
 #let sidenote(it) = html.div(class: "sidenote", it)
 
 #html.style(```css
