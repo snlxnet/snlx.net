@@ -2,6 +2,25 @@
 #import "squiggles.typ": squiggles
 #import "qr.typ": qr
 
+#let load-sketch = ```js
+(async () => {
+  const old = document.querySelector(`[data-typst-label]`).firstElementChild
+  const width = old.width.baseVal.value
+  const height = old.height.baseVal.value
+  const container = old.parentElement
+  const src = container.dataset.typstLabel
+
+  const text = await fetch("/" + src).then(r => r.text())
+  if (!text) {
+    return
+  }
+  container.innerHTML = text
+  const svg = container.querySelector("svg")
+  svg.setAttribute("width", width)
+  svg.setAttribute("height", height)
+})()
+```
+
 #let base-css = ```css
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 body {
@@ -76,7 +95,7 @@ pre {
     outset: 10mm,
     grid(
       columns: (1fr, auto),
-      box(image(card, height: 6.2cm)),
+      [#box(image(card, height: 6.2cm))#label(card)],
       [#set text(size: 10pt)
       #qr(path, background: colorscheme.qrbg, color: colorscheme.qrfg)],
     )
@@ -110,6 +129,7 @@ pre {
   show link: underline
   show link: set text(fill: colorscheme.accent)
   if target() == "html" {
+    html.script(load-sketch.text)
     html.main(doc)
   } else {
     doc

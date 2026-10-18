@@ -2,6 +2,6 @@
 #import "/main.typ": theme
 #set document(title: [Магниты | snlx.net articles])
 #show: catppuccin.with(flavors.mocha)
-#show: theme("/magnets", "magnets-sketch.svg", "dark", 1015)
+#show: theme("/magnets", "ru/magnets-sketch.svg", "dark", 1015)
 
 TODO перевод

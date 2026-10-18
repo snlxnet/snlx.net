@@ -6,6 +6,7 @@
 #context if target() == "bundle" {
   document("index.html", include "index.typ")
   document("ru/index.html", include "ru/index.typ")
+  use("index.svg", "ru/index.svg")
 
   redir("yap", "yap.snlx.net")
   redir("dyno", "dyno.snlx.net")
@@ -28,6 +29,7 @@
 
   use(
     "magnets-sketch.svg",
+    "ru/magnets-sketch.svg",
     "dc.svg", "brushless.svg", "stepper.svg",
     "magnets.css",
     "magnets.js",
