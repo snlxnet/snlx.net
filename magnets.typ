@@ -145,6 +145,11 @@ If you need to go slow, pulse it slow. If you need it to go faster, pulse it fas
 The driver also has a current limiting dial that makes sure the motor doesn't overheat, more about it
 #link("https://lastminuteengineers.com/a4988-stepper-motor-driver-arduino-tutorial/#current-limiting")[here].
 
+The actual motor has a magnetic rotor,
+the outer edge of this one is the north pole.
+The stator has 8 electromagnets with teeth.
+Notice the bottom teeth are aligned with the rotor and the top are unaligned.
+
 #context if target() == "html" [
   #html.div(id: "stp")
   #html.fieldset[
@@ -174,6 +179,14 @@ The driver also has a current limiting dial that makes sure the motor doesn't ov
 ] else [
   #figure(image("/stepper.svg"))
 ]
+
+When the stator teeth act as a south pole,
+the rotor teeth turn to face them. When they act
+as a north pole, the rotor teeth rotate to be in the gaps,
+maximizing the distance.
+
+Microsteps is when the driver smoothly controls the power
+to each set of electromagnets instead of just turning them on/off.
 
 #html.script(src: "/magnets.js")
 
