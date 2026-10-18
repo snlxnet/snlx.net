@@ -2,7 +2,8 @@
 #import "main.typ": theme
 #set document(title: [Magnets | snlx.net articles])
 #show: catppuccin.with(flavors.mocha)
-#show: theme("/magnets", "card.svg", "dark", 1015)
+// this was supposed to be a squirrel, but it's an axalotl now I guess
+#show: theme("/magnets", "magnets-sketch.svg", "dark", 1015)
 
 #let sidenote(it) = html.div(class: "sidenote", it)
 
