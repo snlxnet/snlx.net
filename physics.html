@@ -193,20 +193,20 @@ function brushless() {
 
     const va = u0 * Math.sin(omega * t)
     an1.style.opacity = va
-    as1.style.opacity = 1-va
-    an2.style.opacity = 1-va
+    as1.style.opacity = -va
+    an2.style.opacity = -va
     as2.style.opacity = va
 
     const vb = u0 * Math.sin(omega * t + 6.28/3)
     bn1.style.opacity = vb
-    bs1.style.opacity = 1-vb
-    bn2.style.opacity = 1-vb
+    bs1.style.opacity = -vb
+    bn2.style.opacity = -vb
     bs2.style.opacity = vb
 
     const vc = u0 * Math.sin(omega * t - 6.28/3)
     cn1.style.opacity = vc
-    cs1.style.opacity = 1-vc
-    cn2.style.opacity = 1-vc
+    cs1.style.opacity = -vc
+    cn2.style.opacity = -vc
     cs2.style.opacity = vc
 
     arrow.style.opacity = 1
