@@ -24,11 +24,11 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="4.0000004"
-     inkscape:cx="160.62498"
-     inkscape:cy="101.87499"
-     inkscape:window-width="2540"
+     inkscape:cx="96.37499"
+     inkscape:cy="105.62499"
+     inkscape:window-width="1265"
      inkscape:window-height="1392"
-     inkscape:window-x="10"
+     inkscape:window-x="1285"
      inkscape:window-y="10"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1"
@@ -202,19 +202,19 @@
     <g
        id="dcmagnetouter"
        inkscape:label="magnet"
-       transform="matrix(0.82796466,0,0,-0.82796466,-12.903675,50.269015)">
+       transform="matrix(0.71703843,-0.41398233,-0.41398233,-0.71703843,3.1952085,64.812559)">
       <g
          id="dcmagnet">
         <path
            id="rect6"
-           style="fill:#2e2d39;stroke-width:3.84641;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
+           style="fill:#2e2d39;fill-opacity:1;stroke-width:3.84641;stroke-linecap:round;stroke-linejoin:round"
            d="m 29.391998,29.3117 c -0.754029,0 -1.361246,-0.607217 -1.361246,-1.361245 v -0.901256 c 0,-0.754028 0.607217,-1.360621 1.361246,-1.360621 h 9.169837 a 4.3346176,4.3346176 0 0 0 -0.396952,1.811249 4.3346176,4.3346176 0 0 0 0.396952,1.811873 z m 17.045836,0 a 4.3346176,4.3346176 0 0 0 0.396328,-1.811873 4.3346176,4.3346176 0 0 0 -0.396328,-1.811249 h 9.169838 c 0.754028,0 1.360621,0.606593 1.360621,1.360621 v 0.901256 c 0,0.754028 -0.606593,1.361245 -1.360621,1.361245 z" />
         <g
            id="south">
           <path
              id="southi"
-             style="fill:#839eff;stroke-width:3.84641;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
-             d="M 29.391998 29.3117 C 28.637969 29.3117 28.030752 28.704483 28.030752 27.950455 L 28.030752 27.499827 L 38.164883 27.499827 A 4.3346176 4.3346176 0 0 0 38.561835 29.3117 L 29.391998 29.3117 z M 46.437834 29.3117 A 4.3346176 4.3346176 0 0 0 46.834162 27.499827 L 56.968293 27.499827 L 56.968293 27.950455 C 56.968293 28.704483 56.3617 29.3117 55.607672 29.3117 L 46.437834 29.3117 z " />
+             style="fill:#839eff;fill-opacity:1;stroke-width:3.84641;stroke-linecap:round;stroke-linejoin:round"
+             d="m 29.391998,29.3117 c -0.754029,0 -1.361246,-0.607217 -1.361246,-1.361245 v -0.450628 h 10.134131 a 4.3346176,4.3346176 0 0 0 0.396952,1.811873 z m 17.045836,0 a 4.3346176,4.3346176 0 0 0 0.396328,-1.811873 h 10.134131 v 0.450628 c 0,0.754028 -0.606593,1.361245 -1.360621,1.361245 z" />
         </g>
         <g
            id="north">
@@ -224,7 +224,7 @@
              d="m 29.391998,25.688578 c -0.754029,0 -1.361246,0.607217 -1.361246,1.361245 v 0.450628 h 10.134131 a 4.3346176,4.3346176 0 0 1 0.396952,-1.811873 z m 17.045836,0 a 4.3346176,4.3346176 0 0 1 0.396328,1.811873 h 10.134131 v -0.450628 c 0,-0.754028 -0.606593,-1.361245 -1.360621,-1.361245 z" />
         </g>
         <circle
-           style="fill:#cccccc;stroke:none;stroke-width:3.62335;stroke-linecap:round;stroke-linejoin:round;fill-opacity:1"
+           style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:3.62335;stroke-linecap:round;stroke-linejoin:round"
            id="path1"
            cx="42.499985"
            cy="-27.5"

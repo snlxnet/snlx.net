@@ -18,7 +18,6 @@ async function dcmot() {
 
   dcmagnet.style.transformOrigin = "center"
   dcmagnet.style.transformBox = "border-box"
-  dcmagnet.style.rotate = "20deg"
   brushes.style.transformOrigin = "center"
   brushes.style.transformBox = "border-box"
   north.style.transition = "ease-in-out 0.1s"
@@ -38,7 +37,7 @@ async function dcmot() {
     south.style.opacity = 1
 
     const angle = (+dcmagnet.style.rotate.slice(0, -3) + +voltage.value)%360
-    const abs = Math.abs(angle)
+    const abs = Math.abs(angle+30)
     if ((abs > 340 || abs < 20) || (abs > 160&& abs < 200)) {
       north.style.opacity = 0
       south.style.opacity = 0

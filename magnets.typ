@@ -24,12 +24,16 @@ They have curved magnets on the top and bottom.
 
 In the middle is an electromagnet (dark frame with gray contacts) powered by two (white) brushes.
 
-#html.div(id: "dcm")
-#html.fieldset[
-  #html.label[
-    #html.input(type: "range", id: "voltage", min: -5, max: 5, step: 0.5)
-    Voltage
+#context if target() == "html" [
+  #html.div(id: "dcm")
+  #html.fieldset[
+    #html.label[
+      #html.input(type: "range", id: "voltage", min: -5, max: 5, step: 0.5)
+      Voltage
+    ]
   ]
+] else [
+  #figure(image("dc.svg"))
 ]
 
 When you connect power, the top of the electromagnet repels the permanent magnet above
@@ -77,20 +81,24 @@ The rotor turns in sync with that field (hence the name).
 Since the electromagnets are not spinning, they don't need brushes,
 wires connect directly (hence the other name).
 
-#html.div(id: "brl")
-#html.fieldset[
-  #html.label[
-    #html.input(id: "pwrbr", type: "checkbox")
-    Power
+#context if target() == "html" [
+  #html.div(id: "brl")
+  #html.fieldset[
+    #html.label[
+      #html.input(id: "pwrbr", type: "checkbox")
+      Power
+    ]
+    #html.label[
+      #html.input(id: "brushlesscase", type: "checkbox")
+      Case
+    ]
+    #html.label[
+      #html.input(type: "range", id: "speed", min: 1, max: 120, value: 5)
+      Speed
+    ]
   ]
-  #html.label[
-    #html.input(id: "brushlesscase", type: "checkbox")
-    Case
-  ]
-  #html.label[
-    #html.input(type: "range", id: "speed", min: 1, max: 120, value: 5)
-    Speed
-  ]
+] else [
+  #figure(image("brushless.svg"))
 ]
 
 The real RPM is usually 3000+.
@@ -120,30 +128,34 @@ esc.throttle = -0.2 # backward, 20% power
 
 // don't forget about the current adjust thing
 
-#html.div(id: "stp")
-#html.fieldset[
-  #html.label[
-    #html.button(id: "mkstp")[pulse]
-    Step
-  ]
-  #html.label[
-    #html.input(id: "autostep", type: "checkbox")
-    Auto run
-  ]
-  #html.label[
-    #html.input(id: "stpcase", type: "checkbox")
-    Case
-  ]
-  #html.label[
-    #html.select(id: "microstep")[
-      #html.option(value: "1")[Off]
-      #html.option(value: "2")[1/2]
-      #html.option(value: "4")[1/4]
-      #html.option(value: "8")[1/8]
-      #html.option(value: "16")[1/16]
+#context if target() == "html" [
+  #html.div(id: "stp")
+  #html.fieldset[
+    #html.label[
+      #html.button(id: "mkstp")[pulse]
+      Step
     ]
-    Microstep
+    #html.label[
+      #html.input(id: "autostep", type: "checkbox")
+      Auto run
+    ]
+    #html.label[
+      #html.input(id: "stpcase", type: "checkbox")
+      Case
+    ]
+    #html.label[
+      #html.select(id: "microstep")[
+        #html.option(value: "1")[Off]
+        #html.option(value: "2")[1/2]
+        #html.option(value: "4")[1/4]
+        #html.option(value: "8")[1/8]
+        #html.option(value: "16")[1/16]
+      ]
+      Microstep
+    ]
   ]
+  #html.script(src: "/magnets.js")
+] else [
+  #figure(image("stepper.svg"))
 ]
-#html.script(src: "/magnets.js")
 

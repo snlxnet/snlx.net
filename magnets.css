@@ -8,6 +8,12 @@
   transform-box: border-box;
   animation: spin linear infinite 60s;
 }
+#casestp,
+#stpa2,
+#stpb1,
+#stpb2 {
+  display: inline !important;
+}
 
 svg {
   width: 100%;
