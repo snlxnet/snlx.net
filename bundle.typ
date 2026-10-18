@@ -24,6 +24,7 @@
   document("magnets.html", include "magnets.typ")
   document("magnets.pdf", include "magnets.typ")
 
+  redir("ru/magnets", "snlx.net/магниты")
   document("магниты.html", include "ru/magnets.typ")
   document("магниты.pdf", include "ru/magnets.typ")
 

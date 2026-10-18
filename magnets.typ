@@ -1,6 +1,6 @@
 #import "@preview/catppuccin:1.1.0": catppuccin, flavors, set-code-theme
 #import "/main.typ": theme
-#set document(title: [Магниты | snlx.net articles])
+#set document(title: [Magnets | snlx.net articles])
 #show: catppuccin.with(flavors.mocha)
 #show: theme("/magnets", "magnets-sketch.svg", "dark", 1015)
 
@@ -49,7 +49,7 @@ and are very common for hobbyist electronics projects.
 
 To control a small one, you need a *DC motor driver* (mx1508, for example),
 since the motor draws more power than a microcontroller (MCU, a small computer) can supply
-and requires switching polarity (swapping `+` and `-`), which the MCU also can't do.
+and requires switching polarity (swapping `+` and `-`) to change the direction, which the MCU also can't do.
 To find how to connect one, look up "mx1508 pinout" or "mx1508 arduino".
 
 Control is something like:
@@ -110,6 +110,9 @@ The real RPM is usually 3000+.
 ]
 
 To connect one, you use an electronic speed controller (ESC).
+Its job is to power the motor (like a driver) and turn a simple
+signal that the MCU gives it over a single wire into the complex
+control signals for the motor (shown above) that go over three.
 
 Control:
 ```python
@@ -153,8 +156,9 @@ esc.throttle = -0.2 # backward, 20% power
       Microstep
     ]
   ]
-  #html.script(src: "/magnets.js")
 ] else [
   #figure(image("/stepper.svg"))
 ]
+
+#html.script(src: "/magnets.js")
 
