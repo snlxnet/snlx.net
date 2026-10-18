@@ -8,7 +8,8 @@
 
 = Projects
 
-- #link("/yap")[yap], a presentation & interactive book
+- #link("/yap")[yap], a presentation & interactive book (has #link("https://typst.app/universe/package/yap")[a Typst integration])
+  - currently rewriting this one, treat it as a beta
 - #link("/dyno")[dyno], a dynamic runtime for Typst
 - #link("/eqrun")[eqrun], equation runner for Typst
 - #link("/backbone")[backbone], turns android into a browser + termux + BLE API
