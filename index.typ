@@ -2,7 +2,7 @@
 #import "main.typ": theme
 #set document(title: [Home | snlx.net])
 #show: catppuccin.with(flavors.mocha)
-#show: theme("/", "index.svg", "dark", 1018)
+#show: theme("/", "/ru", "index.svg", "dark", 1018)
 
 #html.style("footer, .squiggles:last-of-type { display: none; }")
 

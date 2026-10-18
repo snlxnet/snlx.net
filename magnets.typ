@@ -2,7 +2,7 @@
 #import "/main.typ": theme
 #set document(title: [Magnets | snlx.net articles])
 #show: catppuccin.with(flavors.mocha)
-#show: theme("/magnets", "magnets-sketch.svg", "dark", 1015)
+#show: theme("/magnets", "/магниты", "magnets-sketch.svg", "dark", 1015)
 
 #let sidenote(it) = html.div(class: "sidenote", [Sidenote: #it])
 

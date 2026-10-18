@@ -78,6 +78,7 @@ pre {
 
 #let theme(
   path,
+  ru-path,
   card,
   colorscheme-name,
   seed,
@@ -97,7 +98,7 @@ pre {
       columns: (1fr, auto),
       [#box(image(card, height: 6.2cm))#label(card)],
       [#set text(size: 10pt)
-      #qr(path, background: colorscheme.qrbg, color: colorscheme.qrfg)],
+      #qr(path, ru-path, background: colorscheme.qrbg, color: colorscheme.qrfg)],
     )
   )
   let footer(it) = if target() == "html" {
@@ -150,7 +151,7 @@ pre {
   ]
 }
 
-#show: theme("/site", "card.svg", "dark", 0)
+#show: theme("/site", "/site", "card.svg", "dark", 0)
 
 = Heading
 
