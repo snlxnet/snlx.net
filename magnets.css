@@ -5,7 +5,7 @@
 
 #dial {
   transform-origin: center;
-  transform-box: border-box;
+  transform-box: fill-box;
   animation: spin linear infinite 60s;
 }
 #casestp,

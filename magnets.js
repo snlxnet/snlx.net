@@ -3,9 +3,9 @@ async function dcmot() {
   await fetch("dc.svg").then(r => r.text()).then(t => dcm.outerHTML = t)
 
   dcmagnet.style.transformOrigin = "center"
-  dcmagnet.style.transformBox = "border-box"
+  dcmagnet.style.transformBox = "fill-box"
   brushes.style.transformOrigin = "center"
-  brushes.style.transformBox = "border-box"
+  brushes.style.transformBox = "fill-box"
   north.style.transition = "ease-in-out 0.1s"
   south.style.transition = "ease-in-out 0.1s"
 
@@ -45,8 +45,8 @@ async function brushless() {
   arrow.style.transformOrigin = "center"
   rotor.style.transformOrigin = "center"
   rotorlid.style.transformOrigin = "center"
-  rotor.style.transformBox = "border-box"
-  rotorlid.style.transformBox = "border-box"
+  rotor.style.transformBox = "fill-box"
+  rotorlid.style.transformBox = "fill-box"
 
   rotorlid.style.opacity = 0
   rotorlid.style.display = "inline"
@@ -131,7 +131,7 @@ async function stepper() {
   casestp.style.transition = "opacity ease-in-out 1s"
   rotorstp.style.transition = "ease-out 0.1s"
   rotorstp.style.transformOrigin = "center"
-  rotorstp.style.transformBox = "border-box"
+  rotorstp.style.transformBox = "fill-box"
   mkstp.onclick = step
   stpcase.oninput = () => casestp.style.opacity = +stpcase.checked
 
