@@ -47,4 +47,16 @@
     "magnets.css",
     "magnets.js",
   )
+
+  document("404.html")[
+    404 --- Page not found
+
+    #link("/")[Home]
+
+    #html.script(```js
+    if (window.location.pathname.at(-1) === "/") {
+      window.location = window.location.pathname.slice(0, -1)
+    }
+    ```.text)
+  ]
 }
