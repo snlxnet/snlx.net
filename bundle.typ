@@ -26,7 +26,7 @@
   redir("src", "github.com/snlxnet/snlx.net")
 
   redir("ru/yap", "yap.snlx.net?lang=ru")
-  redir("ru/dyno", "dyno.snlx.net")
+  redir("ru/dyno", "dyno.snlx.net?root=ru.typ")
   redir("ru/backbone", "backbone.snlx.net/ru")
 
   redir("ru/eqrun", "typst.app/universe/package/eqrun")
